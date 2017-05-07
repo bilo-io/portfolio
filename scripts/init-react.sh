@@ -14,13 +14,14 @@ npm install \
 #     react-dom \
 # --save-dev
 # Babel
-npm install \
-    babel-core \
-    babel-preset-es2015 \
-    babel-preset-react \
---save-dev
+# npm install \
+#     babel-core \
+#     babel-loader \
+#     babel-preset-es2015 \
+#     babel-preset-react \
+# --save-dev
 # Node
-npm install \
-    node-sass \
-    express \
---save
+# npm install \
+#     node-sass \
+#     express \
+# --save
