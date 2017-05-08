@@ -1,4 +1,6 @@
 import React from 'react';
+import Map from './components/map/Map.jsx';
+
 require('./app.scss');
 
 export default class App extends React.Component {
@@ -11,8 +13,11 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <div className="app-title">
-                {this.state.title}
+            <div>
+                <div className="app-title">
+                    {this.state.title}
+                </div>
+                <Map />
             </div>
         )
     }
