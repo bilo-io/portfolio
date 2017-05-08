@@ -4,10 +4,11 @@ import Map from './components/map/Map.jsx';
 require('./app.scss');
 
 export default class App extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state = {
-            title: `Bilo's Portfolio`
+            title: `React Map`
         };
     }
 
