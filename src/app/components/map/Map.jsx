@@ -6,9 +6,10 @@ export default class Map extends React.Component {
 
     constructor(props) {
         super(props);
-        setTimeout(() => {
-            this.initMap();
-        }, 1000);
+    }
+
+    componentDidMount() {
+        this.initMap();
     }
 
     render() {
@@ -21,19 +22,22 @@ export default class Map extends React.Component {
 
     initMap() {
         let style = 'light';
+        
         let token = 'pk.eyJ1IjoiYmlsb2x3YWJvbmEiLCJhIjoiY2l5eWN5Z2EwMDAwaDMzcXhpczllYzRtdiJ9.rfFcy4B00uukeTntIJLeGg';
+        
         let tileLayer = L.tileLayer(`https://api.tiles.mapbox.com/v4/mapbox.${style}/{z}/{x}/{y}.png?access_token=${token}`, {
             attribution: '',
             maxZoom: 18,
             id: 'your.mapbox.project.id',
             accessToken: 'your.mapbox.public.access.token'
         });
+
         let mapOptions = {
             zoomControl: false,
             attributionControl: false,
         };
 
-        var map = new L.Map('leafletmap', ).setView([51.505, -0.09], 13);
+        var map = new L.Map('leafletmap', mapOptions).setView([51.505, -0.09], 13);
 
         map.addLayer(tileLayer);
     }
