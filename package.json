@@ -4,7 +4,7 @@
   "description": "my developer portfolio",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --progress --port 7899",
+    "start": "webpack-dev-server --inline --progress --port 1899",
     "build": "webpack -p",
     "serve": "node server.js",
     "test": "test",

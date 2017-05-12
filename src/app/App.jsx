@@ -1,5 +1,6 @@
 import React from 'react';
 import Map from './components/map/Map.jsx';
+import Navbar from './components/navbar/Navbar.js';
 
 require('./app.scss');
 
@@ -8,17 +9,14 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: `React Map`
         };
     }
 
     render() {
         return (
             <div>
-                <div className="app-title">
-                    {this.state.title}
-                </div>
-                <Map />
+                <Navbar />
+                
             </div>
         )
     }

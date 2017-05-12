@@ -1,0 +1,14 @@
+.navbar {
+    position: fixed;
+    width: calc(100% - 2rem);
+    padding: {
+        left: 1rem;
+        right: 1rem;
+    }
+    top: 0;
+    left: 0;
+    height: 3rem;
+    line-height: 3rem;
+    background: #1e1e1e;
+    color: white;
+}

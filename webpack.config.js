@@ -9,7 +9,7 @@ var config = {
     entry: SRC + '/index.jsx',
     output: {
         path: DIST,
-        publicPath: 'http://localhost:7899/',
+        publicPath: 'http://localhost:1899/',
         filename: 'app.js'
 
     },
