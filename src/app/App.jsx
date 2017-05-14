@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Route, Switch} from 'react-router-dom';
 // Components
 import Map from './components/map/Map.jsx';
 import Navbar from './components/navbar/Navbar.js';
@@ -7,6 +7,8 @@ import Footer from './components/footer/Footer.js';
 // Pages
 import Home from './pages/home/Home.js';
 import Tutorials from './pages/tutorials/Tutorials.js';
+import Contact from './pages/contact/Contact.js';
+import Projects from './pages/projects/Projects.js';
 require('./app.scss');
 
 export default class App extends React.Component {
@@ -19,11 +21,16 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                <Navbar/>
-                <div className="app-content">
-                    {/*<Home/>*/}
-                    {/*<Tutorials/>*/}
-                </div>
+                <Navbar />
+                <div className='app-content'>
+                    <Switch>
+                        <Route exact path="/" component={Home}/>
+                        <Route path="/tutorials" component={Tutorials}/>
+                        <Route path="/projects" component={Projects}/>
+                        <Route path="/home" component={Home}/>
+                        <Route path="/contact" component={Contact}/>
+                    </Switch>
+                </div>    
                 <Footer/>
             </div>
         )

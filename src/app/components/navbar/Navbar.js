@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 require('./navbar.scss');
 
 export default class Navbar extends React.Component {
@@ -31,7 +32,7 @@ export default class Navbar extends React.Component {
 
     render() {
         return (
-            <div className="navbar">
+            <div className='navbar'>
                 {this.pageTitle()}
                 {this.pageRoutes()}
             </div>
@@ -48,9 +49,9 @@ export default class Navbar extends React.Component {
     pageRoutes() {
         if (this.state) {
             return (
-                <div className="links">
+                <div className='links'>
                     {this.state.pages.map((page) => {
-                        return <a key={page.link} href={page.link}>{page.name}</a>
+                        return <Link key={page.link} to={page.link}>{page.name}</Link>
                     })}
                 </div>
             )
