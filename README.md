@@ -1,6 +1,26 @@
 # Overview
 
-Pegasus is a tool for developers, which helps them visualise various aspects of the WhereIsMyTransport platform.
+Ths is the source for my personal portfolio.
+
+Below I am just temporily testing different markdown code snippets, for syntax highlighting purposes.
+
+```js
+var person = function hello() {
+    return undefined;
+}
+```
+
+An HTML code section
+```html
+<div>
+    Hello
+    <ul style="some-style">
+        <li>Start</li>
+        <li>Middle</li>
+        <li>End</li>
+    </ul>
+</div>
+```
 
 ### The project techstack
 

@@ -21,7 +21,7 @@ export default class App extends React.Component {
                 <Navbar/>
                 <div className="app-content">
                     {/*<Home/>*/}
-                    {/*<Tutorials/>*/}
+                    <Tutorials/>
                 </div>
                 <Footer/>
             </div>
