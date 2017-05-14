@@ -6,39 +6,54 @@ export default class Navbar extends React.Component {
         super(props);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.initState();
     }
 
     initState() {
         this.setState({
             title: 'bilo.io',
-            links: [{
-                name: 'Github',
-                link: 'https://github.com/bilo-io'
-            },{
-                name: 'LinkedIn',
-                link: 'https://za.linkedin.com/in/bilolwabona'
-            }]
-        })
+            pages: [
+                {
+                    name: 'Home',
+                    link: '/'
+                }, {
+                    name: 'Projects',
+                    link: '/projects'
+                },
+                {
+                    name: 'Tutorials',
+                    link: '/tutorials'
+                }
+            ]
+        });
     }
 
     render() {
-        return ( 
+        return (
             <div className="navbar">
+                {this.pageTitle()}
+                {this.pageRoutes()}
+            </div>
+        )
+    }
+    pageTitle() {
+        return (
+            <div>
                 <label>{this.state && this.state.title}</label>
-                {this.portfolioLinks()}
             </div>
         )
     }
 
-    portfolioLinks() {
-        return (
-            <div >
-                {this.state && this.state.links.map( (link) => {
-                    <span>{link.name}</span>
-                })}
-            </div>
-        )
+    pageRoutes() {
+        if (this.state) {
+            return (
+                <div className="links">
+                    {this.state.pages.map((page) => {
+                        return <a key={page.link} href={page.link}>{page.name}</a>
+                    })}
+                </div>
+            )
+        }    
     }
 }

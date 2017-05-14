@@ -3,6 +3,10 @@ body {
     color: #212121;
     font-family: Quicksand, sans-serif;
 }
-.app-title {
-    color: red;
-}
+ .app-content {
+     position: fixed;
+     top: 4rem;
+     height: calc(100vh - 4rem);
+     left: 0;
+     width: 100%;
+ }

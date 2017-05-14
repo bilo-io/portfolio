@@ -1,16 +1,46 @@
 @import '../../../ws-core/styles/mixins.scss';
 
 .navbar {
+    @include box-shadow(0, 1px, 2px, rgba(0, 0, 0, 0.2));
     position: fixed;
     width: calc(100% - 2rem);
     padding: {
         left: 1rem;
         right: 1rem;
+        top: 0.75rem;
+        bottom: 0.75rem;
     }
     top: 0;
     left: 0;
-    height: 3rem;
-    line-height: 3rem;
-    background: #1e1e1e;
+    height: 2rem;
+    line-height: 2rem;
+    background: #24292E;
     color: white;
+    display: flex;
+    flex-direction: row;
+
+    label {
+        color: #00adee;
+        height: 2rem;
+    }
+    $link-padding: 6rem;
+    .links {
+        position: absolute;
+        // background: red;
+        width: calc(100% - 2 * #{$link-padding});
+        left: $link-padding;
+        text-align: center;
+        a {
+            height: 2rem;
+            color: lightblue;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            border-bottom: 0px solid transparent;
+            text-decoration: unset;
+
+             &:hover {
+                 color: white;
+             }
+        }
+    }
 }
