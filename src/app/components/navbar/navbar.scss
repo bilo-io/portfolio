@@ -30,17 +30,26 @@
         width: calc(100% - 2 * #{$link-padding});
         left: $link-padding;
         text-align: center;
-        a {
-            height: 2rem;
+        .link {
+            height: 1rem;
+            line-height: 1rem;
             color: lightblue;
+            padding: 1rem;
+            padding-bottom: calc(1rem - 2px);
             margin-left: 0.5rem;
             margin-right: 0.5rem;
             border-bottom: 0px solid transparent;
             text-decoration: unset;
 
              &:hover {
-                 color: white;
+                 color: #00adee;
+                 border-bottom: 2px solid #00adee;
              }
+        }
+
+        .active {
+            color: #00adee;
+            border-bottom: 2px solid #00adee;
         }
     }
 }

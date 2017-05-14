@@ -55,7 +55,7 @@ export default class Navbar extends React.Component {
             return (
                 <div className='links'>
                     {this.state.pages.map((page) => {
-                        return <Link key={page.link} to={page.link}>{page.name}</Link>
+                        return <Link className='link' key={page.link} to={page.link}>{page.name}</Link>
                     })}
                 </div>
             )
