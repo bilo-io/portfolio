@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 // Components
 import Map from './components/map/Map.jsx';
 import Navbar from './components/navbar/Navbar.js';
@@ -21,7 +22,7 @@ export default class App extends React.Component {
                 <Navbar/>
                 <div className="app-content">
                     {/*<Home/>*/}
-                    <Tutorials/>
+                    {/*<Tutorials/>*/}
                 </div>
                 <Footer/>
             </div>
