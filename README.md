@@ -20,7 +20,6 @@ Pegasus is a tool for developers, which helps them visualise various aspects of 
 ### Continuous Development
 
 - `git clone https://whereismytransport.visualstudio.com/Product/_git/HydraUI`
-
 - `npm run setup`
 
 OR
