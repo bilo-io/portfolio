@@ -16,15 +16,19 @@ export default class Navbar extends React.Component {
             title: 'bilo.io',
             pages: [
                 {
-                    name: 'Home',
+                    name: 'home',
                     link: '/'
                 }, {
-                    name: 'Projects',
+                    name: 'projects',
                     link: '/projects'
                 },
                 {
-                    name: 'Tutorials',
+                    name: 'tutorials',
                     link: '/tutorials'
+                },
+                {
+                    name: 'contact',
+                    link: '/contact'
                 }
             ]
         });
