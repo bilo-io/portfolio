@@ -9,6 +9,7 @@ const marked = require('marked');
 const renderer = new marked.Renderer();
 
 var config = {
+    devtool: 'source-map',
     entry: SRC + '/index.jsx',
     output: {
         path: DIST,
@@ -28,7 +29,6 @@ var config = {
         }, {
             test: /\.scss$/,
             loaders: ['style-loader', 'css-loader', 'sass-loader'],
-            // loader: '!style!css!sass',
             exclude: /node_modules/
         }, {
             test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,

@@ -1,4 +1,5 @@
 import React from 'react';
+require('./tutorials.scss');
 var axios = require('axios');
 var readme = require('../../../../README.md');
 var showdownHighlight = require('showdown-highlight');
@@ -9,8 +10,9 @@ var showdown = require('showdown'),
     }),
     text = `
 #hello, markdown!
-##How are you?`,
-    outHtml = converter.makeHtml(readme);
+##How are you?`;
+var outHtml = '';
+    // outHtml = converter.makeHtml(readme);
 // Markdown with Marked & Highlight:
 // import marked, { Renderer } from 'marked';
 // import hljs from 'highlight';
@@ -50,48 +52,12 @@ export default class Tutorials extends React.Component {
 
     componentDidMount() {
         this.outHtml = outHtml;
-        this.initState();
-    }
-
-    initState() {
-        this.setState(Object.assign({}, {
+        this.setState({
             tutorials: tutorials,
-            data: [{
-                angular2: [
-                    {
-                        name: '',
-                        markdown: ''
-                    }
-                ]
-            }, {
-                fed: [
-                    {
-                        name: '',
-                        markdown: ''
-                    }
-                ]
-            }, {
-                react: [
-                    {
-                        name: '',
-                        markdown: ''
-                    }
-                ]
-            }
-
-            ]
-        }));
+            posts: []
+        });
         this.getMarkdown();
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Tutorials</h1>
-                {this.tutorialSections()}
-                {/*<div dangerouslySetInnerHTML={this.getHtml()}></div>*/}
-            </div>
-        )
+        console.log(this);
     }
 
     getMarkdown() {
@@ -102,17 +68,14 @@ export default class Tutorials extends React.Component {
                 let id = `${key.toUpperCase()}: ${decodeURI(urlArray[urlArray.length - 2])}`;
                 axios.get(url)
                     .then((response) => {
-                        let data = this.state.data;
-                        console.log(data, data[key]);
+                        let posts = this.state.posts;
+                        posts.push({
+                            title: id,
+                            data: response.data,
+                            logo: tutorials[key].logo
+                        });
                         this.setState(Object.assign(this.state, {
-                            data: Object.assign(this.state.data, {
-                                [key]: Object.assign(this.state.data[key], {
-                                    posts: Object.assign(this.state.data[key].posts, this.state.data[key].posts.push({
-                                        name: id,
-                                        markdown: response.data
-                                    }))
-                                })
-                            })
+                            posts: posts
                         }));
                     })
                     .catch((error) => {
@@ -122,14 +85,44 @@ export default class Tutorials extends React.Component {
         })
     }
 
-    tutorialSections() {
-
+    render() {
+        return (
+            <div className='posts-container'>
+                {this.state && this.state.posts && this.state.posts.map((post, index) => {
+                    return (
+                        <span key={post.title} className='post-card' onClick={this.selectPost.bind(this, index)}>
+                            <label>{post.title}</label>
+                        </span>
+                    )
+                })}
+                {this.renderMarkdown()}
+            </div>    
+        )
     }
 
+    renderMarkdown() {
+        if (this.state && this.state.html) {
+            return (
+                <div dangerouslySetInnerHTML={{ __html: this.state.html }}>
+                </div>
+            )
+        }
+    }
+
+    selectPost(index) {
+        console.log(index);
+        let post = this.state.posts[index];
+        
+        this.outHtml = converter.makeHtml(post.data);
+        this.setState(Object.assign(this.state, {
+            html: this.outHtml
+        }));
+        
+    }    
     getHtml() {
         // Showdown
         return {
-            __html: this.outHtml
+            __html: this.state.html
         }
         // // Marked
         // let val = marked(readme);
