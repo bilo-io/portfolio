@@ -10,8 +10,9 @@ var showdown = require('showdown'),
     }),
     text = `
 #hello, markdown!
-##How are you?`,
-    outHtml = converter.makeHtml(readme);
+##How are you?`;
+var outHtml = '';
+    // outHtml = converter.makeHtml(readme);
 // Markdown with Marked & Highlight:
 // import marked, { Renderer } from 'marked';
 // import hljs from 'highlight';
@@ -51,33 +52,12 @@ export default class Tutorials extends React.Component {
 
     componentWillMount() {
         this.outHtml = outHtml;
-        this.initState();
-    }
-
-    initState() {
-        this.setState(Object.assign({}, {
+        this.setState({
             tutorials: tutorials,
-            data: {
-                angular2: [
-                ],
-                fed: [
-                ],
-                react: [
-                ]
-            }
-        }));
+            posts: []
+        });
         this.getMarkdown();
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Tutorials</h1>
-                {this.tutorialSections()}
-                {this.testSection()}
-                <div dangerouslySetInnerHTML={this.getHtml()}></div>
-            </div>
-        )
+        console.log(this);
     }
 
     getMarkdown() {
@@ -88,14 +68,14 @@ export default class Tutorials extends React.Component {
                 let id = `${key.toUpperCase()}: ${decodeURI(urlArray[urlArray.length - 2])}`;
                 axios.get(url)
                     .then((response) => {
-                        let data = this.state.data;
+                        let posts = this.state.posts;
+                        posts.push({
+                            title: id,
+                            data: response.data,
+                            logo: tutorials[key].logo
+                        });
                         this.setState(Object.assign(this.state, {
-                            data: Object.assign(this.state.data, {
-                                [key]: [...data[key],{
-                                    name: id,
-                                    markdown: response.data
-                                }]
-                            })
+                            posts: posts
                         }));
                         console.log(this.state);
                     })
@@ -106,31 +86,45 @@ export default class Tutorials extends React.Component {
         })
     }
 
-    tutorialSections() {
-        let keys = Object.keys(this.state.data);
-        let tuts = this.state.data;
-        console.log(this.state);
-
-        keys.forEach( (key) => {
-            this.state.data[key].map( (tut) => {
-                console.log(tut);
-                return <div className='tut-card'>{tut.name}</div>
-            })
-        })
+    render() {
+        return (
+            <div className='posts-container'>
+                {this.state && this.state.posts && this.state.posts.map((post, index) => {
+                    return (
+                        <span key={post.title} className='post-card' onClick={this.selectPost.bind(this, index)}>
+                            <img src={post.logo} />
+                            <label>{post.title}</label>
+                        </span>
+                    )
+                })}
+                {this.renderMarkdown()}
+            </div>    
+        )
     }
 
-    testSection() {
-        let tuts = [ 'Help', 'I need to ', 'Write ReactCode'];
-            tuts.map( (tut) => {
-                console.log(tut);
-                return <div className='tut-card'>{tut}</div>
-        })
+    renderMarkdown() {
+        if (this.state && this.state.html) {
+            return (
+                <div dangerouslySetInnerHTML={{ __html: this.state.html }}>
+                </div>
+            )
+        }
     }
 
+    selectPost(index) {
+        console.log(index);
+        let post = this.state.posts[index];
+        
+        this.outHtml = converter.makeHtml(post.data);
+        this.setState(Object.assign(this.state, {
+            html: this.outHtml
+        }));
+        
+    }    
     getHtml() {
         // Showdown
         return {
-            __html: this.outHtml
+            __html: this.state.html
         }
 
         // // Marked
