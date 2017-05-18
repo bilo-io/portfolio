@@ -4,13 +4,13 @@ var axios = require('axios');
 var readme = require('../../../../README.md');
 var showdownHighlight = require('showdown-highlight');
 // Markdown with Showdown:
-var showdown = require('showdown'),
-    converter = new showdown.Converter({
-        extensions: [showdownHighlight]
-    }),
-    text = `
-#hello, markdown!
-##How are you?`;
+// var showdown = require('showdown'),
+//     converter = new showdown.Converter({
+//         extensions: [showdownHighlight]
+//     }),
+//     text = `
+// #hello, markdown!
+// ##How are you?`;
 var outHtml = '';
     // outHtml = converter.makeHtml(readme);
 // Markdown with Marked & Highlight:
@@ -115,7 +115,8 @@ export default class Tutorials extends React.Component {
         console.log(index);
         let post = this.state.posts[index];
         
-        this.outHtml = converter.makeHtml(post.data);
+        // this.outHtml = converter.makeHtml(post.data);
+        this.outHtml = post.data;
         this.setState(Object.assign(this.state, {
             html: this.outHtml
         }));
