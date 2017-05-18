@@ -1,4 +1,5 @@
 import React from 'react';
+require('./tutorials.scss');
 var axios = require('axios');
 var readme = require('../../../../README.md');
 var showdownHighlight = require('showdown-highlight');
@@ -48,7 +49,7 @@ export default class Tutorials extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.outHtml = outHtml;
         this.initState();
     }
@@ -56,30 +57,14 @@ export default class Tutorials extends React.Component {
     initState() {
         this.setState(Object.assign({}, {
             tutorials: tutorials,
-            data: [{
+            data: {
                 angular2: [
-                    {
-                        name: '',
-                        markdown: ''
-                    }
-                ]
-            }, {
+                ],
                 fed: [
-                    {
-                        name: '',
-                        markdown: ''
-                    }
-                ]
-            }, {
+                ],
                 react: [
-                    {
-                        name: '',
-                        markdown: ''
-                    }
                 ]
             }
-
-            ]
         }));
         this.getMarkdown();
     }
@@ -89,7 +74,8 @@ export default class Tutorials extends React.Component {
             <div>
                 <h1>Tutorials</h1>
                 {this.tutorialSections()}
-                {/*<div dangerouslySetInnerHTML={this.getHtml()}></div>*/}
+                {this.testSection()}
+                <div dangerouslySetInnerHTML={this.getHtml()}></div>
             </div>
         )
     }
@@ -103,17 +89,15 @@ export default class Tutorials extends React.Component {
                 axios.get(url)
                     .then((response) => {
                         let data = this.state.data;
-                        console.log(data, data[key]);
                         this.setState(Object.assign(this.state, {
                             data: Object.assign(this.state.data, {
-                                [key]: Object.assign(this.state.data[key], {
-                                    posts: Object.assign(this.state.data[key].posts, this.state.data[key].posts.push({
-                                        name: id,
-                                        markdown: response.data
-                                    }))
-                                })
+                                [key]: [...data[key],{
+                                    name: id,
+                                    markdown: response.data
+                                }]
                             })
                         }));
+                        console.log(this.state);
                     })
                     .catch((error) => {
                         console.error({ error });
@@ -123,7 +107,24 @@ export default class Tutorials extends React.Component {
     }
 
     tutorialSections() {
+        let keys = Object.keys(this.state.data);
+        let tuts = this.state.data;
+        console.log(this.state);
 
+        keys.forEach( (key) => {
+            this.state.data[key].map( (tut) => {
+                console.log(tut);
+                return <div className='tut-card'>{tut.name}</div>
+            })
+        })
+    }
+
+    testSection() {
+        let tuts = [ 'Help', 'I need to ', 'Write ReactCode'];
+            tuts.map( (tut) => {
+                console.log(tut);
+                return <div className='tut-card'>{tut}</div>
+        })
     }
 
     getHtml() {
@@ -131,6 +132,7 @@ export default class Tutorials extends React.Component {
         return {
             __html: this.outHtml
         }
+
         // // Marked
         // let val = marked(readme);
         // console.log(val);
