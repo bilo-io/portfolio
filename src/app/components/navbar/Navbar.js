@@ -13,23 +13,24 @@ export default class Navbar extends React.Component {
 
     initState() {
         this.setState({
-            title: 'bilo.io',
+            title: 'FED',
             pages: [
                 {
                     name: 'home',
                     link: '/'
-                }, {
-                    name: 'projects',
-                    link: '/projects'
                 },
+                // {
+                //     name: 'projects',
+                //     link: '/projects'
+                // },
                 {
                     name: 'tutorials',
                     link: '/tutorials'
                 },
-                {
-                    name: 'contact',
-                    link: '/contact'
-                }
+                // {
+                //     name: 'contact',
+                //     link: '/contact'
+                // }
             ]
         });
     }
@@ -59,6 +60,6 @@ export default class Navbar extends React.Component {
                     })}
                 </div>
             )
-        }    
+        }
     }
 }
