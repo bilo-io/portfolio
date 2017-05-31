@@ -1,30 +1,45 @@
+.posts-category {
+    // background: red;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
 .posts-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    .post-card {
-        position: relative;
-        width: 12rem;
-        height: 10rem;
-        background: rgba(white, 0.1);
-        margin: 0.2rem;
-        // display: inline-block;
-        // text-align: center;
+}
 
-        label {
-            position: absolute;
-            bottom: 0;
-            padding: 0.4rem;
-        }
+.post-card {
+    position: relative;
+    width: 12rem;
+    height: 10rem;
+    background: rgba(white, 0.2);
+    margin: 0.2rem;
 
-        $logo-width: 5rem;
-        img {
-            position: absolute;
-            padding-bottom: 4rem;
-            width: $logo-width;
-            height: auto;
-            left: calc(50% - #{$logo-width} / 2);
-            top: 1rem;
-        }
+    $col-active: #00adee;
+    &:hover {
+        color: $col-active;
+        cursor: pointer;
+    }
+    div {
+        position: absolute;
+        bottom: 0;
+        padding: 0.4rem;
+        height: 3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: none;
+    }
+    $logo-width: 5rem;
+    img {
+        position: absolute;
+        padding-bottom: 4rem;
+        width: $logo-width;
+        height: $logo-width;
+        left: calc(50% - #{$logo-width} / 2);
+        top: 1rem;
     }
 }

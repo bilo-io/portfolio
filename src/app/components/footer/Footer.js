@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
 
     componentDidMount() {
         this.setState({
-            title: 'bilo.io',
+            // title: 'bilo.io',
             links: [
                 {
                     name: 'Github',

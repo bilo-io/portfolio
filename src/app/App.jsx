@@ -6,9 +6,11 @@ import Navbar from './components/navbar/Navbar.js';
 import Footer from './components/footer/Footer.js';
 // Pages
 import Home from './pages/home/Home.js';
-import Tutorials from './pages/tutorials/Tutorials.js';
 import Contact from './pages/contact/Contact.js';
 import Projects from './pages/projects/Projects.js';
+import Tutorial from './pages/tutorial/Tutorial.js';
+import Tutorials from './pages/tutorials/Tutorials.js';
+
 require('./app.scss');
 
 export default class App extends React.Component {
@@ -25,10 +27,11 @@ export default class App extends React.Component {
                 <div className='app-content'>
                     <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route path="/tutorials" component={Tutorials}/>
-                        <Route path="/projects" component={Projects}/>
-                        <Route path="/home" component={Home}/>
-                        <Route path="/contact" component={Contact}/>
+                        <Route exact path="/home" component={Home}/>
+                        <Route exact path="/contact" component={Contact}/>
+                        <Route exact path="/projects" component={Projects}/>
+                        <Route exact path="/tutorials" component={Tutorials}/>
+                        <Route path="/tutorials/:tutorialId" component={Tutorial}/>
                     </Switch>
                 </div>    
                 <Footer/>

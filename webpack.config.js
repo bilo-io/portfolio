@@ -56,7 +56,10 @@ var config = {
     devServer: {
         historyApiFallback: true,
         stats: 'minimal'
-    }
+    },
+    // node: {
+    //     fs: 'empty'
+    // }
 };
 
 module.exports = config;
