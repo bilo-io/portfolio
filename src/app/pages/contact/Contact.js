@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './contact.scss';
 export default class Contact extends React.Component {
     
     constructor(props) {
@@ -9,8 +9,11 @@ export default class Contact extends React.Component {
     render() {
         return (
             <div>
-                <input type="text" placeholder=""/>
-                <input type="text" />
+                <div className='contact-form'>
+                    <input type="text" placeholder=""/>
+                    <input type="text" />
+                    <button>SEND</button>
+                </div>    
             </div>
         )
     }

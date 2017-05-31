@@ -1,0 +1,13 @@
+@import '../../../ws-core/sass/index.scss';
+$col-active: red;
+.contact-form {
+    top: 5rem;
+    max-width: 20rem;
+    margin: auto;
+    background: $col-background;
+    padding: 2rem;
+
+    input {
+        margin-bottom: 1rem;
+    }
+}
