@@ -3,27 +3,7 @@ import { Link } from 'react-router-dom';
 require('./tutorials.scss');
 var axios = require('axios');
 var readme = require('../../../../README.md');
-var showdownHighlight = require('showdown-highlight');
-// Markdown with Showdown:
-// var showdown = require('showdown'),
-//     converter = new showdown.Converter({
-//         extensions: [showdownHighlight]
-//     }),
-//     text = `
-// #hello, markdown!
-// ##How are you?`;
-var outHtml = '';
-// outHtml = converter.makeHtml(readme);
-// Markdown with Marked & Highlight:
-// import marked, { Renderer } from 'marked';
-// import hljs from 'highlight';
-// const renderer = new Renderer();
-// renderer.code = (code, language) => {
-//     const validLang = !!(language && hljs.getLanguage(language));;
-//     const highlighted = validLang ? hljs.highlight(language, code).value : code;
-//     return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
-// }
-// marked.setOptions({ renderer });
+
 var tutorials = {
     Angular: {
         logo: 'https://angular.io/resources/images/logos/angular/angular.png',
@@ -63,8 +43,6 @@ export default class Tutorials extends React.Component {
         super(props);
     }
     componentWillMount() {
-        this.outHtml = outHtml;
-        // this.getMarkdown();
         let keys = Object.keys(tutorials);
         let posts = [];
         keys.forEach((key) => {
@@ -113,10 +91,6 @@ export default class Tutorials extends React.Component {
 
                                         )
                                     }
-                                    {/*<div key={post.title} className='post-card' onClick={this.selectPost.bind(this, index)}>
-                                                <img src={post.logo} />
-                                                <div>{post.title}</div>
-                                            </div>*/}
                                 })}
                             </div>
                         </div>
@@ -124,62 +98,5 @@ export default class Tutorials extends React.Component {
                 })}
             </div>
         )
-    }
-
-    selectPost(index) {
-        console.log(index);
-        let post = this.state.posts[index];
-
-        // this.outHtml = converter.makeHtml(post.data);
-        this.outHtml = post.data;
-        this.setState(Object.assign(this.state, {
-            html: this.outHtml
-        }));
-
-    }
-    getHtml() {
-        // Showdown
-        return {
-            __html: this.state.html
-        }
-
-        // // Marked
-        // let val = marked(readme);
-        // console.log(val);
-        // return val;
-    }
-    getMarkdown() {
-        let keys = Object.keys(tutorials);
-        keys.forEach((key) => {
-            tutorials[key].tutorials.forEach((url) => {
-                let urlArray = url.split('/');
-                let id = `${decodeURI(urlArray[urlArray.length - 2])}`;
-
-                axios.get(url)
-                    .then((response) => {
-                        let posts = [];
-                        this.state.posts.forEach((post) => {
-                            posts.push(post)
-                        });
-                        posts.push({
-                            title: id,
-                            category: key,
-                            data: response.data,
-                            logo: tutorials[key].logo
-                        });
-                        posts.sort((a, b) => {
-                            if (a.category < b.category) { return -1 }
-                            if (a.category > b.category) { return 1; }
-                            return 0;
-                        })
-                        this.setState(Object.assign(this.state, {
-                            posts: posts
-                        }));
-                    })
-                    .catch((error) => {
-                        console.error({ error });
-                    });
-            });
-        })
     }
 }
