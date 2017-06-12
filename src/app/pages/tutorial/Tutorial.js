@@ -51,7 +51,6 @@ export default class Tutorial extends React.Component {
     render() {
         return (
             <div className='markdown-container'>
-                <h1>Tutorial Entry</h1>
                 <div>
                     {this.renderMarkdown()}
                 </div>

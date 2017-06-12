@@ -4,6 +4,7 @@ import { Route, Switch} from 'react-router-dom';
 import Map from './components/map/Map.jsx';
 import Navbar from './components/navbar/Navbar.js';
 import Footer from './components/footer/Footer.js';
+import Profile from './components/profile/Profile.js';
 // Pages
 import Home from './pages/home/Home.js';
 import Contact from './pages/contact/Contact.js';
@@ -23,7 +24,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                <Navbar />
+                {/*<Navbar />
                 <div className='app-content'>
                     <Switch>
                         <Route exact path="/" component={Home}/>
@@ -34,7 +35,8 @@ export default class App extends React.Component {
                         <Route path="/tutorials/:tutorialId" component={Tutorial}/>
                     </Switch>
                 </div>    
-                <Footer/>
+                <Footer/>*/}
+                <Profile />
             </div>
         )
     }

@@ -40,6 +40,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "express-history-api-fallback": "^2.2.1"
   }
 }
