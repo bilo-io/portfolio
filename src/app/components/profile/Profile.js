@@ -26,7 +26,7 @@ export default class Profile extends React.Component {
     render() {
         return (
             <div className='profile'>
-                    <h3>
+                <h3 style={{ color: 'white' }}>
                     <b>Bilo</b>
                     </h3>
                     <div>
