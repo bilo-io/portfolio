@@ -1,4 +1,5 @@
 $col-active: green;
+@import '../sass/index.scss';
 @import '../ws-core/sass/index.scss';
 // Overrides
 
@@ -9,8 +10,8 @@ body {
 }
  .app-content {
      position: fixed;
-     top: 4rem;
-     height: calc(100vh - 6rem);
+     top: $dim-navbar;
+     height: calc(100vh - #{$dim-navbar});
      left: 0;
      width: 100%;
      overflow-y: auto;

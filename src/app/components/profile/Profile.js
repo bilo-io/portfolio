@@ -8,7 +8,6 @@ export default class Profile extends React.Component {
     }
     componentDidMount() {
         this.setState({
-            // title: 'bilo.io',
             links: [
                 {
                     name: 'github',

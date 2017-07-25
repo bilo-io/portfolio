@@ -1,16 +1,16 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
 // Components
-import Map from './components/map/Map.jsx';
-import Navbar from './components/navbar/Navbar.js';
-import Footer from './components/footer/Footer.js';
-import Profile from './components/profile/Profile.js';
+import Map from './components/map/map';
+import Navbar from './components/navbar/navbar';
+import Profile from './components/profile/profile';
 // Pages
-import Home from './pages/home/Home.js';
-import Contact from './pages/contact/Contact.js';
-import Projects from './pages/projects/Projects.js';
-import Tutorial from './pages/tutorial/Tutorial.js';
-import Tutorials from './pages/tutorials/Tutorials.js';
+import Home from './pages/home/home';
+import Contact from './pages/contact/contact';
+import Projects from './pages/projects/projects';
+import Tutorial from './pages/tutorial/tutorial';
+import Tutorials from './pages/tutorials/tutorials';
+import NotFound from './pages/not-found/not-found';
 
 require('./app.scss');
 
@@ -24,7 +24,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                {/*<Navbar />
+                <Navbar />
                 <div className='app-content'>
                     <Switch>
                         <Route exact path="/" component={Home}/>
@@ -32,11 +32,11 @@ export default class App extends React.Component {
                         <Route exact path="/contact" component={Contact}/>
                         <Route exact path="/projects" component={Projects}/>
                         <Route exact path="/tutorials" component={Tutorials}/>
-                        <Route path="/tutorials/:tutorialId" component={Tutorial}/>
+                        <Route path="/tutorials/:tutorialId" component={Tutorial} />
+                        <Route path="*" component={NotFound} />
                     </Switch>
                 </div>    
-                <Footer/>*/}
-                <Profile />
+                {/* <Profile /> */}
             </div>
         )
     }

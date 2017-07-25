@@ -8,10 +8,14 @@ export default class Contact extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='contact-container'>
                 <div className='contact-form'>
-                    <input type="text" placeholder=""/>
-                    <input type="text" />
+                    <h2>contact me</h2>
+                    <p>Drop me a line or two and I'll try to get back asap!</p>
+                    <input type="text" placeholder="your email"/>
+                    <input type="text" placeholder="must be 'bout something" />
+                    <textarea placeholder={"... so what is your message?"} /> 
+                    <br />
                     <button>SEND</button>
                 </div>    
             </div>

@@ -1,4 +1,5 @@
 @import '../../../ws-core/sass/mixins.scss';
+@import '../../../ws-core/sass/colors.scss';
 
 $height: 2rem;
 $padding: 1rem;
@@ -30,7 +31,7 @@ $padding: 1rem;
         .link {
             height: 1rem;
             line-height: 1rem;
-            color: lightblue;
+            color: lighten($col-active, 40%);
             padding: 1rem;
             padding-bottom: calc(1rem - 2px);
             margin-left: 0.5rem;
@@ -39,14 +40,14 @@ $padding: 1rem;
             text-decoration: unset;
 
              &:hover {
-                 color: #00adee;
-                 border-bottom: 2px solid #00adee;
+                 color: $col-active;
+                 border-bottom: 2px solid $col-active;
              }
         }
 
         .active {
-            color: #00adee;
-            border-bottom: 2px solid #00adee;
+            color: $col-active;
+            border-bottom: 2px solid $col-active;
         }
     }
 }

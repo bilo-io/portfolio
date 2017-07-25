@@ -74,7 +74,7 @@ export default class Tutorials extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="posts">
                 {this.state && this.state.categories && this.state.categories.map((category, index) => {
                     return (
                         <div className='posts-category' key={category}>

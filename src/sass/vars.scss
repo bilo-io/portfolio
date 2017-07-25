@@ -1,0 +1,6 @@
+$dim-navbar: 4em;
+$dim-sidebar: 20em;
+$content-x: $dim-sidebar;
+$content-y: $dim-navbar;
+$content-height: calc(100vh - #{$dim-navbar});
+$content-width: calc(100vw - #{$dim-sidebar});

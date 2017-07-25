@@ -1,10 +1,25 @@
 @import '../../../ws-core/sass/index.scss';
-$col-active: red;
+// $col-active: red;
+.contact-container {
+    background: $col-background;
+    position: relative;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    top: 0;
+}
 .contact-form {
     top: 5rem;
-    max-width: 20rem;
+    max-width: 30rem;
     margin: auto;
-    background: $col-background;
+    // background: $col-background;
+    color: darken(white, 30%);
+    input, textarea, h2 {
+        color: $col-active;
+    }
+    p {
+        margin-bottom: 3em;
+    }
     padding: 2rem;
 
     input {

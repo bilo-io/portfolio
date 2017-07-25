@@ -1,5 +1,5 @@
 @import './colors.scss';
-input {
+.ws-input-style {
     position: relative;
     width: calc(100% - 0rem);
     // padding: 1rem;
@@ -10,24 +10,38 @@ input {
     padding-bottom: 1rem;
     background: rgba(grey, 0.1);
     color: inherit;
+    font-size: 1.1em;
     border: none;
     outline: none;
     border-bottom: 1px solid $col-lightgrey;
+    
     &:hover {
         border-bottom: 1px solid $col-active;
     }
+    &:focus {
+        border-bottom: 1px solid $col-active;
+    }
+}
+input {
+    @extend .ws-input-style;
 }
 
-input:focus {
-    border-bottom: 1px solid $col-active;
+textarea {
+    @extend .ws-input-style;
+    margin-bottom: 1em;
+    max-width: 100%;
 }
-
 button {
     background: transparent;
     color: $col-active;
     position: relative;
     height: 3rem;
-    padding: 1rem;
+    padding: {
+        top: 1rem;
+        bottom: 1rem;
+        left: 3rem;
+        right: 3rem;
+    }
     font-size: 1rem;
     outline: none;
     border: none;
@@ -37,11 +51,11 @@ button {
     .loading {
         color: transparent;
     }
-}
 
-button:hover {
-    background: rgba($col-active, 0.5);
-    color: white;
+    &:hover {
+        background: rgba($col-active, 0.5);
+        color: white;
+    }
 }
 
 .button-footer {

@@ -1,5 +1,13 @@
+@import '../../../ws-core/sass/index.scss';
+@import '../../../sass/index.scss';
+
+.posts {
+    background: $col-dark;
+    color: $col-light;
+    position: relative;
+    height: 100%;
+}
 .posts-category {
-    // background: red;
     padding-left: 2rem;
     padding-right: 2rem;
     overflow: hidden;
@@ -13,13 +21,14 @@
 }
 
 .post-card {
+    @extend .ws-card;
     position: relative;
     width: 12rem;
     height: 10rem;
     background: rgba(white, 0.2);
     margin: 0.2rem;
 
-    $col-active: #00adee;
+    $col-active: $col-active;
     &:hover {
         color: $col-active;
         cursor: pointer;
