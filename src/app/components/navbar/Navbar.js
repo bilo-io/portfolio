@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 require('./navbar.scss');
 
 export default class Navbar extends React.Component {
@@ -19,15 +19,11 @@ export default class Navbar extends React.Component {
                     name: 'home',
                     link: '/'
                 },
-                // {
-                //     name: 'projects',
-                //     link: '/projects'
-                // },
+                // {     name: 'projects',     link: '/projects' },
                 {
                     name: 'tutorials',
                     link: '/tutorials'
-                },
-                {
+                }, {
                     name: 'contact',
                     link: '/contact'
                 }
@@ -38,28 +34,20 @@ export default class Navbar extends React.Component {
     render() {
         return (
             <div className='navbar'>
-                {this.pageTitle()}
-                {this.pageRoutes()}
-            </div>
-        )
-    }
-    pageTitle() {
-        return (
-            <div>
-                <label>{this.state && this.state.title}</label>
-            </div>
-        )
-    }
-
-    pageRoutes() {
-        if (this.state) {
-            return (
-                <div className='links'>
-                    {this.state.pages.map((page) => {
-                        return <Link className='link' key={page.link} to={page.link}>{page.name}</Link>
-                    })}
+                <div>
+                    <label>{this.state && this.state.title}</label>
                 </div>
-            )
-        }
+                {this.state && (
+                    <div className='links'>
+                        {this
+                            .state
+                            .pages
+                            .map((page) => {
+                                return <Link className='link' key={page.link} to={page.link}>{page.name}</Link>
+                            })}
+                    </div>
+                )}
+            </div>
+        )
     }
 }

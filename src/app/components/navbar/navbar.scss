@@ -18,7 +18,7 @@ $padding: 1rem;
     flex-direction: row;
 
     label {
-        color: #00adee;
+        color: $col-active;
         height: $height;
     }
     $link-padding: 6rem;
@@ -33,7 +33,7 @@ $padding: 1rem;
             line-height: 1rem;
             color: lighten($col-active, 40%);
             padding: 1rem;
-            padding-bottom: calc(1rem - 2px);
+            padding-bottom: calc(1rem + 2px);
             margin-left: 0.5rem;
             margin-right: 0.5rem;
             border-bottom: 0px solid transparent;

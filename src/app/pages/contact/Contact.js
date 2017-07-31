@@ -1,9 +1,13 @@
 import React from 'react';
 import './contact.scss';
+import axios from 'axios';
+// import envs from '../../envs';
 export default class Contact extends React.Component {
     
     constructor(props) {
         super(props);
+        this.sendEmail = this.sendEmail.bind(this);
+        // console.log({ envs });
     }
 
     render() {
@@ -16,9 +20,12 @@ export default class Contact extends React.Component {
                     <input type="text" placeholder="must be 'bout something" />
                     <textarea placeholder={"... so what is your message?"} /> 
                     <br />
-                    <button>SEND</button>
+                    <button onClick={ () => { this.sendEmail }}>SEND</button>
                 </div>    
             </div>
         )
+    }
+
+    sendEmail() {
     }
 }

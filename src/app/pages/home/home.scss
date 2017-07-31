@@ -5,14 +5,14 @@
     width: 100vw;
     height: 100%;
     background: $col-background;
-    img {
-        position: absolute;
-        width: 128px;
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 50%;
-    }
+    // img {
+    //     position: absolute;
+    //     width: 128px;
+    //     height: auto;
+    //     margin-left: auto;
+    //     margin-right: auto;
+    //     border-radius: 50%;
+    // }
 }
 
 $padding: 3em;
@@ -24,19 +24,21 @@ $padding: 3em;
     h1,h2,h3 {
         margin-top: 0;
         padding-top: 2em;
+        font-weight: lighter;
     }
 }
 
 .panel {
     position: relative;
-    display: block;
+    // display: block;
     width: calc(100% - 2 * #{$padding});
+    min-height: 20em;
     padding: {
         left: $padding;
         right: $padding;
     }
     margin: 0;
-    width: 100%;
+    // width: 100%;
     p {
         margin: 0;
         padding: {
