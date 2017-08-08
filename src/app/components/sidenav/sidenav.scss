@@ -1,8 +1,5 @@
-// @import '../../../app.scss';
-@import '../../../ws-core/sass/mixins.scss';
-@import '../../../ws-core/sass/colors.scss';
-// @import '~/bilo-xui/dist/scss/mixins.scss';
-// @import '~/bilo-xui/dist/scss/colors.scss';
+@import '~bilo-ui/dist/bilo-ui.scss';
+@import '../../../app.scss';
 $sidenav-width: 25em;
 .sidenav {
     position: fixed;
