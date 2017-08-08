@@ -35,6 +35,7 @@ export default class Navbar extends React.Component {
         return (
             <div className='navbar'>
                 <div>
+                    {this.props.children}
                     <label>{this.state && this.state.title}</label>
                 </div>
                 {this.state && (

@@ -1,7 +1,7 @@
 var fallback = require('express-history-api-fallback');
 var express = require('express');
 var server = express();
-var port = process.env.port || 2700;
+var port = process.env.port || 8080;
 
 
 server.use(express.static(__dirname + '/dist/'));

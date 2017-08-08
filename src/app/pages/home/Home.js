@@ -12,13 +12,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div className='container'>
-                {/* <Profile /> */}
                 <div className='content'>
-                    
-                    {/* <div className='panel'>
-                         <img src={imgCTSunset} width='100%'/> 
-                    </div> */}
-
                     <div className='panel-light'>
                         <h2>bio</h2>
                         <p>I'm a software engineer with a passion for data visualisation and user

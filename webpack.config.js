@@ -10,10 +10,10 @@ const renderer = new marked.Renderer();
 
 var config = {
     devtool: 'source-map',
-    entry: SRC + '/index.jsx',
+    entry: SRC + '/index.js',
     output: {
         path: DIST,
-        publicPath: 'http://localhost:1899/',
+        publicPath: '/',
         filename: 'app.js'
 
     },
@@ -27,9 +27,8 @@ var config = {
             loader: 'babel-loader',
             exclude: /node_modules/
         }, {
-            test: /\.scss$/,
-            loaders: ['style-loader', 'css-loader', 'sass-loader'],
-            exclude: /node_modules/
+            test: /\.(css|scss)$/,
+            loaders: ['style-loader', 'css-loader', 'sass-loader']
         }, {
             test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
             loader: 'file-loader?name=assets/[name].[ext]',

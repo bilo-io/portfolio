@@ -1,8 +1,9 @@
 import React from 'react';
-import { Route, Switch} from 'react-router-dom';
+import {Route, Switch, Link} from 'react-router-dom';
 // Components
 import Map from './components/map/map';
 import Navbar from './components/navbar/navbar';
+import Sidenav from './components/sidenav/sidenav';
 import Profile from './components/profile/profile';
 // Pages
 import Home from './pages/home/home';
@@ -18,26 +19,47 @@ export default class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
     }
-
+    componentWillMount() {
+        this.setState({
+            sidenavOpen: false,
+            sidenavItems: [
+                { link: '/home', text: 'about' },
+                { link: '/contact', text: 'contact' },
+                { link: '/tutorials', text: 'tutorials' },
+            ]
+        });
+    }
+    toggleSidenav() {
+        this.setState({
+            ...this.state,
+            sidenavOpen: !this.state.sidenavOpen
+        });
+    }
     render() {
-        return (
+        return this.state ? (
             <div>
-                <Navbar />
+                <Navbar>
+                    <i className='material-icons' onClick={ this.toggleSidenav.bind(this)}>menu</i>
+                </Navbar>
+                <Sidenav isOpen={this.state.sidenavOpen}>
+                    {this.state.sidenavItems.map((item) => {
+                        return <Link key={item.link} className='sidenav-link' to={item.link} onClick={this.toggleSidenav.bind(this)}>{item.text}</Link>
+                    })}    
+                </Sidenav>
+
                 <div className='app-content'>
                     <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route exact path="/home" component={Home}/>
-                        <Route exact path="/contact" component={Contact}/>
-                        <Route exact path="/projects" component={Projects}/>
-                        <Route exact path="/tutorials" component={Tutorials}/>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/home" component={Home} />
+                        <Route exact path="/contact" component={Contact} />
+                        <Route exact path="/projects" component={Projects} />
+                        <Route exact path="/tutorials" component={Tutorials} />
                         <Route path="/tutorials/:tutorialId" component={Tutorial} />
                         <Route path="*" component={NotFound} />
                     </Switch>
-                </div>    
-                {/* <Profile /> */}
+                </div>
             </div>
-        )
+        ) : null;
     }
 }

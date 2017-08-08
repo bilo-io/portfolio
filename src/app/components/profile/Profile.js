@@ -18,6 +18,9 @@ export default class Profile extends React.Component {
                 }, {
                     name: 'twitter',
                     link: 'https://twitter.com/bilo_io'
+                }, {
+                    name: 'skype',
+                    link: 'skype:bilo89za?userinfo'
                 }
             ]
         });

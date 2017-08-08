@@ -1,0 +1,34 @@
+// @import '../../../app.scss';
+@import '../../../ws-core/sass/mixins.scss';
+@import '../../../ws-core/sass/colors.scss';
+// @import '~/bilo-xui/dist/scss/mixins.scss';
+// @import '~/bilo-xui/dist/scss/colors.scss';
+$sidenav-width: 25em;
+.sidenav {
+    position: fixed;
+    background: $col-background;
+    color: $col-text;
+    width: $sidenav-width;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+
+$padding: 1em;
+.sidenav-link {
+    // position: absolute;
+    display: inline-block;
+    width:calc(100% - 2 * #{$padding});
+    line-height: 2em;
+    height: 2em;
+    color: $col-text;
+    padding: $padding;
+    text-decoration: none;
+    &:hover {
+        color: $col-active;
+        background: lighten($col-background, 10%);
+        border-right: 4px solid $col-active;
+        width:calc(100% - 2 * #{$padding} - 4px);
+    }
+}

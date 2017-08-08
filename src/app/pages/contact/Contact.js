@@ -20,7 +20,7 @@ export default class Contact extends React.Component {
                     <input type="text" placeholder="must be 'bout something" />
                     <textarea placeholder={"... so what is your message?"} /> 
                     <br />
-                    <button onClick={ () => { this.sendEmail }}>SEND</button>
+                    <button className={'button'} onClick={ () => { this.sendEmail }}>SEND</button>
                 </div>    
             </div>
         )
