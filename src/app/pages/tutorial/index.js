@@ -14,7 +14,9 @@ marked.setOptions({
     smartLists: true,
     smartypants: false,
     highlight: (code) => {
-        return highlight.highlightAuto(code).value;
+        return highlight
+            .highlightAuto(code)
+            .value;
     }
 })
 
@@ -23,48 +25,48 @@ export default class Tutorial extends React.Component {
         super(props);
     }
     componentWillMount() {
-        this.setState({
-            docsRoot: 'https://raw.githubusercontent.com/bilo-io'
-        });
+        this.setState({docsRoot: 'https://raw.githubusercontent.com/bilo-io'});
         this.logUrlParams('componentWillMount');
     }
     componentDidMount() {
         let url = this.getTutorialUrl();
-        axios.get(url)
+        axios
+            .get(url)
             .then((response) => {
+                this.getMarkdownHeadings(response.data);
                 this.convertMarkdown(response.data);
             })
     }
 
     logUrlParams(func) {
-        this.state &&
-            console.log(func, `${this.state.docsRoot}/${this.getTutorialId()}`);
+        this.state && console.log(func, `${this.state.docsRoot}/${this.getTutorialId()}`);
     }
     getTutorialUrl() {
         let tutId = this.props.match.params.tutorialId;
         let url = `${this.state.docsRoot}/${tutId}/master/README.md`;
-        console.log({ url });
+        console.log({url});
         return encodeURI(url);
     }
     render() {
-        return (
-            <div className='markdown-container'>
-                <div>
-                    {this.renderMarkdown()}
+        return this.state
+            ? (
+                <div className='markdown-container'>
+                    <div>
+                        {this.state.html ?
+                            <div className='markdown' dangerouslySetInnerHTML={{__html: this.state.html}}></div>
+                        : null}
+                    </div>
                 </div>
-            </div>
-        )
-    }
-    renderMarkdown() {
-        if (this.state && this.state.html) {
-            return (
-                <div className='markdown' dangerouslySetInnerHTML={{ __html: this.state.html }}></div>
             )
-        }
+            : null;
     }
     convertMarkdown(markdown) {
-        this.setState(Object.assign(this.state, {
-            html: marked(markdown)
-        }));
+        this.setState(Object.assign(this.state, {html: marked(markdown)}));
+    }
+    getMarkdownHeadings(markdown) {
+        let lines = markdown.split('\n');
+        console.log({ lines });
+
+
     }
 }
