@@ -1,10 +1,28 @@
+@import '../../../app.scss';
+@import '~highlight.js/styles/monokai.css';
+$markdown-nav-size: 15em;
+
+pre {
+    background: #333;
+    color: white;
+    padding: 1em;
+    border-radius: 4px;
+}
 .markdown-container {
-    width: 100%;
-    background: white;
-    color: black;
-    margin-top: 0;
+    width: calc(100% - #{$markdown-nav-size});
+    background: #dddddd;
+    color: #333333;
+    overflow-y: auto;
     top: 0;
+    left: 0;
     height: 100%;
+    padding: 2em;
+    padding-top: 3em;
+}
+
+.markdown-nav {
+    background: $col-background;
+    color: $col-active;
 }
 
 .markdown {

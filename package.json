@@ -20,6 +20,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "bilo-ui": "0.0.4",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.1",
     "fs": "0.0.1-security",

@@ -13,7 +13,7 @@ import Tutorial from    './pages/tutorial';
 import Tutorials from   './pages/tutorials';
 import NotFound from    './pages/not-found';
 
-require('./app.scss');
+require('../app.scss');
 
 export default class App extends React.Component {
 

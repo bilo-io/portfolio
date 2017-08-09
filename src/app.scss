@@ -1,26 +1,43 @@
-// Import lib styles
 @import '~bilo-ui/dist/bilo-ui.scss';
-// Import app styles
-@import './scss/index.scss';
 
+// Colors
 $col-lightgrey:  $col-lightgrey;
 $col-background: $col-background;
 $col-active: red !global;
 $col-accent: #00ffee !global;
 $col-text: $col-text; 
-
 $col-dark: #1d1d1d;
 
-// h1,h2,h3,h4,h5 {
-//     color: $col-active;
-// }
+// Dimensions
+$dim-navbar: 4em;
+$dim-sidebar: 20em;
+$content-x: $dim-sidebar;
+$content-y: $dim-navbar;
+$content-height: calc(100vh - #{$dim-navbar});
+$content-width: calc(100vw - #{$dim-sidebar});
+
+// Layout
+body {
+    background: #e1e1e1;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+}
+.app-content {
+     position: fixed;
+     top: $dim-navbar;
+     height: calc(100vh - #{$dim-navbar});
+     left: 0;
+     width: 100%;
+     overflow-y: auto;
+ }
+
+ // Elements
 input,input:hover,input:focus,
 textarea, textarea:hover,textarea:focus {
     @extend .input;
     color: $col-active;
     border-color: $col-active;
 }
-
 button {
     @extend .button;
     color: $col-active;
