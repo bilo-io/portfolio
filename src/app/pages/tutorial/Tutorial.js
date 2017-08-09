@@ -24,7 +24,7 @@ export default class Tutorial extends React.Component {
     }
     componentWillMount() {
         this.setState({
-            docsRoot: 'https://raw.githubusercontent.com/bilo-io/tutorials/master/Posts'
+            docsRoot: 'https://raw.githubusercontent.com/bilo-io'
         });
         this.logUrlParams('componentWillMount');
     }
@@ -42,9 +42,7 @@ export default class Tutorial extends React.Component {
     }
     getTutorialUrl() {
         let tutId = this.props.match.params.tutorialId;
-        let tutCategory = tutId.split('_')[0];
-        let tutLesson = tutId.split('_')[1];
-        let url = `${this.state.docsRoot}/${tutCategory}/${tutLesson}/README.md`;
+        let url = `${this.state.docsRoot}/${tutId}/master/README.md`;
         console.log({ url });
         return encodeURI(url);
     }
