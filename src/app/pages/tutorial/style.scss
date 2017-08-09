@@ -20,6 +20,16 @@ $markdown-nav-size: 22em;
     width: $markdown-nav-size;
 }
 
+$code-col: #00adee;
+.code {
+    color: $code-col;
+    // border: 0.5px solid $code-col;
+    border-radius: 4px;
+    padding: 2px;
+    // background: rgba($code-col, 0.02);
+    font-weight: bold;
+}
+
 .markdown {
     max-width: 60rem;
     height: 100%;
@@ -27,10 +37,16 @@ $markdown-nav-size: 22em;
         left: auto;
         right: auto;
     }
+    p,li,td {
+        code {
+            @extend .code;
+        }
+    }
     pre {
         background: #333;
         color: white;
         padding: 1em;
         border-radius: 4px;
+        overflow: auto;
     }
 }

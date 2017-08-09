@@ -1,9 +1,9 @@
 import React from 'react';
 require('./style.scss');
-
 var axios = require('axios');
 var marked = require('marked');
 var highlight = require('highlight.js');
+
 marked.setOptions({
     renderer: new marked.Renderer(),
     gfm: true,

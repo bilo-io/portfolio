@@ -3,7 +3,7 @@
 // Colors
 $col-lightgrey:  $col-lightgrey;
 $col-background: $col-background;
-$col-active: red !global;
+$col-active: #00adee !global;
 $col-accent: #00ffee !global;
 $col-text: $col-text; 
 $col-dark: #1d1d1d;
@@ -25,7 +25,7 @@ body {
 .app-content {
      position: fixed;
      top: $dim-navbar;
-     height: calc(100vh - #{$dim-navbar});
+     height: $content-height;
      left: 0;
      width: 100%;
      overflow-y: auto;
@@ -37,6 +37,7 @@ textarea, textarea:hover,textarea:focus {
     @extend .input;
     color: $col-active;
     border-color: $col-active;
+    margin-bottom: 1em;
 }
 button {
     @extend .button;

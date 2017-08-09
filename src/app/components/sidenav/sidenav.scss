@@ -1,9 +1,9 @@
 @import '~bilo-ui/dist/bilo-ui.scss';
 @import '../../../app.scss';
-$sidenav-width: 25em;
+$sidenav-width: 15em;
 .sidenav {
     position: fixed;
-    background: $col-background;
+    background: lighten($col-background, 2%);
     color: $col-text;
     width: $sidenav-width;
     height: 100%;
@@ -24,8 +24,9 @@ $padding: 1em;
     text-decoration: none;
     &:hover {
         color: $col-active;
-        background: lighten($col-background, 10%);
-        border-right: 4px solid $col-active;
-        width:calc(100% - 2 * #{$padding} - 4px);
+        background: lighten($col-background, 5%);
+        border-left: 4px solid $col-active;
+        width:calc(100% - 2 * #{$padding});
+        padding-left: calc(#{$padding} - 4px);
     }
 }
