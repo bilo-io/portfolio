@@ -1,17 +1,17 @@
 import React from 'react';
 import {Route, Switch, Link} from 'react-router-dom';
 // Components
-import Map from './components/map/map';
-import Navbar from './components/navbar/navbar';
-import Sidenav from './components/sidenav/sidenav';
-import Profile from './components/profile/profile';
+import Map from         './components/map';
+import Navbar from      './components/navbar';
+import Sidenav from     './components/sidenav';
+import Profile from     './components/profile';
 // Pages
-import Home from './pages/home/home';
-import Contact from './pages/contact/contact';
-import Projects from './pages/projects/projects';
-import Tutorial from './pages/tutorial/tutorial';
-import Tutorials from './pages/tutorials/tutorials';
-import NotFound from './pages/not-found/not-found';
+import Home from        './pages/home';
+import Contact from     './pages/contact';
+import Projects from    './pages/projects';
+import Tutorial from    './pages/tutorial';
+import Tutorials from   './pages/tutorials';
+import NotFound from    './pages/not-found';
 
 require('./app.scss');
 

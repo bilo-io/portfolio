@@ -1,12 +1,11 @@
 var webpack = require('webpack');
 var path = require('path');
-
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var Visualizer = require('webpack-visualizer-plugin');
+var marked = require('marked');
+var renderer = new marked.Renderer();
 var DIST = path.resolve(__dirname, 'dist/');
 var SRC = path.resolve(__dirname, 'src/');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const marked = require('marked');
-const renderer = new marked.Renderer();
 
 var config = {
     devtool: 'source-map',
@@ -15,7 +14,6 @@ var config = {
         path: DIST,
         publicPath: '/',
         filename: 'app.js'
-
     },
     module: {
         rules: [{
@@ -46,6 +44,7 @@ var config = {
         }]
     },
     plugins: [
+        new Visualizer({filename: './stats.html'}),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: 'index.html',

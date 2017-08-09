@@ -1,5 +1,5 @@
 import React from 'react';
-import './contact.scss';
+import './style.scss';
 import axios from 'axios';
 // import envs from '../../envs';
 export default class Contact extends React.Component {
@@ -20,7 +20,7 @@ export default class Contact extends React.Component {
                     <input type="text" placeholder="must be 'bout something" />
                     <textarea placeholder={"... so what is your message?"} /> 
                     <br />
-                    <button className={'button'} onClick={ () => { this.sendEmail }}>SEND</button>
+                    <button onClick={ () => { this.sendEmail }}>SEND</button>
                 </div>    
             </div>
         )

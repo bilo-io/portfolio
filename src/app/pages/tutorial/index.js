@@ -1,5 +1,5 @@
 import React from 'react';
-require('./tutorial.scss');
+require('./style.scss');
 
 var axios = require('axios');
 var marked = require('marked');

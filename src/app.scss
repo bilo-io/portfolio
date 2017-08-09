@@ -1,1 +1,32 @@
-// @import './scss/colors.scss'
+// Import lib styles
+@import '~bilo-ui/dist/bilo-ui.scss';
+// Import app styles
+@import './scss/index.scss';
+
+$col-lightgrey:  $col-lightgrey;
+$col-background: $col-background;
+$col-active: red !global;
+$col-accent: #00ffee !global;
+$col-text: $col-text; 
+
+$col-dark: #1d1d1d;
+
+// h1,h2,h3,h4,h5 {
+//     color: $col-active;
+// }
+input,input:hover,input:focus,
+textarea, textarea:hover,textarea:focus {
+    @extend .input;
+    color: $col-active;
+    border-color: $col-active;
+}
+
+button {
+    @extend .button;
+    color: $col-active;
+    border-color: $col-active;
+    &:hover {
+        color: white;
+        background-color: $col-active;
+    }
+}

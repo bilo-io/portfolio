@@ -1,9 +1,5 @@
-$col-active: green;
-@import '../sass/index.scss';
-@import '~bilo-xui/dist/xui.scss';
-// @import '../ws-core/sass/index.scss';
-// @import '~/hamburgers/dist/hamburgers.scss';
-// Overrides
+@import '~bilo-ui/dist/bilo-ui.scss';
+@import '../scss/index.scss';
 
 body {
     background: #e1e1e1;

@@ -1,9 +1,9 @@
 @import '~bilo-ui/dist/bilo-ui.scss';
-@import '../../../sass/index.scss';
+@import '../../app.scss';
 
 .tut-container {
-    background: $col-dark;
-    color: $col-light;
+    background: $col-background;
+    color: $col-text;
     position: relative;
     height: 100%;
 }

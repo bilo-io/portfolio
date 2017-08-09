@@ -1,6 +1,5 @@
-// @import '../../../ws-core/sass/index.scss';
-@import '~bilo-xui/dist/xui.scss';
-// $col-active: red;
+@import '../../app.scss';
+
 .contact-container {
     background: $col-background;
     position: relative;
@@ -13,17 +12,17 @@
     top: 5rem;
     max-width: 30rem;
     margin: auto;
-    // background: $col-background;
     color: darken(white, 30%);
-    input, textarea, h2 {
-        color: $col-active;
-    }
+
     p {
         margin-bottom: 3em;
     }
     padding: 2rem;
 
-    input {
+    input, textarea {
         margin-bottom: 1rem;
+    }
+    button {
+        float: right;
     }
 }

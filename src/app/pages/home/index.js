@@ -1,9 +1,10 @@
 import React from 'react';
-require('./home.scss');
-import Profile from '../../components/profile/profile';
+require('./style.scss');
+import Profile from '../../components/profile';
 import image from '../../../img/profile-pic.jpg';
 import imgCTSunset from '../../../img/ct-sunset.jpg';
 import imgTkd from '../../../img/bilo-tkd.jpg';
+
 export default class Home extends React.Component {
     constructor(props) {
         super(props);

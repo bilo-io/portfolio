@@ -20,7 +20,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "bilo-ui": "0.0.4",
-    "bilo-xui": "0.0.2",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.1",
     "fs": "0.0.1-security",
@@ -42,7 +41,7 @@
     "style-loader": "^0.17.0",
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5",
-    "xui": "0.0.1"
+    "webpack-visualizer-plugin": "^0.1.11"
   },
   "dependencies": {
     "express": "^4.15.2",
