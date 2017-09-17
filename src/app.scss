@@ -3,14 +3,14 @@
 // Colors
 $col-lightgrey:  $col-lightgrey;
 $col-background: $col-background;
-$col-active: #00adee !global;
+$col-active: #5AC8E6 !global;
 $col-accent: #00ffee !global;
 $col-text: $col-text; 
 $col-dark: #1d1d1d;
 
 // Dimensions
-$dim-navbar: 4em;
-$dim-sidebar: 20em;
+$dim-navbar: 3em;
+$dim-sidebar: 25em;
 $content-x: $dim-sidebar;
 $content-y: $dim-navbar;
 $content-height: calc(100vh - #{$dim-navbar});
@@ -20,7 +20,7 @@ $content-width: calc(100vw - #{$dim-sidebar});
 body {
     background: #e1e1e1;
     color: #333;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 .app-content {
      position: fixed;
@@ -28,8 +28,20 @@ body {
      height: $content-height;
      left: 0;
      width: 100%;
+     height: calc(100vh - #{$dim-navbar});
      overflow-y: auto;
+     display: flex;
+     flex-direction: row;
  }
+ $padding: 2em;
+.page {
+    position: relative;
+    // background: $col-background;
+    // color: $col-text;
+    width: 100vw;
+    height: calc(100% - 2 * #{$padding});
+    padding: $padding;
+}
 
  // Elements
 input,input:hover,input:focus,

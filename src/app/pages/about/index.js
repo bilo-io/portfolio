@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import Contact from './component';
+import About from './component';
 import {
 } from './actions';
 
 const mapStateToProps = (state) => {
-    let _state = state.contact;
+    let _state = state.about;
     return {
     }
 }
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Contact);
+)(About);

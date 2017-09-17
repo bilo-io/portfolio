@@ -10,13 +10,15 @@
 
 .tut-content {
     width: auto;
-    margin-left: 6em;
-    margin-right: 6em;
-    padding-top: 4em;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding-top: 2em;
 }
 
 .posts-container {
     display: flex;
+    margin-left: 2em;
+    margin-right: 2em;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -24,32 +26,32 @@
 .post-card {
     @extend .ws-card;
     position: relative;
-    width: 12rem;
-    height: 10rem;
-    background: rgba(white, 0.2);
+    // width: 12rem;
+    // height: 10rem;
+    color: #333;
+    // background: rgba(white, 0.2);
+    
     margin: 0.2rem;
-
-    $col-active: $col-active;
     &:hover {
         color: $col-active;
         cursor: pointer;
     }
-    div {
+    $height: 4em;
+    .post-title {
+        text-decoration: none;
         position: absolute;
-        bottom: 0;
-        padding: 0.4rem;
-        height: 3rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        word-wrap: none;
+        left: $height;
+        top: 0;
+        line-height: $height;
+        margin-left: 1em;
     }
-    $logo-width: 5rem;
-    img {
-        position: absolute;
-        padding-bottom: 4rem;
-        width: $logo-width;
-        height: $logo-width;
-        left: calc(50% - #{$logo-width} / 2);
-        top: 1rem;
-    }
+    // $logo-width: 5rem;
+    // img {
+    //     position: absolute;
+    //     padding-bottom: 4rem;
+    //     width: $logo-width;
+    //     height: $logo-width;
+    //     left: calc(50% - #{$logo-width} / 2);
+    //     top: 1rem;
+    // }
 }
