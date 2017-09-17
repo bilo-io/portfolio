@@ -11,6 +11,7 @@ export class Tutorials extends React.Component {
             <div className='page'>
                 <div className='tut-content'>
                     <input type='text' placeholder={'search...'}
+                        value={this.props.query}    
                         onChange={(e) => {
                         this.props.updateQuery(e.target.value)
                     }}/>

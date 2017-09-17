@@ -1,4 +1,5 @@
 import React from 'react';
+import Profile from '../../components/profile'
 require('./style.scss');
 
 export class Home extends React.Component {
@@ -30,6 +31,7 @@ export class Home extends React.Component {
                             University of Cape Town, South Africa.</p>
                     </div>
                 </div>
+                {/* <Profile /> */}
             </div>
         )
     }
