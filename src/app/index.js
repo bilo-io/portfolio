@@ -26,17 +26,11 @@ export class App extends React.Component {
     render() {
         let pages = [
             {
-                link: '/about',
-                name: 'About'
-            }, {
-                link: '/home',
-                name: 'Home'
+                link: '/',
+                name: 'Bilo'
             },{
                 link: '/contact',
                 name: 'Contact'
-            }, {
-                link: '/demo',
-                name: 'Demo'
             }, {
                 link: '/tutorials',
                 name: 'Tutorials'
@@ -55,7 +49,7 @@ export class App extends React.Component {
                             store.dispatch(toggleSidenav())
                         }}
                             width='48'/>
-                        <Link to="/home">React App</Link>
+                        <Link to="/home">bilo.bio</Link>
                     </Navbar>
                     <div className='app-content'>
                         <Sidenav>
@@ -70,14 +64,13 @@ export class App extends React.Component {
                             })}
                         </Sidenav>
                         <Switch>
-                            <Route exact path="/" component={Home}/>
-                            <Route exact path="/about" component={About} />
+                            <Route exact path="/" component={About}/>
                             <Route exact path="/home" component={Home}/>
                             <Route exact path="/contact" component={Contact}/>
-                            <Route exact path="/demo" component={Demo}/>
                             <Route exact path="/tutorials" component={Tutorials} />
                             <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
                             <Route exact path="/places" component={Places}/>
+                            {/* <Route exact path="/demo" component={Demo}/> */}
                             <Route path="*" component={NotFound}/>
                         </Switch>
                     </div>

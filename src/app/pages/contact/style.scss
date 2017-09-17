@@ -1,0 +1,28 @@
+@import '../../../app.scss';
+
+.contact-container {
+    background: $col-background;
+    position: relative;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    top: 0;
+}
+.contact-form {
+    top: 5rem;
+    max-width: 30rem;
+    margin: auto;
+    color: darken(white, 30%);
+
+    p {
+        margin-bottom: 3em;
+    }
+    padding: 2rem;
+
+    input, textarea {
+        margin-bottom: 1rem;
+    }
+    button {
+        float: right;
+    }
+}

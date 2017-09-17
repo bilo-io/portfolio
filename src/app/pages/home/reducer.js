@@ -1,11 +1,7 @@
-import {UPDATE_QUERY, SEARCH_RESULTS, SEARCH_SUCCESS, SEARCH_ERROR} from './actions';
+import { MY_ACTION } from './actions'
 
 const initialState = {
-    pageTitle: 'Home',
-    loading: false,
-    results: [],
-    query: undefined,
-    response: undefined
+    myProps: undefined
 }
 
 const homeReducer = (state = initialState, {
@@ -13,30 +9,10 @@ const homeReducer = (state = initialState, {
     ...action
 }) => {
     switch (type) {
-        case UPDATE_QUERY:
+        case MY_ACTION:
             return {
                 ...state,
-                query: action.query
-            }
-        case SEARCH_RESULTS:
-            return {
-                ...state,
-                loading: action.loading,
-                query: action.query
-            }
-        case SEARCH_SUCCESS:
-            return {
-                ...state,
-                loading: action.loading,
-                results: action.results,
-                response: action.response
-            }
-        case SEARCH_ERROR:
-            return {
-                ...state,
-                loading: action.loading,
-                error: action.error,
-                results: []
+                data: action.data
             }
         default: return state;
     }

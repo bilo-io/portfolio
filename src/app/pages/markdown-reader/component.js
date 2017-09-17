@@ -53,7 +53,7 @@ export default class Tutorial extends React.Component {
                 <div style={{display: 'flex'}}>
                     <div className='markdown-nav'>
                         {(this.state.headings || []).map((heading) => {
-                            return <div>{heading}</div>
+                            return <div key={heading}>{heading}</div>
                         })}
                     </div>
                     <div className='markdown-container'>
