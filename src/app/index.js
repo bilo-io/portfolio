@@ -8,7 +8,6 @@ import Navbar from './components/navbar';
 import Sidenav from './containers/sidenav';
 import {toggleSidenav} from './containers/sidenav/actions'
 // Pages
-import About from './pages/about';
 import Contact from './pages/contact';
 import Demo from './pages/demo';
 import Home from './pages/home';
@@ -64,8 +63,7 @@ export class App extends React.Component {
                             })}
                         </Sidenav>
                         <Switch>
-                            <Route exact path="/" component={About}/>
-                            <Route exact path="/home" component={Home}/>
+                            <Route exact path="/" component={Home}/>
                             <Route exact path="/contact" component={Contact}/>
                             <Route exact path="/tutorials" component={Tutorials} />
                             <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
