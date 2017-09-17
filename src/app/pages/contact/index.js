@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Contact from './component';
 import {
+    sendEmail
 } from './actions';
 
 const mapStateToProps = (state) => {
@@ -11,6 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        sendEmail: (mailObj) => dispatch(sendEmail(mailObj))
     }
 }
 

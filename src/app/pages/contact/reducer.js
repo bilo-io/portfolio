@@ -1,6 +1,9 @@
-import { MY_ACTION } from './actions'
+import { SEND_EMAIL } from './actions'
 
-const homeReducer = (state = initialState, {
+const initialState = {
+    mailObject: undefined
+}
+const contactReducer = (state = initialState, {
     type,
     ...action
 }) => {
@@ -8,8 +11,10 @@ const homeReducer = (state = initialState, {
         case SEND_EMAIL:
             return {
                 ...state,
-                email: action.email
+                mailObject: action.mailObject
             }
         default: return state;
     }
 }
+
+export default contactReducer;
