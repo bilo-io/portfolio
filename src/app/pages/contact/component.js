@@ -8,11 +8,17 @@ export class Contact extends React.Component {
     componentWillMount() {
         this.setState({mailObject: {}})
     }
+    componentDidMount() {
+        var person = "Bilo as a person"
+        console.log({person})
+        person = "Bilo waiting on breakpoint"
+        console.log({person})
+    }
     render() {
         return (
             <div className='contact-container'>
                 <div className='contact-form'>
-                    <h2>contact me</h2>
+                    <h2>contact me via email</h2>
                     <p>Drop me a line or two and I'll try to get back to you!</p>
                     <input
                         type="text"
