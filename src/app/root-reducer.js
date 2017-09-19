@@ -7,6 +7,7 @@ import markdownReaderReducer from './pages/places/reducer';
 import placesReducer from './pages/places/reducer';
 import tutorialsReducer from './pages/tutorials/reducer';
 // Containers
+import mapReducer from './containers/map/reducer';
 import sidenavReducer from './containers/sidenav/reducer';
 
 const rootReducer = combineReducers({
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     places: placesReducer,
     markdownReader: markdownReaderReducer,
     // Containers
+    map: mapReducer,
     sidenav: sidenavReducer
 });
 

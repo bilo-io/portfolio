@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-require('./navbar.scss');
+require('./style.scss');
 
 export class Navbar extends React.Component {
     render() {

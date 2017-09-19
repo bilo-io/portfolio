@@ -1,17 +1,24 @@
 @import '../../../app.scss';
 @import '~highlight.js/styles/monokai.css';
 $markdown-nav-size: 20em;
-
+$markdown-height: calc(100% - #{$dim-navbar} - $dim-padding);
 $padding: 2em;
+
+.markdown-wrapper {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
 .markdown-container {
-    width: calc(100% - #{$markdown-nav-size} - 2 * #{$padding});
+    width: calc(100% - #{$markdown-nav-size} - #{$padding});
+    // position: relative;
     background: #dddddd;
     color: #333333;
     overflow-y: auto;
-    top: 0;
-    left: 0;
-    height: 100%;
-    padding: 2em;
+    // top: 0;
+    // left: 0;
+    height: $markdown-height;
+    padding: $padding;
     padding-top: 3em;
 }
 
@@ -20,6 +27,7 @@ $padding: 2em;
     background: $col-background;
     color: $col-active;
     width: calc(#{$markdown-nav-size} - 2 * #{$padding});
+    height: $markdown-height;
     div {
         line-height: 1.8em;
     }
