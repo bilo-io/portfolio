@@ -4,7 +4,7 @@ import Search from '../../components/search';
 
 require('./style.scss');
 
-export class Places extends React.Component {
+export class Ryda extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -13,14 +13,6 @@ export class Places extends React.Component {
             <div className='page page-padded'>
                 <h1>Places</h1>
                 <div className='side'>
-                    <Search
-                        tag={'place'}
-                        placeholder='search...'
-                        searchHandle={this.props.searchPlaces}
-                        showSuggestions={true}
-                        suggestions={this.props.searchResults.place}
-                        selectResult={this.props.selectPlace}/>
-
                     <Search
                         tag={'start'}
                         placeholder='starting point...'
@@ -45,4 +37,4 @@ export class Places extends React.Component {
     }
 }
 
-export default Places;
+export default Ryda;

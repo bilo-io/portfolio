@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Places from './component';
+import Ryda from './component';
 
 import {
     searchPlaces,
@@ -30,4 +30,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Places);
+)(Ryda);

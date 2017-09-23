@@ -4,27 +4,39 @@ import './style.scss'
 export const Search = (props) => {
     return (
         <div>
-            <label>{props.searchKey}</label>
-            <input
-                type='text'
-                placeholder={props.placeholder}
-                defaultValue={props.searchTerm}
-                onChange={(e) => {
-                props.searchHandle(props.searchKey, e.target.value);
-            }}/> {props.showResults
+            <label>{props.tag}</label>
+            <SearchInput
+                hint={props.placeholder}
+                value={props.searchTerm}
+                update={(e) => {
+                props.searchHandle(props.tag, e.target.value);
+            }}/> {props.showSuggestions
                 ? <div className='search-results'>
-                        {props
-                            .searchResults
-                            .map((result, idx) => {
-                                return <div
-                                    className='search-item' key={idx}
-                                    onClick={() => {
-                                        props.selectResult(props.searchKey, result)
-                                    }}>{result.formatted_address}</div>
-                            })}
+                        {(props.suggestions || []).map((result, idx) => {
+                            return <SearchSuggestion
+                                key={idx}
+                                label={result.formatted_address}
+                                onClick={() => {
+                                props.selectResult(props.tag, result)
+                            }}>
+                                {result.formatted_address}
+                            </SearchSuggestion>
+                        })}
                     </div>
                 : null}
         </div>
+    )
+}
+
+const SearchInput = (props) => {
+    return (
+        <input type='tex' placeholder={props.hint} defaultValue={props.value} onChange={props.update}/>
+    )
+}
+
+const SearchSuggestion = (props) => {
+    return (
+        <div className='search-item' onClick={props.onClick}>{props.children}</div>
     )
 }
 

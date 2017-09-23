@@ -12,6 +12,7 @@ import Contact from './pages/contact';
 import Demo from './pages/demo';
 import Home from './pages/home';
 import Places from './pages/places';
+import Ryda from './pages/ryda';
 import Tutorials from './pages/tutorials';
 import NotFound from './pages/not-found';
 import MarkdownReader from './pages/markdown-reader';
@@ -36,6 +37,9 @@ export class App extends React.Component {
             }, {
                 link: '/places',
                 name: 'Places'
+            }, {
+                link: '/ryda',
+                name: 'Ryda'
             }
         ];
         return (
@@ -67,7 +71,8 @@ export class App extends React.Component {
                             <Route exact path="/contact" component={Contact}/>
                             <Route exact path="/tutorials" component={Tutorials} />
                             <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
-                            <Route exact path="/places" component={Places}/>
+                            <Route exact path="/places" component={Places} />
+                            <Route exact path="/ryda" component={Ryda}/>
                             {/* <Route exact path="/demo" component={Demo}/> */}
                             <Route path="*" component={NotFound}/>
                         </Switch>

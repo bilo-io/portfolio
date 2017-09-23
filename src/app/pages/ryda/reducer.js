@@ -6,7 +6,7 @@ const initialState = {
     searchSelections: {}
 }
 
-export const placesReducer = (state = initialState, {
+export const rydaReducer = (state = initialState, {
     type,
     ...action
 }) => {
@@ -43,4 +43,4 @@ export const placesReducer = (state = initialState, {
     }
 }
 
-export default placesReducer;
+export default rydaReducer;
