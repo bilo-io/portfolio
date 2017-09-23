@@ -4,24 +4,25 @@ import Places from './component';
 import {
     searchPlaces,
     searchGoogle,
-    selectResult,
+    selectPlace,
     searchGoogleSuccess
 } from './actions';
 
 const mapStateToProps = (state, ownProps) => {
     let _state = state.places;
     return {
+        place: _state.place,
         query: _state.query,
-        results: _state.results,
+        searchResults: _state.searchResults,
         error: _state.error
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        searchPlaces: (query) => dispatch(searchPlaces(query)),
+        searchPlaces: (searchKey, query) => dispatch(searchPlaces(searchKey, query)),
         searchGoogle: (query) => dispatch(searchGoogle(query)),
-        selectResult: (result) => dispatch(selectResult(result)),
+        selectPlace: (place) => dispatch(selectPlace(place)),
         searchGoogleSucces: (results) => dispatch(searchGoogleSuccess(results))
     }
 }

@@ -8,13 +8,13 @@ export class Tutorials extends React.Component {
     }
     render() {
         return (
-            <div className='page'>
+            <div className='page page-padded'>
                 <div className='tut-content'>
                     <input type='text' placeholder={'search...'}
                         value={this.props.query}    
                         onChange={(e) => {
                         this.props.updateQuery(e.target.value)
-                    }}/>
+                        }} />
                 </div>
                 <div className="posts-container">
                 {tutorials.filter(tut => {

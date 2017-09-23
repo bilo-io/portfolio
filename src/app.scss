@@ -39,6 +39,9 @@ body {
     // background: $col-background;
     // color: $col-text;
     width: 100vw;
+}
+
+.page-padded {
     height: calc(100% - 2 * #{$padding});
     padding: $padding;
 }

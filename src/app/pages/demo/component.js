@@ -3,7 +3,7 @@ require('./style.scss');
 
 export const Demo = (props) => {
     return (
-        <div className='page'>
+        <div className='page page-padded'>
             <h1>Demo</h1>
             {/* <label>Text: {props.text}</label> */}
             <input

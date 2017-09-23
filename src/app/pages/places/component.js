@@ -1,5 +1,7 @@
 import React from 'react';
 import Map from '../../containers/map';
+import Search from '../../components/search';
+
 require('./style.scss');
 
 export class Places extends React.Component {
@@ -8,27 +10,24 @@ export class Places extends React.Component {
     }
     render() {
         return (
-            <div className='page'>
+            <div className='page page-padded'>
                 <h1>Places</h1>
                 <div className='side'>
-                <input
-                    onChange={(e) => {
-                        this.props.searchPlaces(e.target.value)
-                    }} />
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                    {
-                        this.props.results.map((result, idx) => {
-                            return <div key={idx}>{result.formatted_address}</div>
-                        })
-                    }
-                    </div>
-                </div>    
+                    <Search
+                        searchKey={'places'}
+                        searchHandle={this.props.searchPlaces}
+                        searchResults={this.props.searchResults}
+                        selectResult={this.props.selectPlace}
+                        showResults={true}
+                        placeholder='search...' />
+                    {this.props.place ? <div>{this.props.place.formatted_address}</div> : null}
+                </div>
                 <div className='main'>
-                    <Map />
+                    {/* <Map /> */}
                 </div>
             </div>
         )
-    }    
+    }
 }
 
 export default Places;

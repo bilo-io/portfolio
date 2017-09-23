@@ -1,23 +1,31 @@
-import React from 'react'
+import React from 'react';
+import './style.scss'
 
-class Search extends React.Component {
-    componentWillMount() {
-        this.setState({
-            searchTerm: ''
-        })
-    }
-    render() {
-        return (
-            <div>
-                <input type="text" placeholder="Search ..." defaultValue={this.state.searchTerm} onChange={ (e) => {
-                    this.props.search(e.target.value);
-                    this.setState(Object.assign({}, this.state, {
-                        searchTerm: e.target.value
-                    }));
-                }} />
-            </div>
-        )
-    }
+export const Search = (props) => {
+    return (
+        <div>
+            <label>{props.searchKey}</label>
+            <input
+                type='text'
+                placeholder={props.placeholder}
+                defaultValue={props.searchTerm}
+                onChange={(e) => {
+                props.searchHandle(props.searchKey, e.target.value);
+            }}/> {props.showResults
+                ? <div className='search-results'>
+                        {props
+                            .searchResults
+                            .map((result, idx) => {
+                                return <div
+                                    className='search-item' key={idx}
+                                    onClick={() => {
+                                        props.selectResult(result)
+                                    }}>{result.formatted_address}</div>
+                            })}
+                    </div>
+                : null}
+        </div>
+    )
 }
 
 export default Search;
