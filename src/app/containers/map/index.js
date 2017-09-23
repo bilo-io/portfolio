@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Map from './leaflet'
+import Map from './component';
 
 import {
     myAction

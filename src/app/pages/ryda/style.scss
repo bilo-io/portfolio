@@ -1,0 +1,17 @@
+.ryda-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100%;
+}
+
+$padding: 1.5em;
+$side-width: 20em;
+.side {
+    width: calc(#{$side-width} - #{$padding});
+    padding: $padding;
+}
+
+.main {
+    width: calc(100% - #{$side-width});
+}
