@@ -19,7 +19,7 @@ export const Search = (props) => {
                                 return <div
                                     className='search-item' key={idx}
                                     onClick={() => {
-                                        props.selectResult(result)
+                                        props.selectResult(props.searchKey, result)
                                     }}>{result.formatted_address}</div>
                             })}
                     </div>

@@ -14,13 +14,29 @@ export class Places extends React.Component {
                 <h1>Places</h1>
                 <div className='side'>
                     <Search
-                        searchKey={'places'}
+                        searchKey={'place'}
                         searchHandle={this.props.searchPlaces}
                         searchResults={this.props.searchResults}
                         selectResult={this.props.selectPlace}
                         showResults={true}
                         placeholder='search...' />
-                    {this.props.place ? <div>{this.props.place.formatted_address}</div> : null}
+                    {/* {this.props.searchSelections.place ? <div>{this.props.searchSelections.place.formatted_address}</div> : null} */}
+
+                    <Search
+                        searchKey={'start'}
+                        searchHandle={this.props.searchPlaces}
+                        searchResults={this.props.searchResults}
+                        selectResult={this.props.selectPlace}
+                        showResults={true}
+                        placeholder='search...' />
+                    
+                    <Search
+                        searchKey={'end'}
+                        searchHandle={this.props.searchPlaces}
+                        searchResults={this.props.searchResults}
+                        selectResult={this.props.selectPlace}
+                        showResults={true}
+                        placeholder='search...' />
                 </div>
                 <div className='main'>
                     {/* <Map /> */}

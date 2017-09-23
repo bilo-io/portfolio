@@ -3,8 +3,8 @@ export const SEARCH_GOOGLE_SUCCESS = 'SEARCH_GOOGLE_SUCCESS';
 export const SEARCH_GOOGLE_ERROR = 'SEARCH_GOOGLE_ERROR';
 export const SELECT_PLACE = 'SELECT_PLACE';
 
-export const selectPlace = (place) => {
-    return {type: SELECT_PLACE, place}
+export const selectPlace = (searchKey, place) => {
+    return {type: SELECT_PLACE, searchKey, place}
 }
 
 export const searchGoogleError = (error) => {
