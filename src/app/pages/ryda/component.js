@@ -1,6 +1,7 @@
 import React from 'react';
 import Map from '../../containers/map';
 import Search from '../../components/search';
+import Button from 'bilo-ui/dist';
 
 require('./style.scss');
 
@@ -9,6 +10,8 @@ export class Ryda extends React.Component {
         super(props)
     }
     render() {
+        let start = this.props.searchSelections.start;
+        let end = this.props.searchSelections.end;
         return (
             <div className='page'>
                 <div className='ryda-layout'>
@@ -19,7 +22,8 @@ export class Ryda extends React.Component {
                             searchHandle={this.props.searchPlaces}
                             showSuggestions={true}
                             suggestions={this.props.searchResults.start}
-                            selectResult={this.props.selectPlace}/>
+                            selectResult={this.props.selectPlace}
+                            selection={ start ? start.formatted_address : null}/>
 
                         <Search
                             tag={'end'}
@@ -27,10 +31,18 @@ export class Ryda extends React.Component {
                             searchHandle={this.props.searchPlaces}
                             showSuggestions={true}
                             suggestions={this.props.searchResults.end}
-                            selectResult={this.props.selectPlace}/>
+                            selectResult={this.props.selectPlace}
+                            selection={end ? end.formatted_address : null} />
+                        {/* <Button /> */}
+                        <button style={{ width: '100%', marginTop: '1em' }}
+                            onClick={() => {
+                                this.props.fetchJourneys()
+                            }}>
+                            Find Trips
+                        </button>
                     </div>
                     <div className='main'>
-                        <Map/>
+                        {/* <Map/> */}
                     </div>
                 </div>
             </div>

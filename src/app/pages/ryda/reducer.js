@@ -1,5 +1,5 @@
 import {SEARCH_GOOGLE, SEARCH_GOOGLE_SUCCESS, SEARCH_GOOGLE_ERROR, SELECT_PLACE} from './actions';
-
+import geojson from '../../../utils/geojson';
 const initialState = {
     query: 'Cape Town',
     searchResults: [],
@@ -30,7 +30,7 @@ export const rydaReducer = (state = initialState, {
             }
         case SELECT_PLACE:
             let searchSelections = { ...state.searchSelections };
-            searchSelections[action.searchTag] = action.place;
+            searchSelections[action.searchTag] = geojson.pointFromGoogle(action.place);
             let resetResults = { ...state.searchResults };
             resetResults[action.searchTag] = []
             return {

@@ -4,10 +4,10 @@ import './style.scss'
 export const Search = (props) => {
     return (
         <div>
-            <label>{props.tag}</label>
+            <label>{props.tag}:{props.selection}</label>
             <SearchInput
                 hint={props.placeholder}
-                value={props.searchTerm}
+                value={props.selection ? props.selection : props.searchTerm }
                 update={(e) => {
                 props.searchHandle(props.tag, e.target.value);
             }}/> {props.showSuggestions
