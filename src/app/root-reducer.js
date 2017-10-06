@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 // Pages
 import contactReducer from './pages/contact/reducer';
+import draftjsReducer from './pages/draft-js/reducer';
 import homeReducer from './pages/home/reducer';
 import markdownReaderReducer from './pages/places/reducer';
 import placesReducer from './pages/places/reducer';
@@ -14,6 +15,7 @@ import sidenavReducer from './containers/sidenav/reducer';
 const rootReducer = combineReducers({
     // Pages
     contact: contactReducer,
+    draftjs: draftjsReducer,
     home: homeReducer,
     tutorials: tutorialsReducer,
     places: placesReducer,

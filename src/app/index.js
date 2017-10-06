@@ -9,6 +9,7 @@ import Sidenav from './containers/sidenav';
 import {toggleSidenav} from './containers/sidenav/actions'
 // Pages
 import Contact from './pages/contact';
+import DraftJS from './pages/draft-js';
 import Home from './pages/home';
 import MarkdownReader from './pages/markdown-reader';
 import NotFound from './pages/not-found';
@@ -31,6 +32,9 @@ export class App extends React.Component {
             },{
                 link: '/contact',
                 name: 'Contact'
+            },{
+                link: '/draftjs',
+                name: 'DraftJS Samples'
             }, {
                 link: '/tutorials',
                 name: 'Tutorials'
@@ -72,6 +76,7 @@ export class App extends React.Component {
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/contact" component={Contact}/>
+                            <Route exact path="/draftjs" component={DraftJS}/>
                             <Route exact path="/tutorials" component={Tutorials} />
                             <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
                             <Route exact path="/places" component={Places} />
