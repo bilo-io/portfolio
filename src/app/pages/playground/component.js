@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.scss';
 
 class Playground extends React.Component {
     constructor(props) {
@@ -8,7 +9,9 @@ class Playground extends React.Component {
         return (
             <div className='page page-padded'>
                 <h1>{this.props.title}</h1>
-                <span></span>
+                <div className="ws-card">
+                    <span data-text="true">a</span>
+                </div>
             </div>
         )
     }
