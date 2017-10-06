@@ -9,13 +9,13 @@ import Sidenav from './containers/sidenav';
 import {toggleSidenav} from './containers/sidenav/actions'
 // Pages
 import Contact from './pages/contact';
-import Demo from './pages/demo';
 import Home from './pages/home';
+import MarkdownReader from './pages/markdown-reader';
+import NotFound from './pages/not-found';
 import Places from './pages/places';
+import Playground from './pages/playground';
 import Ryda from './pages/ryda';
 import Tutorials from './pages/tutorials';
-import NotFound from './pages/not-found';
-import MarkdownReader from './pages/markdown-reader';
 
 require('../app.scss');
 
@@ -37,6 +37,9 @@ export class App extends React.Component {
             }, {
                 link: '/places',
                 name: 'Places'
+            },{
+                link: '/playground',
+                name: 'Playground'
             }, {
                 link: '/ryda',
                 name: 'Ryda'
@@ -52,7 +55,7 @@ export class App extends React.Component {
                             store.dispatch(toggleSidenav())
                         }}
                             width='48'/>
-                        <Link to="/home">bilo.bio</Link>
+                        <Link to="/">bilo.bio</Link>
                     </Navbar>
                     <div className='app-content'>
                         <Sidenav>
@@ -72,8 +75,8 @@ export class App extends React.Component {
                             <Route exact path="/tutorials" component={Tutorials} />
                             <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
                             <Route exact path="/places" component={Places} />
+                            <Route exact path="/playground" component={Playground} />
                             <Route exact path="/ryda" component={Ryda}/>
-                            {/* <Route exact path="/demo" component={Demo}/> */}
                             <Route path="*" component={NotFound}/>
                         </Switch>
                     </div>

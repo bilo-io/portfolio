@@ -5,6 +5,7 @@ import demoReducer from './pages/demo/reducer';
 import homeReducer from './pages/home/reducer';
 import markdownReaderReducer from './pages/places/reducer';
 import placesReducer from './pages/places/reducer';
+import playgroundReducer from './pages/playground/reducer';
 import rydaReducer from './pages/ryda/reducer';
 import tutorialsReducer from './pages/tutorials/reducer';
 // Containers
@@ -14,10 +15,10 @@ import sidenavReducer from './containers/sidenav/reducer';
 const rootReducer = combineReducers({
     // Pages
     contact: contactReducer,
-    demo: demoReducer,
     home: homeReducer,
     tutorials: tutorialsReducer,
     places: placesReducer,
+    playground: playgroundReducer,
     ryda: rydaReducer,
     markdownReader: markdownReaderReducer,
     // Containers

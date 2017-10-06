@@ -1,26 +1,25 @@
 import { connect } from 'react-redux';
-import Demo from './component';
+import Playground from './component'
+
 import {
-    updateText,
-    saveText
+    myAction
 } from './actions';
 
 const mapStateToProps = (state, ownProps) => {
-    let _state = state.demo;
+    let _state = state.playground;
     return {
-        text: _state.text,
-        items: _state.items
+        myProps: _state.myProps
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        updateText: (val) => dispatch(updateText(val)),
-        saveText: (val) => dispatch(saveText(val))
+        myAction: () => dispatch(myAction())
     }
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Demo);
+)(Playground)
+
