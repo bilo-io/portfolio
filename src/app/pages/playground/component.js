@@ -7,7 +7,7 @@ class Playground extends React.Component {
     render() {
         return (
             <div className='page page-padded'>
-                <h1>Playground</h1>
+                <h1>{this.props.title}</h1>
                 <span></span>
             </div>
         )

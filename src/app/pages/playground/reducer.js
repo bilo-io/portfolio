@@ -1,7 +1,7 @@
 import { MY_ACTION } from './actions'
 
 const initialState = {
-    data: undefined
+    title: "Playground"
 }
 
 const playgroundReducer = (state = initialState, {

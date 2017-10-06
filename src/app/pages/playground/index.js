@@ -8,7 +8,7 @@ import {
 const mapStateToProps = (state, ownProps) => {
     let _state = state.playground;
     return {
-        myProps: _state.myProps
+        title: _state.title
     }
 }
 

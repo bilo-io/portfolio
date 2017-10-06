@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 // Pages
 import contactReducer from './pages/contact/reducer';
-import demoReducer from './pages/demo/reducer';
 import homeReducer from './pages/home/reducer';
 import markdownReaderReducer from './pages/places/reducer';
 import placesReducer from './pages/places/reducer';
