@@ -10,12 +10,14 @@ import {toggleSidenav} from './containers/sidenav/actions'
 // Pages
 import Contact from './pages/contact';
 import Elastic from './pages/elastic';
+import DraftJS from './pages/draft-js';
 import Home from './pages/home';
+import MarkdownReader from './pages/markdown-reader';
+import NotFound from './pages/not-found';
 import Places from './pages/places';
+import Playground from './pages/playground';
 import Ryda from './pages/ryda';
 import Tutorials from './pages/tutorials';
-import NotFound from './pages/not-found';
-import MarkdownReader from './pages/markdown-reader';
 import XUI from './pages/xui';
 
 require('../app.scss');
@@ -35,7 +37,7 @@ export class App extends React.Component {
                             store.dispatch(toggleSidenav())
                         }}
                             width='48'/>
-                        <Link to="/home">bilo.bio</Link>
+                        <Link to="/">bilo.bio</Link>
                     </Navbar>
                     <div className='app-content'>
                         <Sidenav>
@@ -79,8 +81,10 @@ export class App extends React.Component {
                             <Route exact path="/places" component={Places}/>
                             <Route exact path="/ryda" component={Ryda}/>
                             <Route exact path="/tutorials" component={Tutorials}/>
+                            <Route exact path="/draftjs" component={DraftJS}/>
                             <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
                             <Route exact path="/xui" component={XUI}/>
+                            <Route exact path="/playground" component={Playground} />
                             <Route path="*" component={NotFound}/>
                         </Switch>
                     </div>

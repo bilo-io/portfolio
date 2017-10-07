@@ -1,26 +1,6 @@
 # Overview
 
-Ths is the source for my personal portfolio.
-
-Below I am just temporily testing different markdown code snippets, for syntax highlighting purposes.
-
-```js
-var person = function hello() {
-    return undefined;
-}
-```
-
-An HTML code section
-```html
-<div>
-    Hello
-    <ul style="some-style">
-        <li>Start</li>
-        <li>Middle</li>
-        <li>End</li>
-    </ul>
-</div>
-```
+Ths is the source for my personal portfolio, and frontend playground.
 
 ### The project techstack
 
@@ -37,39 +17,38 @@ An HTML code section
 
 ## Install & Run
 
-### Continuous Development
+Install:
+`git clone https://whereismytransport.visualstudio.com/Product/_git/HydraUI`
 
-- `git clone https://whereismytransport.visualstudio.com/Product/_git/HydraUI`
-- `npm run setup`
+DEVELOPMENT
 
-OR
+|*yarn* command|*npm* command|what it does|
+|:-|:-|:-|
+|`npm install`|`yarn`| installs all dependencies for this project|
+|`yarn dev`|`npm run dev`|runs `webpack-dev-server` on `src/` ... served on [http://localhost:8080](http://localhost:8080)|
 
-- `npm install`
-- `npm start`
+PRODUCTION
 
-Locally, the webapp is served on [http://localhost:1899](http://localhost:1899)
+|*yarn* command|*npm* command|what it does|
+|:-|:-|:-|
+|`yarn build`|`npm run build`| creates `dist`, containing app bundle|
+|`yarn serve`|`npm run serve`| serves folder in `dist` using `server.js`|
+|`yarn build-prod`|`npm run build-prod`|creates `artifact/dist`, containing `server.js`|
+|`yarn start`|`npm start`| simulates prodction server `artifact/server.js`|
 
-### Production Package
 
 To run the production release build and generate the `dist` folder, use the following commands:
-
-Local:
-- `npm run build` (locally)
-
-Server:
-- `bash build.sh` (build server)
-
 ### NPM scripts:
 
 The project uses webpack as the module bundler `npm` scripts to run tasks. With these two combined you can build, run, package etc. your application. Several `npm` scripts have been created for basic common tasks, found in `package.json`. 
 
 Run these scripts with the command `npm run {{script-name}}`:
 
-| script        | action        |
+| script         | action       |
 | :------------- |:-------------|
 |`"start"`|runs the dev server locally on the specified port|
 | `"setup"`| installs all dependencies and runs the dev server|
 |`"prod"`| runs the node application using `server.js`|
-|`"test"`|runs unit tests using karma|
+|`"test"`| runs unit tests using karma|
 |`"build"`| creates a production build of the app in `./dist`|
 |`"clean"`| deletes the `./dist` folder|

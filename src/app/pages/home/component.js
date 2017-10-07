@@ -16,8 +16,15 @@ export class Home extends React.Component {
                             experience
                         </p>
                     </div>
-
+                    
                     <div className='panel-dark'>
+                        <h2>experience</h2>
+                        <p>I did a couple of gamedev internships in 2012 and 2013. 
+                        </p>
+                        
+                    </div>
+
+                    <div className='panel-light'>
                         <h2>taekwon-do</h2>
                         <p>In 2009 I began practising ITF Taekwon-Do, and have since competed (and won)
                             in 3 South African and African tournaments.</p>
@@ -25,7 +32,7 @@ export class Home extends React.Component {
                     {/* <div className='panel'>
                         <img src={imgTkd} width='100%'/>
                     </div> */}
-                    <div className='panel-light'>
+                    <div className='panel-dark'>
                         <h2>education</h2>
                         <p>I began my journey in the field of computer science back in 2009, at the
                             University of Cape Town, South Africa.</p>

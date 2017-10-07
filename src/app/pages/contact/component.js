@@ -8,12 +8,6 @@ export class Contact extends React.Component {
     componentWillMount() {
         this.setState({mailObject: {}})
     }
-    componentDidMount() {
-        var person = "Bilo as a person"
-        console.log({person})
-        person = "Bilo waiting on breakpoint"
-        console.log({person})
-    }
     render() {
         return (
             <div className='contact-container'>
@@ -48,8 +42,6 @@ export class Contact extends React.Component {
                 ...this.state.mailObject,
                 ...obj
             }
-        }, () => {
-            console.log(this.state.mailObject)
         })
     }
 }
