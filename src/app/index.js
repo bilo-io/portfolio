@@ -9,13 +9,14 @@ import Sidenav from './containers/sidenav';
 import {toggleSidenav} from './containers/sidenav/actions'
 // Pages
 import Contact from './pages/contact';
-import Demo from './pages/demo';
+import Elastic from './pages/elastic';
 import Home from './pages/home';
 import Places from './pages/places';
 import Ryda from './pages/ryda';
 import Tutorials from './pages/tutorials';
 import NotFound from './pages/not-found';
 import MarkdownReader from './pages/markdown-reader';
+import XUI from './pages/xui';
 
 require('../app.scss');
 
@@ -24,24 +25,6 @@ export class App extends React.Component {
         super(props)
     }
     render() {
-        let pages = [
-            {
-                link: '/',
-                name: 'Bilo'
-            },{
-                link: '/contact',
-                name: 'Contact'
-            }, {
-                link: '/tutorials',
-                name: 'Tutorials'
-            }, {
-                link: '/places',
-                name: 'Places'
-            }, {
-                link: '/ryda',
-                name: 'Ryda'
-            }
-        ];
         return (
             <Router>
                 <div>
@@ -56,7 +39,30 @@ export class App extends React.Component {
                     </Navbar>
                     <div className='app-content'>
                         <Sidenav>
-                            {pages.map((page) => {
+                            {[
+                                {
+                                    link: '/',
+                                    name: 'Bio'
+                                }, {
+                                    link: '/contact',
+                                    name: 'Contact'
+                                }, {
+                                    link: '/elastic',
+                                    name: 'Elastic'
+                                }, {
+                                    link: '/places',
+                                    name: 'Places'
+                                }, {
+                                    link: '/ryda',
+                                    name: 'Ryda'
+                                }, {
+                                    link: '/tutorials',
+                                    name: 'Tutorials'
+                                }, {
+                                    link: '/xui',
+                                    name: 'XUI'
+                                }
+                            ].map((page) => {
                                 return <Link
                                     key={page.link}
                                     to={page.link}
@@ -69,11 +75,12 @@ export class App extends React.Component {
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/contact" component={Contact}/>
-                            <Route exact path="/tutorials" component={Tutorials} />
-                            <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
-                            <Route exact path="/places" component={Places} />
+                            <Route exact path="/elastic" component={Elastic}/>
+                            <Route exact path="/places" component={Places}/>
                             <Route exact path="/ryda" component={Ryda}/>
-                            {/* <Route exact path="/demo" component={Demo}/> */}
+                            <Route exact path="/tutorials" component={Tutorials}/>
+                            <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
+                            <Route exact path="/xui" component={XUI}/>
                             <Route path="*" component={NotFound}/>
                         </Switch>
                     </div>

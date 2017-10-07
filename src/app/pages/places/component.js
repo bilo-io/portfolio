@@ -1,12 +1,21 @@
 import React from 'react';
 import Map from '../../containers/map';
 import Search from '../../components/search';
+import { setCookie, getCookie, getCookies } from '../../../utils/webx';
 
 require('./style.scss');
 
 export class Places extends React.Component {
     constructor(props) {
         super(props)
+    }
+    componentDidMount() {
+        setCookie('bilo.lwabona', 'This is a cookie test!');
+        let cookieName = 'bilo.lwabona';
+        let cookie = getCookie(cookieName);
+        console.log(cookieName, { cookie })
+        let cookies = getCookies();
+        console.log({ cookies });
     }
     render() {
         return (
@@ -16,25 +25,9 @@ export class Places extends React.Component {
                     <Search
                         tag={'place'}
                         placeholder='search...'
-                        searchHandle={this.props.searchPlaces}
+                        searchHandler={this.props.searchPlaces}
                         showSuggestions={true}
                         suggestions={this.props.searchResults.place}
-                        selectResult={this.props.selectPlace}/>
-
-                    <Search
-                        tag={'start'}
-                        placeholder='starting point...'
-                        searchHandle={this.props.searchPlaces}
-                        showSuggestions={true}
-                        suggestions={this.props.searchResults.start}
-                        selectResult={this.props.selectPlace}/>
-
-                    <Search
-                        tag={'end'}
-                        placeholder='destination...'
-                        searchHandle={this.props.searchPlaces}
-                        showSuggestions={true}
-                        suggestions={this.props.searchResults.end}
                         selectResult={this.props.selectPlace}/>
                 </div>
                 <div className='main'>

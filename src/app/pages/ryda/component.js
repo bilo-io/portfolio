@@ -19,7 +19,7 @@ export class Ryda extends React.Component {
                         <Search
                             tag={'start'}
                             placeholder='starting point...'
-                            searchHandle={this.props.searchPlaces}
+                            searchHandler={this.props.searchPlaces}
                             showSuggestions={true}
                             suggestions={this.props.searchResults.start}
                             selectResult={this.props.selectPlace}
@@ -28,7 +28,7 @@ export class Ryda extends React.Component {
                         <Search
                             tag={'end'}
                             placeholder='destination...'
-                            searchHandle={this.props.searchPlaces}
+                            searchHandler={this.props.searchPlaces}
                             showSuggestions={true}
                             suggestions={this.props.searchResults.end}
                             selectResult={this.props.selectPlace}
