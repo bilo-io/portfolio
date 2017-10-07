@@ -9,7 +9,7 @@ export const Search = (props) => {
                 hint={props.placeholder}
                 value={props.selection ? props.selection : props.searchTerm }
                 update={(e) => {
-                props.searchHandle(props.tag, e.target.value);
+                props.searchHandler(props.tag, e.target.value);
             }}/> {props.showSuggestions
                 ? <div className='search-results'>
                         {(props.suggestions || []).map((result, idx) => {
