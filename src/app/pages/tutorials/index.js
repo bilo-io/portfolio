@@ -8,7 +8,6 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
     let _state = state.tutorials;
-    console.log({ state });
     return {
         query: _state.query,
         tutorial: _state.tutorial

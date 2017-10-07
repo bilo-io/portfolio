@@ -3,11 +3,8 @@ import store from './store';
 import {Route, Switch, Link} from 'react-router-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 // Components
-import Navbar from './components/navbar';
+import {AppTopBar, AppSidenav, AppBody} from 'bilo-ui';
 // Containers
-import Sidenav from './containers/sidenav';
-import {toggleSidenav} from './containers/sidenav/actions'
-// Pages
 import Contact from './pages/contact';
 import Elastic from './pages/elastic';
 import DraftJS from './pages/draft-js';
@@ -27,70 +24,97 @@ export class App extends React.Component {
         super(props)
     }
     render() {
-        return (
-            <Router>
-                <div>
-                    <Navbar>
-                        <img
-                            src='https://raw.githubusercontent.com/bilo-io/resources/master/logo/react.png'
-                            onClick={() => {
-                            store.dispatch(toggleSidenav())
-                        }}
-                            width='48'/>
-                        <Link to="/">bilo.bio</Link>
-                    </Navbar>
-                    <div className='app-content'>
-                        <Sidenav>
-                            {[
-                                {
-                                    link: '/',
-                                    name: 'Bio'
-                                }, {
-                                    link: '/contact',
-                                    name: 'Contact'
-                                }, {
-                                    link: '/elastic',
-                                    name: 'Elastic'
-                                }, {
-                                    link: '/places',
-                                    name: 'Places'
-                                }, {
-                                    link: '/ryda',
-                                    name: 'Ryda'
-                                }, {
-                                    link: '/tutorials',
-                                    name: 'Tutorials'
-                                }, {
-                                    link: '/xui',
-                                    name: 'XUI'
-                                }
-                            ].map((page) => {
-                                return <Link
-                                    key={page.link}
-                                    to={page.link}
-                                    className='sidenav-link'
-                                    onClick={() => store.dispatch(toggleSidenav())}>
-                                    {page.name}
-                                </Link>
-                            })}
-                        </Sidenav>
-                        <Switch>
-                            <Route exact path="/" component={Home}/>
-                            <Route exact path="/contact" component={Contact}/>
-                            <Route exact path="/elastic" component={Elastic}/>
-                            <Route exact path="/places" component={Places}/>
-                            <Route exact path="/ryda" component={Ryda}/>
-                            <Route exact path="/tutorials" component={Tutorials}/>
-                            <Route exact path="/draftjs" component={DraftJS}/>
-                            <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
-                            <Route exact path="/xui" component={XUI}/>
-                            <Route exact path="/playground" component={Playground} />
-                            <Route path="*" component={NotFound}/>
-                        </Switch>
+        let {sidenav} = this.state;
+        return this.state
+            ? (
+                <Router>
+                    <div>
+                        <AppTopBar>
+                            <img
+                                src='https://raw.githubusercontent.com/bilo-io/resources/master/logo/react.png'
+                                onClick={() => this.toggleSidenav()}
+                                width='48'/>
+                            <Link to="/">bilo.bio</Link>
+                        </AppTopBar>
+                        <AppBody>
+                            <AppSidenav isOpen={this.state.sidenav.isOpen}>
+                                {sidenav.items.map((page) => {
+                                        return <Link
+                                            key={page.link}
+                                            to={page.link}
+                                            className='sidenav-link'
+                                            onClick={() => {
+                                            this.toggleSidenav()
+                                        }}>
+                                            {page.name}
+                                        </Link>
+                                    })}
+                            </AppSidenav>
+                            <Switch>
+                                <Route exact path="/" component={Home}/>
+                                <Route exact path="/contact" component={Contact}/>
+                                <Route exact path="/elastic" component={Elastic}/>
+                                <Route exact path="/places" component={Places}/>
+                                <Route exact path="/ryda" component={Ryda}/>
+                                <Route exact path="/tutorials" component={Tutorials}/>
+                                <Route exact path="/draftjs" component={DraftJS}/>
+                                <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
+                                <Route exact path="/xui" component={XUI}/>
+                                <Route exact path="/playground" component={Playground}/>
+                                <Route path="*" component={NotFound}/>
+                            </Switch>
+                        </AppBody>
                     </div>
-                </div>
-            </Router>
-        )
+                </Router>
+            )
+            : null
+    }
+    componentWillMount() {
+        this.setState({
+            sidenav: {
+                isOpen: false,
+                items: [
+                    {
+                        link: '/',
+                        name: 'bilo'
+                    }, {
+                        link: '/contact',
+                        name: 'contact'
+                    }, {
+                        link: '/draftjs',
+                        name: 'draft.js'
+                    }, {
+                        link: '/elastic',
+                        name: 'elastic'
+                    }, {
+                        link: '/places',
+                        name: 'places'
+                    }, {
+                        link: '/playground',
+                        name: 'playground'
+                    }, {
+                        link: '/ryda',
+                        name: 'rYda'
+                    }, {
+                        link: '/tutorials',
+                        name: 'Tutorials'
+                    }, {
+                        link: '/xui',
+                        name: 'XUI'
+                    }
+                ]
+            }
+        })
+    }
+    toggleSidenav() {
+        let sidenav = this.state.sidenav
+        this.setState({
+            ...this.state,
+            sidenav: {
+                ...sidenav,
+                isOpen: !sidenav.isOpen
+            }
+        }, () => console.log(this.state.sidenav));
     }
 }
 

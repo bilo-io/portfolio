@@ -12,7 +12,6 @@ import tutorialsReducer from './pages/tutorials/reducer';
 import xuiReducer from './pages/xui/reducer';
 // Containers
 import mapReducer from './containers/map/reducer';
-import sidenavReducer from './containers/sidenav/reducer';
 
 const rootReducer = combineReducers({
     // Pages
@@ -27,7 +26,6 @@ const rootReducer = combineReducers({
     markdownReader: markdownReaderReducer,
     // Containers
     map: mapReducer,
-    sidenav: sidenavReducer,
     xui: xuiReducer
 });
 

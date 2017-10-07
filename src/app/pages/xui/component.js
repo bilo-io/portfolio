@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'bilo-ui';
+import {Button, Icon, Loader, LoaderType} from 'bilo-ui';
 
 class XUI extends React.Component {
     constructor(props) {
@@ -9,7 +9,19 @@ class XUI extends React.Component {
         return (
             <div className='page page-padded'>
                 <h1>XUI</h1>
-                {/* <Button>Button</Button> */}
+                <p>
+                    A custom component & style library for React.
+                </p>
+
+                <h2>App</h2>
+                <div></div>
+                <h2>Icons</h2>
+                <Icon name={'camera'} style={{padding: '1em'}}/>
+                <Icon name={'bars'} transform={'rotate-90'}/>
+
+                <h2>Loaders</h2>
+                <Loader type={LoaderType.SPINNER}/>
+                <Loader type={LoaderType.RAINBOW}/>
             </div>
         )
     }
