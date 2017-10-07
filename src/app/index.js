@@ -34,7 +34,7 @@ export class App extends React.Component {
                 name: 'Contact'
             },{
                 link: '/draftjs',
-                name: 'DraftJS Samples'
+                name: 'Draft.js'
             }, {
                 link: '/tutorials',
                 name: 'Tutorials'

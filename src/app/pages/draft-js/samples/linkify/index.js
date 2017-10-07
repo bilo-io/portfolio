@@ -1,9 +1,9 @@
 import React from 'react';
+import DraftJSCard from '../draftjs-card';
 import { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import createLinkifyPlugin from 'draft-js-linkify-plugin';
 import 'draft-js-linkify-plugin/lib/plugin.css';
-import './style.scss'
 
 export default class DraftJSLinkify extends React.Component {
 
@@ -25,16 +25,13 @@ export default class DraftJSLinkify extends React.Component {
 
     render() {
         return this.state ? (
-            <div className='ws-card'>
-                <label>Linkify</label>
-                <div className='custom-input'>
-                    <Editor
-                        editorState={this.state.editorState}
-                        onChange={this.onChange}
-                        plugins={this.plugins}
-                    />
-                </div>
-            </div>
+            <DraftJSCard title='Linkify'>
+                <Editor
+                    editorState={this.state.editorState}
+                    onChange={this.onChange}
+                    plugins={this.plugins}
+                />
+            </DraftJSCard>
         ) : null
     }
     onChange = (editorState) => {

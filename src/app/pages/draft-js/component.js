@@ -16,9 +16,12 @@ export class DraftJS extends React.Component {
         return (
             <div className='page page-padded'>
                 <h1>DraftJS</h1>
+                
+            icon:<i className='fa fa-menu fa-lg' />
+                
                 <DraftJSHashTag />
                 <DraftJSLinkify />
-                <DraftJSMention />
+                {/* <DraftJSMention /> */}
             </div>
         )
     }

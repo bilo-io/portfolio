@@ -1,9 +1,9 @@
 import React from 'react';
+import DraftJSCard from '../draftjs-card';
 import { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import createHashtagPlugin from 'draft-js-hashtag-plugin';
 import 'draft-js-hashtag-plugin/lib/plugin.css';
-import './style.scss'
 
 export default class DraftJSHashTag extends React.Component {
     
@@ -24,16 +24,13 @@ export default class DraftJSHashTag extends React.Component {
     }
     render() {
         return this.state ? (
-            <div className='ws-card'>
-                <label>Hashtag</label>
-                <div className='custom-input'>
-                    <Editor 
-                        editorState={this.state.editorState}
-                        onChange={this.onChange}
-                        plugins={this.plugins} 
-                    />
-                </div>
-            </div>
+            <DraftJSCard title='Hashtag'>
+                <Editor 
+                    editorState={this.state.editorState}
+                    onChange={this.onChange}
+                    plugins={this.plugins} 
+                />
+            </DraftJSCard>
         ) : null
     }
     onChange = (editorState) => {
