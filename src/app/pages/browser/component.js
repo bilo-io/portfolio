@@ -6,8 +6,8 @@ class Browser extends React.Component {
     }
     componentDidMount() {
         this.setState({
-            // iframeUrl: 'http://127.0.0.1:8080'
-            iframeUrl: 'http://hydraui-webapp.azurewebsites.net/journeys'
+            iframeUrl: 'http://127.0.0.1:8080/browser'
+            // iframeUrl: 'http://hydraui-webapp.azurewebsites.net/journeys'
             // iframeUrl: 'https://www.facebook.com/'
         })
     }

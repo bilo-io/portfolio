@@ -6,25 +6,26 @@ import createMentionPlugin, { defaultSuggestionsFilter } from 'draft-js-linkify-
 import { Icon } from 'bilo-ui';
 import mentions from './mentions';
 import editorStyles from './style.scss';
-
+const mentionPlugin = createMentionPlugin({mentions})
 export default class DraftJSMention extends React.Component {
     constructor(props) {
         super(props)
 
-        this.mentionPlugin = createMentionPlugin({
-            mentions,
-            mentionComponent: (mentionProps) => (
-                <span
-                    className={mentionProps.className}
-                    // eslint-disable-next-line no-alert
-                    onClick={() => alert('Clicked on the Mention!')}
-                >
-                    {mentionProps.children}
-                </span>
-            ),
-        });
+        // this.mentionPlugin = createMentionPlugin({
+        //     mentions,
+        //     mentionComponent: (mentionProps) => (
+        //         <span
+        //             className={mentionProps.className}
+        //             // eslint-disable-next-line no-alert
+        //             onClick={() => alert('Clicked on the Mention!')}
+        //         >
+        //             {mentionProps.children}
+        //         </span>
+        //     ),
+        // });
+        
         this.plugins = [
-            this.mentionPlugin
+            mentionPlugin
         ]
     }
     componentDidMount() {
@@ -46,10 +47,10 @@ export default class DraftJSMention extends React.Component {
                     onChange={this.onChange}
                     plugin={this.plugins}
                 />
-                <MentionSuggestions
+                {/* <MentionSuggestions
                     onSearchChange={this.onSearchChange}
                     suggestions={this.state.suggestions}
-                />
+                /> */}
             </DraftJSCard>
         ) : null
     }

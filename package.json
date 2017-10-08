@@ -25,6 +25,7 @@
     "css-loader": "^0.28.4",
     "d3": "^4.10.0",
     "draft-js": "^0.10.3",
+    "draft-js-emoji-plugin": "^2.0.0-beta1",
     "draft-js-hashtag-plugin": "^2.0.0-beta1",
     "draft-js-linkify-plugin": "^2.0.0-beta1",
     "draft-js-mention-plugin": "^2.0.0-beta1",

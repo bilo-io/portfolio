@@ -6,6 +6,7 @@ import Editor from 'draft-js-plugins-editor';
 import DraftJSHashTag from './samples/hashtag';
 import DraftJSLinkify from './samples/linkify';
 import DraftJSMention from './samples/mention';
+import DraftJSEmoji from './samples/emoji';
 import './style.scss';
 
 export class DraftJS extends React.Component {
@@ -21,7 +22,8 @@ export class DraftJS extends React.Component {
                 
                 <DraftJSHashTag />
                 <DraftJSLinkify />
-                {/* <DraftJSMention /> */}
+                <DraftJSEmoji />
+                {<DraftJSMention />}
             </div>
         )
     }
