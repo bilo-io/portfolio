@@ -45,7 +45,8 @@ export default class DraftJSMention extends React.Component {
                 <Editor
                     editorState={this.state.editorState}
                     onChange={this.onChange}
-                    plugin={this.plugins}
+                    plugins={plugins}
+                    ref={(element) => { this.editor = element; }}
                 />
                 {/* <MentionSuggestions
                     onSearchChange={this.onSearchChange}
@@ -76,6 +77,9 @@ export default class DraftJSMention extends React.Component {
             suggestions: defaultSuggestionsFilter(value, mentions),
         });
     };
+    onAddMention = () => {
+        // get the mention object selected
+    }
     focus = () => {
         this.editor.focus();
     };

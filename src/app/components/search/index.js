@@ -30,7 +30,7 @@ export const Search = (props) => {
 
 const SearchInput = (props) => {
     return (
-        <input type='tex' placeholder={props.hint} defaultValue={props.value} onChange={props.update}/>
+        <input type='text' placeholder={props.hint} defaultValue={props.value} onChange={props.update}/>
     )
 }
 
