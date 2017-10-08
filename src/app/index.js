@@ -5,6 +5,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 // Components
 import {AppTopBar, AppSidenav, AppBody} from 'bilo-ui';
 // Containers
+import Browser from './pages/browser';
 import Contact from './pages/contact';
 import Elastic from './pages/elastic';
 import DraftJS from './pages/draft-js';
@@ -51,7 +52,8 @@ export class App extends React.Component {
                                     })}
                             </AppSidenav>
                             <Switch>
-                                <Route exact path="/" component={Home}/>
+                                <Route exact path="/" component={Home} />
+                                <Route exact path="/browser" component={Browser} />
                                 <Route exact path="/contact" component={Contact}/>
                                 <Route exact path="/elastic" component={Elastic}/>
                                 <Route exact path="/places" component={Places}/>
@@ -77,6 +79,9 @@ export class App extends React.Component {
                     {
                         link: '/',
                         name: 'bilo'
+                    }, {
+                        link: '/browser',
+                        name: 'browser'
                     }, {
                         link: '/contact',
                         name: 'contact'

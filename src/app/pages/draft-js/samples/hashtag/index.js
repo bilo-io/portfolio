@@ -1,10 +1,10 @@
 import React from 'react';
 import DraftJSCard from '../draftjs-card';
+import '../style.scss';
 import { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import createHashtagPlugin from 'draft-js-hashtag-plugin';
 import 'draft-js-hashtag-plugin/lib/plugin.css';
-import '../style.scss';
 
 export default class DraftJSHashTag extends React.Component {
     constructor(props) {
