@@ -4,9 +4,9 @@ import { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import createHashtagPlugin from 'draft-js-hashtag-plugin';
 import 'draft-js-hashtag-plugin/lib/plugin.css';
+import '../style.scss';
 
 export default class DraftJSHashTag extends React.Component {
-    
     constructor(props) {
         super(props)
 
@@ -26,6 +26,7 @@ export default class DraftJSHashTag extends React.Component {
         return this.state ? (
             <DraftJSCard title='Hashtag'>
                 <Editor 
+                    className='custom-input'
                     editorState={this.state.editorState}
                     onChange={this.onChange}
                     plugins={this.plugins} 

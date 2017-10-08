@@ -1,6 +1,6 @@
 import React from 'react';
 import Map from '../../containers/map';
-import Search from '../../components/search';
+import { Search } from 'bilo-ui';
 import { setCookie, getCookie, getCookies } from '../../../utils/webx';
 
 require('./style.scss');
@@ -31,7 +31,7 @@ export class Places extends React.Component {
                         selectResult={this.props.selectPlace}/>
                 </div>
                 <div className='main'>
-                    {/* <Map /> */}
+                    {<Map />}
                 </div>
             </div>
         )

@@ -19,25 +19,20 @@ $content-width: calc(100vw - #{$dim-sidebar});
 
 // Layout
 body {
-    background: #e1e1e1;
-    color: #333;
+    // color: #e1e1e1;
+    // background: $col-background;
+    // color: #333;
     font-family: 'Quicksand', sans-serif;
 }
-// .app-content {
-//      position: fixed;
-//      top: $dim-navbar;
-//      left: 0;
-//      width: 100%;
-//      height: calc(100vh - #{$dim-navbar});
-//      overflow-y: auto;
-//      display: flex;
-//      flex-direction: row;
-//  }
+// input,textarea {
+//     color: #333;
+// }
+
  $padding: 2em;
 .page {
     position: relative;
-    // background: $col-background;
-    // color: $col-text;
+    background: $col-background;
+    color: $col-text;
     width: 100vw;
 }
 
@@ -47,7 +42,7 @@ body {
 }
 
  // Elements
-input,input:hover,input:focus,
+input,input:hover,input:focus,contenteditable,
 textarea, textarea:hover,textarea:focus {
     @extend .input;
     color: $col-active;

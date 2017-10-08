@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from '../../components/search';
+import { Search } from 'bilo-ui';
 import axios from 'axios';
 export class Elastic extends React.Component {
     constructor(props) {
@@ -22,6 +22,7 @@ export class Elastic extends React.Component {
         console.log('Searching elastic: ', q);
         axios({
             method: 'GET',
+
             url: 'http://localhost:3000'
         })
     }

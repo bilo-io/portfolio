@@ -1,6 +1,6 @@
 import React from 'react';
 import Map from '../../containers/map';
-import Search from '../../components/search';
+import { Search } from 'bilo-ui';
 import Button from 'bilo-ui/dist';
 
 require('./style.scss');
@@ -42,7 +42,7 @@ export class Ryda extends React.Component {
                         </button>
                     </div>
                     <div className='main'>
-                        {/* <Map/> */}
+                        {<Map/>}
                     </div>
                 </div>
             </div>
