@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 // Pages
+import browserReducer from './pages/browser/reducer';
 import contactReducer from './pages/contact/reducer';
 import elasticReducer from './pages/elastic/reducer';
 import draftjsReducer from './pages/draft-js/reducer';
@@ -15,6 +16,7 @@ import mapReducer from './containers/map/reducer';
 
 const rootReducer = combineReducers({
     // Pages
+    browser: browserReducer,
     contact: contactReducer,
     elastic: elasticReducer,
     draftjs: draftjsReducer,
