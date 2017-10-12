@@ -16,6 +16,7 @@ import Places from './pages/places';
 import Playground from './pages/playground';
 import Ryda from './pages/ryda';
 import Tutorials from './pages/tutorials';
+import WordCloud from './pages/wordcloud';
 import XUI from './pages/xui';
 
 require('../app.scss');
@@ -62,6 +63,7 @@ export class App extends React.Component {
                                 <Route exact path="/ryda" component={Ryda}/>
                                 <Route exact path="/tutorials" component={Tutorials}/>
                                 <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
+                                <Route exact path="/wordcloud" component={WordCloud}/>
                                 <Route exact path="/xui" component={XUI}/>
                                 <Route path="*" component={NotFound}/>
                             </Switch>
@@ -103,6 +105,9 @@ export class App extends React.Component {
                     }, {
                         link: '/tutorials',
                         name: 'Tutorials'
+                    }, {
+                        link: '/wordcloud',
+                        name: 'Wordcloud'
                     }, {
                         link: '/xui',
                         name: 'XUI'
