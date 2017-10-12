@@ -1,0 +1,8 @@
+@import '../../../app.scss';
+
+.response-card {
+    @extend .ws-card;
+    background: #dddddd;
+    color: #333333;
+    // display: block;
+}
