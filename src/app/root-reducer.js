@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 // Pages
+import autocompleteReducer from './pages/autocomplete/reducer';
 import browserReducer from './pages/browser/reducer';
 import contactReducer from './pages/contact/reducer';
 import elasticReducer from './pages/elastic/reducer';
@@ -16,6 +17,7 @@ import mapReducer from './containers/map/reducer';
 
 const rootReducer = combineReducers({
     // Pages
+    autocomplete: autocompleteReducer,
     browser: browserReducer,
     contact: contactReducer,
     draftjs: draftjsReducer,
