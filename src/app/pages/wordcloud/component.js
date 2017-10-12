@@ -4,14 +4,13 @@ import './style.scss';
 import FuzzySearch from 'fuzzy-search';
 import responses from './responses';
 import Highlighter from 'react-highlight-words';
-import { generateWordCloud, countWords } from './generate';
+import { generateWordCloud } from './generate';
 
 export default class WordCloud extends Component {
     constructor(props) {
         super(props)
         this.search = this.search.bind(this);
         this.select = this.select.bind(this);
-        // countWords('Dude, where is my car? I thought my car was somewhere over there! come on dude!')
         this.responsesToWordcloud();
     }
     componentDidMount() {
@@ -29,8 +28,13 @@ export default class WordCloud extends Component {
         let responseStrings =  responses.map( (r) => {
             return r.text
         })
-        console.log('Data for wordcloud',{responseStrings})
-        generateWordCloud(responseStrings);
+        
+        let words = generateWordCloud(responseStrings);
+        let wordCloudData = []
+        for( var key in words) {
+            wourdCloudData.push( { text: key, value: words[key]})
+        }
+        console.log({wordCloudData});
     }
     render() {
         return this.state ? (
@@ -97,7 +101,9 @@ export const Suggestions = (props, {highlight}) => {
                         <p style={{ fontStyle: 'italic' }}>
                             <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={response.text} />
                         </p>
-                        <p style={{ color: '#999999' }}>~tagline: {response.tagline}</p>
+                        <p style={{ color: '#999999' }}>
+                            ~tagline: <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={response.tagline} />
+                        </p>
                     </div>
                 )
             })

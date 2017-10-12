@@ -1,9 +1,7 @@
 export const countWords = (dataString) => {
     let wordCount = {}
-    let words = dataString.split(' ');
-    console.log({dataString})
-    // for(let key in data) {
     words.forEach( (word) => {
+        let words = dataString.split(' ').map( (word) => { return removeSpecialChars(word).toLowerCase()} );
         if (wordCount[word.toLowerCase()]) {
             wordCount[word.toLowerCase()]++;
         } else {
@@ -28,12 +26,16 @@ export const combineWords = (oldData, newData) => {
 export const generateWordCloud = (data) => {
     let histogram
     data.forEach( (entry) => {
-        console.log({entry})
         if(!histogram) {
             histogram = countWords(entry)
         } else {
-            histogram = combineWords(histogram, entry)
+            histogram = combineWords(histogram, countWords(entry))
         }
     })
+    console.log(histogram)
     return histogram;
+}
+
+export const removeSpecialChars = (word) => {
+    return word.replace(/[^a-zA-Z ]/g, "");
 }
