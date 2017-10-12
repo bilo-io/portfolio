@@ -8,8 +8,9 @@ export default class DraftJSCard extends React.Component {
     render() {
         return (
             <div className='ws-card'>
-                <label>{this.props.title}</label>
-                <div>
+                <label><b>{this.props.title}</b></label>
+                <br/>
+                <div style={{marginTop: '1em', background: 'rgba(white,0.1)'}}>
                     {this.props.children}
                 </div>
             </div>

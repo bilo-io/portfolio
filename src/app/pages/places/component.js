@@ -25,10 +25,10 @@ export class Places extends React.Component {
                     <Search
                         tag={'place'}
                         placeholder='search...'
-                        searchHandler={this.props.searchPlaces}
-                        showSuggestions={true}
+                        search={this.props.searchPlaces}
+                        suggestionsOn={true}
                         suggestions={this.props.searchResults.place}
-                        selectResult={this.props.selectPlace}/>
+                        select={this.props.selectPlace}/>
                 </div>
                 <div className='main'>
                     {<Map />}

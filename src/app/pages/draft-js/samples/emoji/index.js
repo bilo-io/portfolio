@@ -29,7 +29,7 @@ export default class DraftJSEmoji extends Component {
 
     render() {
         return (
-            <DraftJSCard title='Hashtag'>
+            <DraftJSCard title='Emoji'>
                 <div className={editorStyles.editor} onClick={this.focus}>
                     <Editor
                         editorState={this.state.editorState}
@@ -38,10 +38,10 @@ export default class DraftJSEmoji extends Component {
                         ref={(element) => {
                         this.editor = element;
                     }}/>
-                    <EmojiSuggestions/>
                 </div>
                 <div className={editorStyles.options}>
-                    {/* <EmojiSelect/> */}
+                    <EmojiSuggestions/>
+                    <EmojiSelect/>
                 </div>
             </DraftJSCard>
         );

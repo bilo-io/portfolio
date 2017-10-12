@@ -19,19 +19,19 @@ export class Ryda extends React.Component {
                         <Search
                             tag={'start'}
                             placeholder='starting point...'
-                            searchHandler={this.props.searchPlaces}
-                            showSuggestions={true}
+                            search={this.props.searchPlaces}
+                            suggestionsOn={true}
                             suggestions={this.props.searchResults.start}
-                            selectResult={this.props.selectPlace}
+                            select={this.props.selectPlace}
                             selection={ start ? start.formatted_address : null}/>
 
                         <Search
                             tag={'end'}
                             placeholder='destination...'
-                            searchHandler={this.props.searchPlaces}
-                            showSuggestions={true}
+                            search={this.props.searchPlaces}
+                            suggestionsOn={true}
                             suggestions={this.props.searchResults.end}
-                            selectResult={this.props.selectPlace}
+                            select={this.props.selectPlace}
                             selection={end ? end.formatted_address : null} />
                         {/* <Button /> */}
                         <button style={{ width: '100%', marginTop: '1em' }}

@@ -14,7 +14,7 @@ export class Elastic extends React.Component {
         return (
             <div className='page page-padded'>
                 <h1>Elastic</h1>
-                <Search tag='elastic' searchHandler={this.searchElastic}/>
+                <Search tag='elastic' search={this.searchElastic}/>
             </div>
         )
     }

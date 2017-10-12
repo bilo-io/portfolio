@@ -18,17 +18,17 @@ const rootReducer = combineReducers({
     // Pages
     browser: browserReducer,
     contact: contactReducer,
-    elastic: elasticReducer,
     draftjs: draftjsReducer,
+    elastic: elasticReducer,
     home: homeReducer,
-    tutorials: tutorialsReducer,
+    markdownReader: markdownReaderReducer,
     places: placesReducer,
     playground: playgroundReducer,
     ryda: rydaReducer,
-    markdownReader: markdownReaderReducer,
+    tutorials: tutorialsReducer,
     // Containers
     map: mapReducer,
-    xui: xuiReducer
+    xui: xuiReducer,
 });
 
 export default rootReducer;

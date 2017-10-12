@@ -2,42 +2,30 @@ import React from 'react';
 import DraftJSCard from '../draftjs-card';
 import { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
-import createMentionPlugin, { defaultSuggestionsFilter } from 'draft-js-linkify-plugin';
+import createMentionPlugin, { defaultSuggestionsFilter } from 'draft-js-mention-plugin';
 import { Icon } from 'bilo-ui';
 import mentions from './mentions';
 import editorStyles from './style.scss';
-const mentionPlugin = createMentionPlugin({mentions})
+
 export default class DraftJSMention extends React.Component {
     constructor(props) {
         super(props)
 
-        // this.mentionPlugin = createMentionPlugin({
-        //     mentions,
-        //     mentionComponent: (mentionProps) => (
-        //         <span
-        //             className={mentionProps.className}
-        //             // eslint-disable-next-line no-alert
-        //             onClick={() => alert('Clicked on the Mention!')}
-        //         >
-        //             {mentionProps.children}
-        //         </span>
-        //     ),
-        // });
+        this.mentionPlugin = createMentionPlugin();
         
         this.plugins = [
-            mentionPlugin
+            this.mentionPlugin
         ]
     }
     componentDidMount() {
         this.setState({
-            editorState: EditorState.createEmpty()
-        });
+            editorState: EditorState.createEmpty(),
+            suggestions: mentions
+        }, () => {console.log(this.state.suggestions)});
         this.onChange = (editorState) => this.setState({ editorState })
-        this.handleKeyCommand = this.handleKeyCommand.bind(this);
     }
     render() {
         const { MentionSuggestions } = this.mentionPlugin;
-        const plugins = [this.mentionPlugin];
 
         return this.state ? (
             <DraftJSCard title='Mention' className={editorStyles.editor}>
@@ -45,13 +33,13 @@ export default class DraftJSMention extends React.Component {
                 <Editor
                     editorState={this.state.editorState}
                     onChange={this.onChange}
-                    plugins={plugins}
+                    plugins={this.plugins}
                     ref={(element) => { this.editor = element; }}
                 />
-                {/* <MentionSuggestions
+                <MentionSuggestions
                     onSearchChange={this.onSearchChange}
                     suggestions={this.state.suggestions}
-                /> */}
+                />
             </DraftJSCard>
         ) : null
     }
@@ -63,10 +51,6 @@ export default class DraftJSMention extends React.Component {
         }
         return 'not-handled';
     }
-    state = {
-        editorState: EditorState.createEmpty(),
-        suggestions: mentions,
-    };
     onChange = (editorState) => {
         this.setState({
             editorState,

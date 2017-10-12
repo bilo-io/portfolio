@@ -55,14 +55,14 @@ export class App extends React.Component {
                                 <Route exact path="/" component={Home} />
                                 <Route exact path="/browser" component={Browser} />
                                 <Route exact path="/contact" component={Contact}/>
+                                <Route exact path="/draftjs" component={DraftJS}/>
                                 <Route exact path="/elastic" component={Elastic}/>
                                 <Route exact path="/places" component={Places}/>
+                                <Route exact path="/playground" component={Playground}/>
                                 <Route exact path="/ryda" component={Ryda}/>
                                 <Route exact path="/tutorials" component={Tutorials}/>
-                                <Route exact path="/draftjs" component={DraftJS}/>
                                 <Route exact path="/tutorials/:tutorialId" component={MarkdownReader}/>
                                 <Route exact path="/xui" component={XUI}/>
-                                <Route exact path="/playground" component={Playground}/>
                                 <Route path="*" component={NotFound}/>
                             </Switch>
                         </AppBody>
