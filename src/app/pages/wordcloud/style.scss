@@ -4,10 +4,10 @@
     @extend .ws-card;
     background: #dddddd;
     color: #333333;
-    // display: block;
+    padding-right: 0;
 }
 
 .highlighting {
-  background: yellow;
+  background:lighten(#00adee, 10%);
   color: black;
 }

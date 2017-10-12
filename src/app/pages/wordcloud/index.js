@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import WordCloud from './component'
+import WordCloudPage from './component'
 
 import {
     myAction
@@ -21,5 +21,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(WordCloud)
+)(WordCloudPage)
 

@@ -5,15 +5,19 @@ import FuzzySearch from 'fuzzy-search';
 import responses from './responses';
 import Highlighter from 'react-highlight-words';
 import { generateWordCloud } from './generate';
+import WordCloud from 'react-d3-cloud';
 
-export default class WordCloud extends Component {
+const fontSizeMapper = word => Math.log2(word.value) * 5;
+const rotate = word => 0;
+
+export default class WordCloudPage extends Component {
     constructor(props) {
         super(props)
         this.search = this.search.bind(this);
         this.select = this.select.bind(this);
-        this.responsesToWordcloud();
     }
     componentDidMount() {
+        this.responsesToWordcloud();
         this.searcher = new FuzzySearch(responses, ['text', 'tagline'], {
             caseSensitive: false,
         });
@@ -24,7 +28,7 @@ export default class WordCloud extends Component {
             searchResults: []
         })
     }
-    responsesToWordcloud() {
+    responsesToWordcloud(minMentions = 2, scale = 100) {
         let responseStrings =  responses.map( (r) => {
             return r.text
         })
@@ -32,15 +36,19 @@ export default class WordCloud extends Component {
         let words = generateWordCloud(responseStrings);
         let wordCloudData = []
         for( var key in words) {
-            wourdCloudData.push( { text: key, value: words[key]})
+            if(words[key] >= minMentions) {
+            wordCloudData.push( { text: key, value: words[key] * scale})
+            }
         }
-        console.log({wordCloudData});
+        this.setState({
+            ...this.state,
+            wordcloud: wordCloudData
+        })
     }
     render() {
         return this.state ? (
             <div className='page page-padded'>
                 <h1>Word Cloud</h1>
-                <div></div>
                 <Search
                     tag='wordcloud'
                     placeholder='search responses...'
@@ -55,6 +63,17 @@ export default class WordCloud extends Component {
                     onSelect={this.select}
                     suggestions={this.state.searchResults} />
 
+                {
+                    this.state.wordcloud ? (
+                        <div style={{width: '100%', height: '10em'}}>
+                            <WordCloud  
+                                data={this.state.wordcloud}
+                                fontSizeMapper={fontSizeMapper}
+                                rotate={rotate}
+                            />
+                        </div>
+                    ): null
+                }
             </div>
         ) : null
     }
@@ -93,10 +112,11 @@ export const Suggestions = (props, {highlight}) => {
         <div>
             {
             (props.suggestions || []).map((response, index) => {
+                let { person } = response;
                 return (
                     <div key={index} className='response-card' onClick={() => {props.onSelect('something', response), console.log({query})}}>
                         <label>
-                            <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={response.person} />
+                            <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={`${person.firstName} ${response.person.lastName}`} />
                         </label>
                         <p style={{ fontStyle: 'italic' }}>
                             <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={response.text} />
