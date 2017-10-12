@@ -4,15 +4,18 @@ import './style.scss';
 import FuzzySearch from 'fuzzy-search';
 import responses from './responses';
 import Highlighter from 'react-highlight-words';
+import { generateWordCloud, countWords } from './generate';
 
 export default class WordCloud extends Component {
     constructor(props) {
         super(props)
         this.search = this.search.bind(this);
         this.select = this.select.bind(this);
+        // countWords('Dude, where is my car? I thought my car was somewhere over there! come on dude!')
+        this.responsesToWordcloud();
     }
     componentDidMount() {
-        this.searcher = new FuzzySearch(responses, ['text', 'tagline', 'person'], {
+        this.searcher = new FuzzySearch(responses, ['text', 'tagline'], {
             caseSensitive: false,
         });
 
@@ -22,10 +25,18 @@ export default class WordCloud extends Component {
             searchResults: []
         })
     }
+    responsesToWordcloud() {
+        let responseStrings =  responses.map( (r) => {
+            return r.text
+        })
+        console.log('Data for wordcloud',{responseStrings})
+        generateWordCloud(responseStrings);
+    }
     render() {
         return this.state ? (
             <div className='page page-padded'>
                 <h1>Word Cloud</h1>
+                <div></div>
                 <Search
                     tag='wordcloud'
                     placeholder='search responses...'
