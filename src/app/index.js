@@ -79,6 +79,10 @@ export class App extends React.Component {
                 isOpen: false,
                 items: [
                     {
+                        link: '/autocomplete',
+                        name: 'autocomplete'
+                    },
+                    {
                         link: '/',
                         name: 'bilo'
                     // }, {

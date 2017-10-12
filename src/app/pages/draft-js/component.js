@@ -5,7 +5,7 @@ import Editor from 'draft-js-plugins-editor';
 // DraftJS Plugin Components
 import DraftJSHashTag from './samples/hashtag';
 import DraftJSLinkify from './samples/linkify';
-import DraftJSMention from './samples/mention/custom';
+import DraftJSMention from './samples/mention';
 import DraftJSEmoji from './samples/emoji';
 import './style.scss';
 

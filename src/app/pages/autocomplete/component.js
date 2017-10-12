@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import { EditorState } from 'draft-js';
+import Editor from 'draft-js-plugins-editor';
+import createMentionPlugin, { defaultSuggestionsFilter } from 'draft-js-mention-plugin';
 import './style.scss';
 
 export default class Autocomplete extends Component {
