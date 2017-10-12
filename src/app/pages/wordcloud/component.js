@@ -3,6 +3,7 @@ import { Search } from 'bilo-ui';
 import './style.scss';
 import FuzzySearch from 'fuzzy-search';
 import responses from './responses';
+import Highlighter from 'react-highlight-words';
 
 export default class WordCloud extends Component {
     constructor(props) {
@@ -33,8 +34,9 @@ export default class WordCloud extends Component {
                     suggestions={this.state.suggestions}
                     suggestionsOn={false}
                 />
-                
-                <Suggestions 
+
+                <Suggestions
+                    highlight={this.state.query}
                     onSelect={this.select}
                     suggestions={this.state.searchResults} />
 
@@ -45,15 +47,16 @@ export default class WordCloud extends Component {
         console.log('Selected:', { item })
     }
     search(tag, query) {
-        if(!query || !query.length) {
+        if (!query || !query.length) {
             this.setState({
                 ...this.state,
+                query,
                 suggestions: [],
                 searchResults: []
             })
             return;
         }
-        
+
         let searchResult = this.searcher.search(query);
         let results = searchResult.map((item) => {
             return {
@@ -62,6 +65,7 @@ export default class WordCloud extends Component {
         })
         this.setState({
             ...this.state,
+            query,
             suggestions: results,
             searchResults: searchResult
         })
@@ -69,15 +73,20 @@ export default class WordCloud extends Component {
     }
 }
 
-export const Suggestions = (props) => {
+export const Suggestions = (props, {highlight}) => {
     return (
-        <div>{
+        <div>
+            {
             (props.suggestions || []).map((response, index) => {
                 return (
-                    <div key={index} className='response-card' onClick={ () => props.onSelect('something', response)}>
-                        <label><b>{response.person}</b></label>
-                        <p style={{fontStyle: 'italic'}}><span>"{response.text}"</span></p>
-                        <p style={{color: '#999999'}}>~tagline: {response.tagline}</p>
+                    <div key={index} className='response-card' onClick={() => {props.onSelect('something', response), console.log({query})}}>
+                        <label>
+                            <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={response.person} />
+                        </label>
+                        <p style={{ fontStyle: 'italic' }}>
+                            <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={response.text} />
+                        </p>
+                        <p style={{ color: '#999999' }}>~tagline: {response.tagline}</p>
                     </div>
                 )
             })
