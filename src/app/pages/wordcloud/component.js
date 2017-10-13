@@ -50,7 +50,6 @@ export default class WordCloudPage extends Component {
             <div className='page page-padded'>
                 <h1>Word Cloud</h1>
                 <Search
-                    tag='wordcloud'
                     placeholder='search responses...'
                     search={this.search}
                     select={this.select}

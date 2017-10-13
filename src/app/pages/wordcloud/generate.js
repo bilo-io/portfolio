@@ -1,4 +1,4 @@
-export const countWords = (dataString) => {
+export const stringToHistogram = (dataString) => {
     let wordCount = {}
     let words = dataString.split(' ').map((word) => { return removeSpecialChars(word).toLowerCase() });
     words.forEach((word) => {
@@ -12,7 +12,7 @@ export const countWords = (dataString) => {
     return wordCount;
 }
 
-export const combineWords = (oldData, newData) => {
+export const combineHistograms = (oldData, newData) => {
     let result = oldData;
     for (var key in newData) {
         if (result[key]) {
@@ -28,9 +28,9 @@ export const generateWordCloud = (data) => {
     let histogram
     data.forEach((entry) => {
         if (!histogram) {
-            histogram = countWords(entry)
+            histogram = stringToHistogram(entry)
         } else {
-            histogram = combineWords(histogram, countWords(entry))
+            histogram = combineHistograms(histogram, stringToHistogram(entry))
         }
     })
     console.log(histogram)
