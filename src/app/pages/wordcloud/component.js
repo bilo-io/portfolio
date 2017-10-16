@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Search } from 'bilo-ui';
 import './style.scss';
 import FuzzySearch from 'fuzzy-search';
-import responses from './responses';
+import responses from './gta';
 import Highlighter from 'react-highlight-words';
 import { generateWordCloud } from './generate';
 import WordCloud from 'react-d3-cloud';
@@ -13,8 +13,30 @@ const rotate = word => 0;
 export default class WordCloudPage extends Component {
     constructor(props) {
         super(props)
-        this.search = this.search.bind(this);
-        this.select = this.select.bind(this);
+        this.searchResponses = this.searchResponses.bind(this);
+        this.selectResponse = this.selectResponse.bind(this);
+    }
+    render() {
+        return this.state ? (
+            <div className='page page-padded'>
+                <h1>Word Cloud</h1>
+                <Search
+                    placeholder='search responses...'
+                    search={this.searchResponses}
+                    select={this.selectResponse}
+                    query={this.state.query}
+                    suggestions={this.state.suggestions}
+                    suggestionsOn={false}
+                />
+                <BilosWordCloud
+                    wordcloud={this.state.wordcloud}
+                    onClick={(e) => this.clickWord(e)} />
+                <Suggestions
+                    highlight={this.state.query}
+                    onSelect={this.selectResponse}
+                    suggestions={this.state.searchResults} />
+            </div>
+        ) : null
     }
     componentDidMount() {
         this.responsesToWordcloud();
@@ -45,41 +67,10 @@ export default class WordCloudPage extends Component {
             wordcloud: wordCloudData
         })
     }
-    render() {
-        return this.state ? (
-            <div className='page page-padded'>
-                <h1>Word Cloud</h1>
-                <Search
-                    placeholder='search responses...'
-                    search={this.search}
-                    select={this.select}
-                    suggestions={this.state.suggestions}
-                    suggestionsOn={false}
-                />
-
-                <Suggestions
-                    highlight={this.state.query}
-                    onSelect={this.select}
-                    suggestions={this.state.searchResults} />
-
-                {
-                    this.state.wordcloud ? (
-                        <div style={{width: '100%', height: '10em'}}>
-                            <WordCloud  
-                                data={this.state.wordcloud}
-                                fontSizeMapper={fontSizeMapper}
-                                rotate={rotate}
-                            />
-                        </div>
-                    ): null
-                }
-            </div>
-        ) : null
-    }
-    select(tag, item) {
+    selectResponse(tag, item) {
         console.log('Selected:', { item })
     }
-    search(tag, query) {
+    searchResponses(tag, query) {
         if (!query || !query.length) {
             this.setState({
                 ...this.state,
@@ -104,6 +95,16 @@ export default class WordCloudPage extends Component {
         })
         console.log(searchResult)
     }
+    clickWord(e) {
+        let word = e.target.innerHTML
+        if (word[0] === '<') return;
+        console.log('Clicked WordCloud', word)
+        this.setState({
+            ...this.state,
+            query: word
+        })
+        this.searchResponses(undefined, word);
+    }
 }
 
 export const Suggestions = (props, {highlight}) => {
@@ -111,21 +112,31 @@ export const Suggestions = (props, {highlight}) => {
         <div>
             {
             (props.suggestions || []).map((response, index) => {
-                let { person } = response;
                 return (
-                    <div key={index} className='response-card' onClick={() => {props.onSelect('something', response), console.log({query})}}>
+                    <div key={index} className='response-card' onClick={() => {props.onSelect('something', response), console.log(props.query)}}>
                         <label>
-                            <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={`${person.firstName} ${response.person.lastName}`} />
+                            <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={`${response.name}`} />
                         </label>
                         <p style={{ fontStyle: 'italic' }}>
                             <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={response.text} />
-                        </p>
-                        <p style={{ color: '#999999' }}>
-                            ~tagline: <Highlighter highlightClassName='highlighting' searchWords={[props.highlight]} textToHighlight={response.tagline} />
                         </p>
                     </div>
                 )
             })
         }</div>
+    )
+}
+
+export const BilosWordCloud = (props, {wordcloud}) => {
+    return (
+        props.wordcloud ? (
+            <div className={props.className} onClick={props.onClick} style={props.style}>
+                <WordCloud  
+                    data={props.wordcloud}
+                    fontSizeMapper={fontSizeMapper}
+                    rotate={rotate}
+                    />
+            </div>
+        ): null
     )
 }

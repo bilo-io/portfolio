@@ -11,3 +11,17 @@
   background:lighten(#00adee, 10%);
   color: black;
 }
+
+svg {
+  height: 15em;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+text {
+  &:hover {
+    cursor: pointer;
+    background-color: $col-active;
+    
+  }
+}
