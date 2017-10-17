@@ -5,7 +5,11 @@ import './style.scss';
 import { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import createAutocompletePlugin, { defaultSuggestionsFilter } from './draft-js-autocomplete-plugin';
+import createNoNewLinePlugin from './draft-js-no-newline-plugin';
+import createHighlightPlugin from './bilo-djs-highlight-plugin';
+const highlightPlugin = createHighlightPlugin();
 const autocompletePlugin = createAutocompletePlugin();
+const noNewlinePlugin = createNoNewLinePlugin();
 const { CompletionSuggestions } = autocompletePlugin;
 
 const suggestions = fromJS([
@@ -35,7 +39,11 @@ export default class Autocomplete extends Component {
         this.initEditor();
     }
     initEditor() {
-        this.plugins = [autocompletePlugin];
+        this.plugins = [
+            // autocompletePlugin, 
+            highlightPlugin,
+            noNewlinePlugin
+        ];
         this.setState({
             editorState: EditorState.createEmpty(),
             suggestions: List()
