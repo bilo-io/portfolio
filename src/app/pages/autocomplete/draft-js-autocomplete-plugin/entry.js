@@ -13,7 +13,7 @@ export default class AutocompleteEntry extends Component {
     };
 
     //#region Initialisation
-    constructor() {
+    constructor(props) {
         super(props)
         this.mouseDown = false;
     }

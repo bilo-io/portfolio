@@ -3,6 +3,7 @@ import React from 'react';
 import { EditorState, RichUtils } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 // DraftJS Plugin Components
+import DraftJSCustom from './samples/custom';
 import DraftJSHashTag from './samples/hashtag';
 import DraftJSLinkify from './samples/linkify';
 import DraftJSMention from './samples/mention';
@@ -17,13 +18,11 @@ export class DraftJS extends React.Component {
         return (
             <div className='page page-padded'>
                 <h1>DraftJS</h1>
-                
-            icon:<i className='fa fa-menu fa-lg' />
-                
+                <DraftJSCustom />
                 <DraftJSHashTag />
                 <DraftJSLinkify />
-                {/* <DraftJSEmoji /> */}
                 <DraftJSMention />
+                {/* <DraftJSEmoji /> */}
             </div>
         )
     }
