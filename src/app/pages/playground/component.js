@@ -1,89 +1,72 @@
 import React from 'react';
 import { Search } from 'bilo-ui';
 import './style.scss';
-import FuzzySearch from 'fuzzy-search';
 
-const people = [{
-    name: {
-        firstName: 'Bilo',
-        lastName: 'Lwabona',
-    },
-    state: 'TZ',
-}, {
-    name: {
-        firstName: 'Mario',
-        lastName: 'Kowarz',
-    },
-    state: 'AU',
-}, {
-    name: {
-        firstName: 'Tyler',
-        lastName: 'Clark',
-    },
-    state: 'RSA',
-}, {
-    name: {
-        firstName: 'Anton',
-        lastName: 'Noll',
-    },
-    state: 'NAM',
-}];
+import BrowserDetector, { initialState } from '../../components/browser-detector';
 
-const searcher = new FuzzySearch(people, ['name.firstName', 'state'], {
-    caseSensitive: false,
-});
 
 export default class Playground extends React.Component {
     constructor(props) {
         super(props)
     }
     componentDidMount() {
-        this.search = this.search.bind(this);
-        this.select = this.select.bind(this);
+        this.onCheck = this.onCheck.bind(this);
+        this.setState({ browserSupport: initialState() })
+    }
+    onCheck(browserSupport) {
         this.setState({
-            search: {
-                query: '',
-                suggestions: []
-            }
-        })
+            browserSupport
+        }, () => console.log(this.state))
     }
     render() {
+        const supportedBrowsers = {
+            chrome: {
+                minVersion: '4.10',
+            },
+            firefox: {
+                minVersion: '19.5',
+            },
+            safari: {
+                minVersion: '10.2',
+            },
+            ie: {
+                minVersion: '10',
+            },
+            opera: {
+                minVersion: '19.9'
+            }
+        }
+        let inlineWarningStyle = {
+            margin: '3em',
+            background: 'red',
+            color: 'white'
+        }
         return this.state ? (
             <div className='page'>
-                <Search
-                    tag={'fuzzy'}
-                    placeholder='fuzzy-search...'
-                    search={this.search}
-                    select={this.select}
-                    suggestions={this.state.search.suggestions}
-                    suggestionsOn={true}
+                <BrowserDetector supported={supportedBrowsers}/>
+
+                <BrowserDetector
+                    onCheck={this.onCheck}
+                    supported={supportedBrowsers}
+                    className={'custom-warning-style'} 
                 />
+
+                <BrowserDetector
+                    onCheck={this.onCheck}
+                    supported={supportedBrowsers}
+                    style={inlineWarningStyle}
+                    >
+                    <b>
+                        {this.state.browserSupport.browser.name}, version: {this.state.browserSupport.browser.version} unsupported
+                    </b> 
+                    <br />
+                    oh my goodness, we don't seem to support your browser 😳
+                    <br />
+                    <a 
+                        style={{marginTop: '5em'}}
+                        href={'https://www.google.com/chrome/browser/desktop/index.html'}>Download Chrome</a>
+                </BrowserDetector>
             </div>
         ) : null
-    }
-    search(tag, query) {
-        let result = searcher.search(query);
-        let results = result.map((item) => {
-            return {
-                label: item.name.firstName + ' ' + item.name.lastName + ', ' + item.state
-            }
-        });
-        this.setState({
-            ...this.state,
-            search: {
-                ...this.state.search,
-                suggestions: results
-            }
-        }, () => console.log(`q: '${query}'`, this.state.search.suggestions));
-    }
-    select(tag, item) {
-        this.setState({
-            ...this.state,
-            search: {
-                query: '',
-                selection: item,
-                suggestions: []
-            }
-        }, () => console.log(this.state.search))
     }
 }
