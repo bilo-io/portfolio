@@ -4,21 +4,24 @@ const { detect } = require('detect-browser');
 import cmp from 'semver-compare';
 import './style.scss';
 
-export const initialState = () => {
+export const detectBrowser = () => {
     return {
-        browser: detect(),
+        ...detect(),
         message: '',
         supported: true,
     }
 }
 
-export default class BrowserDetector extends Component {
+export default class BrowserSupport extends Component {
+    static propTypes = {
+        supported: PropTypes.object.isRequired,
+    }
+    state = {
+        browser: {},
+        message: '',
+        supported: true,
+    }
     componentDidMount() {
-        this.setState({
-            browser: {},
-            message: '',
-            supported: true,
-        })
         const browser = detect();
         this.determineBrowserSupport(browser);
     }
@@ -26,29 +29,26 @@ export default class BrowserDetector extends Component {
         let { children, className, style } = this.props;
 
         return this.state && !this.state.supported ? (
-
             <div
-                className={className || 'warning-callout'}
+                className={(!style) ? (className || 'warning-callout') : ''}
                 style={style || {}}>
                 {children ? children : (
                     <div>{this.state.message}</div>
                 )}
             </div>
-
         ) : null
     }
     determineBrowserSupport(browser) {
-        let { supportedBrowsers } = this.props;
-        console.log({supportedBrowsers});
+        let { supported } = this.props;
         if (!browser) {
             console.log('could not detect browser');
         }
         else {
-            if (!supportedBrowsers[browser.name]) {
+            if (!supported[browser.name]) {
                 this.setAsUnsupported(browser);
             } else {
-                let currentBrowser = supportedBrowsers[browser.name];
-                if (cmp(browser.version, currentBrowser.minVersion) < 0) {
+                let browserVersion = supported[browser.name];
+                if (cmp(browser.version, browserVersion) < 0) {
                     this.setAsUnsupported(browser);
                 } else {
                     this.setAsSupported(browser);
@@ -60,7 +60,7 @@ export default class BrowserDetector extends Component {
         this.setState({
             browser,
             supported: false,
-            message: `${browser.name} version ${browser.version} is not currently supported.`,
+            message: `${browser.name} version ${browser.version} is not currently supported`,
         }, () => console.log(this.state))
     }
     setAsSupported(browser) {
@@ -70,8 +70,4 @@ export default class BrowserDetector extends Component {
             message: `${browser.name} version ${browser.version} is supported`
         }, () => console.log(this.state))
     }
-}
-
-BrowserDetector.PropTypes = {
-    list: PropTypes.array.isRequired,
 }
