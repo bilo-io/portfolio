@@ -1,13 +1,14 @@
 # react-browser-support
 
-## Download
-
 This component displays a message, if the current browser is not supported.
 This is determined using a list of supportedBrowsers ( a javascript object).
 Supported Browsers are specified as an Object to the `list` prop of `<BrowserDetector supported={minBrowserVersions}>`.
 
-## Usage
-#### Basic:
+### Installation
+
+`npm install react-browser-support --save-dev`
+
+### Basic
 
 You can use the default `BrowserDetector` component.
 ```jsx
@@ -36,6 +37,8 @@ export default class MyComponent extends React.Component {
     }
 }
 ```
+
+![](docs/default.png)
 
 ### Custom
 
@@ -79,10 +82,11 @@ render() {
             </div>
         </BrowserSupport>
     </div>
-
     ) : null
 }
 ```
+
+![](docs/custom.png)
 
 > NOTE: If you are using chrome, you can test this with the [User-Agent Switcher for Chrome](https://chrome.google.com/webstore/search/user%20agent%20switcher) extension.
 
