@@ -23,7 +23,7 @@ export class Places extends React.Component {
                 <h1>Places</h1>
                 <div className='side'>
                     <Search
-                        tag={'place'}
+                        tag='place'
                         placeholder='search...'
                         search={this.props.searchPlaces}
                         suggestionsOn={true}
@@ -35,6 +35,9 @@ export class Places extends React.Component {
                 </div>
             </div>
         )
+    }
+    onSearchChange(tag, searchState) {
+
     }
 }
 
