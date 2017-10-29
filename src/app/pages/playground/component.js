@@ -2,7 +2,7 @@ import React from 'react';
 import { Search } from 'bilo-ui';
 import './style.scss';
 
-import BrowserSupport, { detectBrowser } from '../../components/browser-support';
+import BrowserSupport, { detectBrowser } from 'react-browser-support'
 
 const minBrowserVersions = {
     chrome: '4.10',

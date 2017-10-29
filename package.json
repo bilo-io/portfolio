@@ -48,6 +48,7 @@
     "nprogress": "^0.2.0",
     "pygmentize-bundled": "^2.3.0",
     "react": "^15.5.4",
+    "react-browser-support": "0.0.1",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.6",
     "react-router": "^4.1.1",
