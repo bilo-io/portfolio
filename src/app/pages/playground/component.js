@@ -1,89 +1,65 @@
 import React from 'react';
 import { Search } from 'bilo-ui';
 import './style.scss';
-import FuzzySearch from 'fuzzy-search';
 
-const people = [{
-    name: {
-        firstName: 'Bilo',
-        lastName: 'Lwabona',
-    },
-    state: 'TZ',
-}, {
-    name: {
-        firstName: 'Mario',
-        lastName: 'Kowarz',
-    },
-    state: 'AU',
-}, {
-    name: {
-        firstName: 'Tyler',
-        lastName: 'Clark',
-    },
-    state: 'RSA',
-}, {
-    name: {
-        firstName: 'Anton',
-        lastName: 'Noll',
-    },
-    state: 'NAM',
-}];
+import BrowserSupport, { detectBrowser } from 'react-browser-support'
 
-const searcher = new FuzzySearch(people, ['name.firstName', 'state'], {
-    caseSensitive: false,
-});
+const minBrowserVersions = {
+    chrome: '4.10',
+    edge: '',
+    firefox: '19.5',
+    ie: '10',
+    opera: '19.9',
+    safari: '10.2',
+}
 
 export default class Playground extends React.Component {
     constructor(props) {
         super(props)
     }
     componentDidMount() {
-        this.search = this.search.bind(this);
-        this.select = this.select.bind(this);
+        this.onCheck = this.onCheck.bind(this);
+        this.setState({ browser: detectBrowser() })
+    }
+    onCheck(browser) {
         this.setState({
-            search: {
-                query: '',
-                suggestions: []
-            }
-        })
+            browser
+        }, () => console.log(this.state))
     }
     render() {
+        let inlineWarningStyle = {
+            margin: '3em',
+            padding: '1em',
+            border: '1px solid red',
+            color: 'white'
+        }
         return this.state ? (
             <div className='page'>
-                <Search
-                    tag={'fuzzy'}
-                    placeholder='fuzzy-search...'
-                    search={this.search}
-                    select={this.select}
-                    suggestions={this.state.search.suggestions}
-                    suggestionsOn={true}
+                <BrowserSupport supported={minBrowserVersions}/>
+
+                <BrowserSupport
+                    onCheck={this.onCheck}
+                    supported={minBrowserVersions}
+                    className='custom-warning-style'
                 />
+
+                <BrowserSupport
+                    onCheck={this.onCheck}
+                    supported={minBrowserVersions}
+                    style={inlineWarningStyle}>
+                    <b>
+                        {this.state.browser.name} (version: {this.state.browser.version}) unsupported
+                    </b> 
+                    <div>
+                        oh my goodness, we don't seem to support your browser 😳
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'column', marginTop: '1em'}}>
+                        <a href={'https://www.google.com/chrome/browser/desktop/index.html'}>Download Chrome</a>
+                        <a href='https://www.mozilla.org/en-US/firefox/new/'>Download Firefox</a>
+                        <a href='https://safari.en.softonic.com/mac/download'>Download Safari</a>
+                    </div>
+                </BrowserSupport>
             </div>
         ) : null
-    }
-    search(tag, query) {
-        let result = searcher.search(query);
-        let results = result.map((item) => {
-            return {
-                label: item.name.firstName + ' ' + item.name.lastName + ', ' + item.state
-            }
-        });
-        this.setState({
-            ...this.state,
-            search: {
-                ...this.state.search,
-                suggestions: results
-            }
-        }, () => console.log(`q: '${query}'`, this.state.search.suggestions));
-    }
-    select(tag, item) {
-        this.setState({
-            ...this.state,
-            search: {
-                query: '',
-                selection: item,
-                suggestions: []
-            }
-        }, () => console.log(this.state.search))
     }
 }
