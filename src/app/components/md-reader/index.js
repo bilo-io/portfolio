@@ -21,7 +21,7 @@ marked.setOptions({
     }
 })
 
-export default class Tutorial extends React.Component {
+export default class MDReader extends React.Component {
     constructor(props) {
         super(props);
     }

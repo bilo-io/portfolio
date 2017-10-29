@@ -1,5 +1,5 @@
 import React from 'react';
-import MDReader from '../../components/md-reader';
+import { MDReader } from 'bilo-ui';
 require('./style.scss');
 
 export default class Tutorial extends React.Component {
