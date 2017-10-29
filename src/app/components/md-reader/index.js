@@ -1,4 +1,5 @@
 import React from 'react';
+import {Loader, LoaderType} from 'bilo-ui';
 require('./style.scss');
 var axios = require('axios');
 var marked = require('marked');
@@ -24,14 +25,26 @@ export default class Tutorial extends React.Component {
     constructor(props) {
         super(props);
     }
-    componentDidMount() {
-        this.fetchMarkdown(this.props.url)
-    }
     componentWillReceiveProps(nextProps) {
         console.log({nextProps});
-        this.fetchMarkdown(nextProps.url);
+        let {markdown, url} = nextProps;
+        this.setState({
+            ...this.state,
+            markdown,
+            url
+        }, () => {
+            nextProps.url
+                ? this.fetchMD(nextProps.url)
+                : null;
+            nextProps.markdown
+                ? this.processMD(nextProps.markdown)
+                : null;
+        });
+
     }
-    fetchMarkdown(url) {
+    fetchMD(url) {
+        this.loading = true;
+        console.log('Loading: ', this.loading)
         if (!url) {
             console.warn('no url specified!: ', url)
             return;
@@ -40,37 +53,62 @@ export default class Tutorial extends React.Component {
         axios
             .get(url)
             .then((response) => {
-                this.convertMarkdown(response.data);
+                this.processMD(response.data);
             })
+            .catch((e) => {
+                console.warn(e),
+                console.log(this.state)
+            });
     }
-    convertMarkdown(markdown) {
+    processMD(markdown) {
+        // get headings:
+        let lines = markdown
+            .split('\n')
+            .filter(line => line.substr(0, 1) === '#');
+        console.log({lines});
+        this.setState({
+            ...this.state,
+            markdown,
+            lines,
+            headings: lines.map(line => line.substr(2, line.length))
+        }, () => console.log(this.state))
+        // convert & highlight
+        this.convertMDtoHTML(markdown);
+    }
+    convertMDtoHTML(markdown) {
         this.setState({
             ...this.state,
             html: marked(markdown)
+        }, () => {
+            this.loading = false;
+            console.log('Loading: ', this.loading)
+            console.log(this.state)
         });
     }
     render() {
         return this.state
-            ? (
-                <div className='markdown-wrapper'>
-                    <div className='markdown-nav'>
-                        {(this.state.headings || []).map((heading) => {
-                            return <div key={heading}>{heading}</div>
-                        })}
-                    </div>
-                    <div className='markdown-container'>
-                        <div>
-                            {this.state.html
-                                ? <div
-                                        className='markdown'
-                                        dangerouslySetInnerHTML={{
-                                        __html: this.state.html
-                                    }}></div>
-                                : null}
+            ? (!this.loading
+                ? <Loader type={LoaderType.RAINBOW}/>
+                : (
+                    <div className='markdown-wrapper'>
+                        <div className='markdown-nav'>
+                            {(this.state.headings || []).map((heading) => {
+                                return <div key={heading}>{heading}</div>
+                            })}
+                        </div>
+                        <div className='markdown-container'>
+                            <div>
+                                {this.state.html
+                                    ? <div
+                                            className='markdown'
+                                            dangerouslySetInnerHTML={{
+                                            __html: this.state.html
+                                        }}></div>
+                                    : null}
+                            </div>
                         </div>
                     </div>
-                </div>
-            )
+                ))
             : null;
     }
 }
