@@ -1,5 +1,6 @@
 //https://github.com/react-dnd/react-dnd/tree/master/examples/01%20Dustbin/Single%20Target
 import React, { Component } from 'react'
+import { Icon } from 'bilo-ui'
 import { cardStyle } from './styles'
 import { DragSource } from 'react-dnd'
 import { ItemTypes } from './item-types'
@@ -30,10 +31,10 @@ function collect(connect, monitor) {
 @DragSource(ItemTypes.CARD, cardSource, collect)
 export default class Card extends Component {
     render() {
-        const { connectDragSource, isDragging } = this.props;
+        const { name, type, connectDragSource, isDragging } = this.props;
         return connectDragSource(
             <div style={cardStyle}>
-                {this.props.name}
+                <Icon name={type === 'number' ? 'icon' : 'search'} /> {name}
             </div>
         )
     }
