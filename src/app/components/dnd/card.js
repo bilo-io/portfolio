@@ -4,6 +4,7 @@ import { Icon } from 'bilo-ui'
 import { cardStyle } from './styles'
 import { DragSource } from 'react-dnd'
 import { ItemTypes } from './item-types'
+import { log } from '../../../utils/log'
 
 const cardSource = {
     beginDrag(props, monitor, component) {
@@ -16,7 +17,7 @@ const cardSource = {
         const dropResult = monitor.getDropResult()
 
         if(dropResult) {
-            console.log(`You dropped "${item.name}" into "${dropResult.name}"`)
+            log(`<Card:>`,`You dropped "${item.name}" into "${dropResult.name}"`,{dropResult})
         }
     }
 }

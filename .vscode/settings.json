@@ -5,9 +5,8 @@
       "editor.tabSize": 4
   },
   "window.zoomLevel": -1,
-
-  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.scrollback": 100000,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle":"line",
-  "terminal.integrated.confirmOnExit": true
+  "terminal.external.osxExec": "iTerm.app"
 }

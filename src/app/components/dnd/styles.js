@@ -25,6 +25,6 @@ export const dndStyle = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'stretch',
-    height: '20em',
+    minHeight: '20em',
     color: 'white'
 }

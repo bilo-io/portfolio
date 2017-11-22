@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { areaStyle } from './styles'
 import { DropTarget } from 'react-dnd'
 import { ItemTypes } from './item-types'
+import { log } from '../../../utils/log'
 
 const areaTarget = {
     drop(props, monitor, component) {
-        console.log(`dropping: `, props, monitor, component)
+        log(`<Area />`, `dropping: `, { props, monitor, component })
         return {
             name: 'Area'
         }
