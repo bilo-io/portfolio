@@ -1,8 +1,8 @@
 export const areaStyle = {
     margin: '1em',
     background: 'transparent',
-    border: '1px dotted white',
-    padding: '1em',
+    border: '1px dashed white',
+    padding: '0em',
     height: '8em',
     width: '20em'
 }

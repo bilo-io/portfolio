@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { areaStyle } from './styles'
 import { DropTarget } from 'react-dnd'
 import { ItemTypes } from './item-types'
-import { log } from '../../../utils/log'
+import { log } from '../../../utils/logger'
 
+const logger = new Logger(`<Area />`)
 const areaTarget = {
     drop(props, monitor, component) {
-        log(`<Area />`, `dropping: `, { props, monitor, component })
+        logger.log(`dropping: `, props, monitor, component)
         return {
             name: 'Area'
         }
@@ -30,7 +31,7 @@ export default class Area extends Component {
                 {
                     this.props.children
                         ? this.props.children
-                        : <div>drop stuff here...</div>
+                        : <div style={{position: 'absolute'}}>drop stuff here...</div>
                 }
 
                 {isOver &&
