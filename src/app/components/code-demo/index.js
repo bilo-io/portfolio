@@ -36,6 +36,7 @@ class CodeDemo extends React.Component {
             ...this.state,
             isOpen: !this.state.isOpen
         })
+        console.log(this.jsxCodeRef)
     }
     render() {
         const { isOpen } = this.state;
@@ -46,11 +47,12 @@ class CodeDemo extends React.Component {
                 </span>
                 {isOpen
                     ? <Highlight className='jsx'>
+                        {this.jsxCodeRef && this.jsxCodeRef.textContent}
                         {this.snippet}
                     </Highlight>
                     : null
                 }
-                <div>
+                <div ref={(jsxCode) => {this.jsxCodeRef = jsxCode}}>
                     {this.props.children}
                 </div>
             </div>
