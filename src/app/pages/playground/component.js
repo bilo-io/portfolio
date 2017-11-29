@@ -2,8 +2,6 @@ import React from 'react';
 import { Search } from 'bilo-ui';
 import './style.scss';
 
-import BrowserSupport, { detectBrowser } from 'react-browser-support'
-
 const minBrowserVersions = {
     chrome: '4.10',
     edge: '',
@@ -35,7 +33,7 @@ export default class Playground extends React.Component {
         }
         return this.state ? (
             <div className='page'>
-                <BrowserSupport supported={minBrowserVersions}/>
+                {/* <BrowserSupport supported={minBrowserVersions}/>
 
                 <BrowserSupport
                     onCheck={this.onCheck}
@@ -58,7 +56,7 @@ export default class Playground extends React.Component {
                         <a href='https://www.mozilla.org/en-US/firefox/new/'>Download Firefox</a>
                         <a href='https://safari.en.softonic.com/mac/download'>Download Safari</a>
                     </div>
-                </BrowserSupport>
+                </BrowserSupport> */}
             </div>
         ) : null
     }
