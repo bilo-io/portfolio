@@ -2,6 +2,9 @@ import React from 'react';
 import Highlight from 'react-hljs'
 import { Icon } from 'bilo-ui'
 import './style.scss'
+import jsxToString from 'jsx-to-string'
+import reactElementToJSXString from 'react-element-to-jsx-string';
+import ReactElementToString from 'react-element-to-string'
 
 class CodeDemo extends React.Component {
     constructor(props) {
@@ -30,6 +33,7 @@ class CodeDemo extends React.Component {
     }
     componentDidMount() {
         console.log(this.refs)
+        console.log(ReactElementToString(<div><Icon name='code'/></div>))
     }
     toggle() {
         this.setState({
