@@ -18,7 +18,8 @@ export default class Firebase extends Component {
     componentWillMount() { 
         this.setState({
             user: undefined,
-            username: undefined
+            username: undefined,
+            avatarUrl: undefined
         })
         this.initFirebase();
     }
@@ -51,7 +52,8 @@ export default class Firebase extends Component {
         this.setState({
             ...this.state,
             user: user,
-            username: user.username
+            username: user.username,
+            avatarUrl: user.profile.avatar_url
         }, () => { console.log(this.state) })
     }
 
@@ -64,9 +66,12 @@ export default class Firebase extends Component {
                     <Icon name='github' />
                 </button>
                 <br />
+                <br />
                 {this.state && this.state.user ? (
                     <div>
-                        Signed in as: {this.state.username}
+                        {this.state.username}
+                        <br />
+                        <img width='64px' style={{borderRadius: '50%', width: '4em', height: 'auto'}} src={this.state.avatarUrl} />
                     </div>
                 ):null}
             </div>
