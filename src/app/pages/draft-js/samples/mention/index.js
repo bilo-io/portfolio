@@ -21,7 +21,7 @@ export default class DraftJSMention extends React.Component {
         this.setState({
             editorState: EditorState.createEmpty(),
             suggestions: mentions
-        }, () => {console.log(this.state.suggestions)});
+        });
         this.onChange = (editorState) => this.setState({ editorState })
     }
     render() {

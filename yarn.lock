@@ -889,6 +889,12 @@ big.js@^3.1.3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
 
+bilo-ui@0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/bilo-ui/-/bilo-ui-0.0.8.tgz#b3c8e4b1040c1f543091df4b8dd28a18ae63a069"
+  dependencies:
+    react-redux "^5.0.6"
+    redux "^3.7.2"
 bilo-ui@0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/bilo-ui/-/bilo-ui-0.0.6.tgz#aeac5bcc329107f735593c938fd6774a106f1fcc"

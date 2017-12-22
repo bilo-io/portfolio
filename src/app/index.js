@@ -5,6 +5,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 // Components
 import {AppTopBar, AppSidenav, AppBody} from 'bilo-ui';
 // Containers
+import Autocomplete from './pages/autocomplete';
 import Browser from './pages/browser';
 import Contact from './pages/contact';
 import DraftJS from './pages/draft-js';
@@ -55,6 +56,7 @@ export class App extends React.Component {
                             </AppSidenav>
                             <Switch>
                                 <Route exact path="/" component={Home} />
+                                <Route exact path="/autocomplete" component={Autocomplete} />
                                 <Route exact path="/browser" component={Browser} />
                                 <Route exact path="/contact" component={Contact}/>
                                 <Route exact path="/draftjs" component={DraftJS}/>
@@ -81,17 +83,27 @@ export class App extends React.Component {
                 isOpen: false,
                 items: [
                     {
+                        link: '/autocomplete',
+                        name: 'autocomplete'
+                    },
+                    {
                         link: '/',
                         name: 'bilo'
-                    }, {
-                        link: '/browser',
-                        name: 'browser'
-                    }, {
-                        link: '/contact',
-                        name: 'contact'
+                    // }, {
+                    //     link: '/browser',
+                    //     name: 'browser'
+                    // }, {
+                    //     link: '/contact',
+                    //     name: 'contact'
                     }, {
                         link: '/draftjs',
                         name: 'draft.js'
+                    // }, {
+                    //     link: '/elastic',
+                    //     name: 'elastic'
+                    // }, {
+                    //     link: '/places',
+                    //     name: 'places'
                     }, {
                         link: '/elastic',
                         name: 'elastic'
@@ -106,7 +118,7 @@ export class App extends React.Component {
                         name: 'playground'
                     }, {
                         link: '/ryda',
-                        name: 'rYda'
+                        name: 'ryda'
                     }, {
                         link: '/tutorials',
                         name: 'Tutorials'

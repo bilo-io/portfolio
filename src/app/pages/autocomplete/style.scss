@@ -1,0 +1,5 @@
+@import '../../../app.scss';
+
+.my-editor {
+  @extend .ws-card;    
+}
