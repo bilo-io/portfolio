@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search } from 'bilo-ui';
+import { DnD } from '../../components/dnd';
 import './style.scss';
 
 const minBrowserVersions = {
@@ -16,13 +16,7 @@ export default class Playground extends React.Component {
         super(props)
     }
     componentDidMount() {
-        this.onCheck = this.onCheck.bind(this);
-        this.setState({ browser: detectBrowser() })
-    }
-    onCheck(browser) {
-        this.setState({
-            browser
-        }, () => console.log(this.state))
+
     }
     render() {
         let inlineWarningStyle = {
@@ -35,11 +29,7 @@ export default class Playground extends React.Component {
             <div className='page'>
                 {/* <BrowserSupport supported={minBrowserVersions}/>
 
-                <BrowserSupport
-                    onCheck={this.onCheck}
-                    supported={minBrowserVersions}
-                    className='custom-warning-style'
-                />
+                <DnD />
 
                 <BrowserSupport
                     onCheck={this.onCheck}
@@ -58,6 +48,6 @@ export default class Playground extends React.Component {
                     </div>
                 </BrowserSupport> */}
             </div>
-        ) : null
+        )
     }
 }
