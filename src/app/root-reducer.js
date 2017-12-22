@@ -11,6 +11,7 @@ import playgroundReducer from './pages/playground/reducer';
 import rydaReducer from './pages/ryda/reducer';
 import tutorialsReducer from './pages/tutorials/reducer';
 import xuiReducer from './pages/xui/reducer';
+import wordcloudReducer from './pages/wordcloud/reducer';
 // Containers
 import mapReducer from './containers/map/reducer';
 
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
     playground: playgroundReducer,
     ryda: rydaReducer,
     tutorials: tutorialsReducer,
+    wordcloud: wordcloudReducer,
     // Containers
     map: mapReducer,
     xui: xuiReducer,
