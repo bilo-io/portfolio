@@ -33,6 +33,7 @@
     "draft-js-mention-plugin": "^2.0.0-beta10",
     "draft-js-plugins-editor": "^2.0.0-beta10",
     "file-loader": "^0.11.1",
+    "firebase": "^4.6.2",
     "fs": "0.0.1-security",
     "fuzzy-search": "^2.0.0",
     "hamburgers": "^0.9.1",
