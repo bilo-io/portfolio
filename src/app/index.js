@@ -81,27 +81,27 @@ export class App extends React.Component {
                     {
                         link: '/',
                         name: 'bilo'
-                    }, {
-                        link: '/browser',
-                        name: 'browser'
+                    // }, {
+                    //     link: '/browser',
+                    //     name: 'browser'
                     }, {
                         link: '/contact',
                         name: 'contact'
                     }, {
                         link: '/draftjs',
                         name: 'draft.js'
-                    }, {
-                        link: '/elastic',
-                        name: 'elastic'
-                    }, {
-                        link: '/firebase',
-                        name: 'firebase'
-                    }, {
-                        link: '/places',
-                        name: 'places'
-                    }, {
-                        link: '/playground',
-                        name: 'playground'
+                    // }, {
+                    //     link: '/elastic',
+                    //     name: 'elastic'
+                    // }, {
+                    //     link: '/firebase',
+                    //     name: 'firebase'
+                    // }, {
+                    //     link: '/places',
+                    //     name: 'places'
+                    // }, {
+                    //     link: '/playground',
+                    //     name: 'playground'
                     }, {
                         link: '/ryda',
                         name: 'rYda'
