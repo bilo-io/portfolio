@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "my developer portfolio",
   "main": "src/index.js",
+  "engines": {
+    "node": "6.11.2",
+    "npm": "3.10.10"
+  },
   "scripts": {
     "dev": "webpack-dev-server --color --inline --progress --config webpack.config.js",
     "start": "node ./artifact/server.js",
