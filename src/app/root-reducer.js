@@ -2,8 +2,9 @@ import { combineReducers } from 'redux';
 // Pages
 import browserReducer from './pages/browser/reducer';
 import contactReducer from './pages/contact/reducer';
-import elasticReducer from './pages/elastic/reducer';
 import draftjsReducer from './pages/draft-js/reducer';
+import elasticReducer from './pages/elastic/reducer';
+import firebaseReducer from './pages/firebase/reducer';
 import homeReducer from './pages/home/reducer';
 import markdownReaderReducer from './pages/places/reducer';
 import placesReducer from './pages/places/reducer';
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     contact: contactReducer,
     draftjs: draftjsReducer,
     elastic: elasticReducer,
+    firebase: firebaseReducer,
     home: homeReducer,
     markdownReader: markdownReaderReducer,
     places: placesReducer,

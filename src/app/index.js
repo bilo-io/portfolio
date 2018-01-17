@@ -7,8 +7,9 @@ import {AppTopBar, AppSidenav, AppBody} from 'bilo-ui';
 // Containers
 import Browser from './pages/browser';
 import Contact from './pages/contact';
-import Elastic from './pages/elastic';
 import DraftJS from './pages/draft-js';
+import Elastic from './pages/elastic';
+import Firebase from './pages/firebase';
 import Home from './pages/home';
 import MarkdownReader from './pages/markdown-reader';
 import NotFound from './pages/not-found';
@@ -57,6 +58,7 @@ export class App extends React.Component {
                                 <Route exact path="/contact" component={Contact}/>
                                 <Route exact path="/draftjs" component={DraftJS}/>
                                 <Route exact path="/elastic" component={Elastic}/>
+                                <Route exact path="/firebase" component={Firebase}/>
                                 <Route exact path="/places" component={Places}/>
                                 <Route exact path="/playground" component={Playground}/>
                                 <Route exact path="/ryda" component={Ryda}/>
@@ -79,24 +81,27 @@ export class App extends React.Component {
                     {
                         link: '/',
                         name: 'bilo'
-                    }, {
-                        link: '/browser',
-                        name: 'browser'
+                    // }, {
+                    //     link: '/browser',
+                    //     name: 'browser'
                     }, {
                         link: '/contact',
                         name: 'contact'
                     }, {
                         link: '/draftjs',
                         name: 'draft.js'
-                    }, {
-                        link: '/elastic',
-                        name: 'elastic'
-                    }, {
-                        link: '/places',
-                        name: 'places'
-                    }, {
-                        link: '/playground',
-                        name: 'playground'
+                    // }, {
+                    //     link: '/elastic',
+                    //     name: 'elastic'
+                    // }, {
+                    //     link: '/firebase',
+                    //     name: 'firebase'
+                    // }, {
+                    //     link: '/places',
+                    //     name: 'places'
+                    // }, {
+                    //     link: '/playground',
+                    //     name: 'playground'
                     }, {
                         link: '/ryda',
                         name: 'rYda'

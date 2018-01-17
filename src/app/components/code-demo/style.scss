@@ -1,0 +1,10 @@
+@import '~highlight.js/styles/monokai.css';
+
+.code-block {
+    .toggle {
+      &:hover {
+        color: #00adee;
+        cursor: pointer;
+      }
+    }
+}
