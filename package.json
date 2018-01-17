@@ -4,9 +4,9 @@
   "description": "my developer portfolio",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --port 8080",
+    "dev": "webpack-dev-server --color --inline --progress --config webpack.config.js",
     "start": "node ./artifact/server.js",
-    "build": "webpack -p",
+    "build": "webpack -p --config webpack.config.js",
     "clean": "rm -rf ./dist",
     "serve": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
