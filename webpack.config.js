@@ -9,13 +9,20 @@ var DIST = path.resolve(__dirname, 'dist/');
 var SRC = path.resolve(__dirname, 'src/');
 
 var config = {
-    devtool: 'source-map',
+    devtool: 'source-maps',
     entry: SRC + '/index.js',
     output: {
         path: DIST,
         publicPath: '/',
         filename: 'app.js'
     },
+    // resolve: {
+    //     modules: [
+    //         path.resolve('./'),
+    //         path.resolve('./src/app'),
+    //         path.resolve('./node_modules')
+    //     ]
+    // },
     module: {
         rules: [
             {

@@ -30,7 +30,8 @@ export const rydaReducer = (state = initialState, {
             }
         case SELECT_PLACE:
             let searchSelections = { ...state.searchSelections };
-            searchSelections[action.searchTag] = geojson.pointFromGoogle(action.place);
+            console.log(action)
+            searchSelections[action.searchTag] = action.place;
             let resetResults = { ...state.searchResults };
             resetResults[action.searchTag] = []
             return {
