@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Icons from './demos/icons'
 import Inputs from './demos/inputs'
 import Loaders from './demos/loaders'
+import Media from './demos/media'
 import './style.scss'
 
 import {
@@ -38,8 +39,9 @@ class XUI extends React.Component {
     render() {
         const uiPages = [
             'icons',
-            'loaders',
             'inputs',
+            'loaders',
+            'media',
             'xui'
         ]
         const { activePage } = this.state
@@ -52,7 +54,7 @@ class XUI extends React.Component {
                                 key={`xui-page-${page}`}
                                 className={`nav-item ${page === activePage ? 'nav-item-active' : ''}`}
                                 onClick={() => this.selectSection(page)}>
-                                {page}
+                                {page.toLocaleUpperCase()}
                             </div>
                         })
                     }    
@@ -66,6 +68,15 @@ class XUI extends React.Component {
                     </If>
                     <If isTrue={activePage === 'inputs'}>
                         <Inputs />
+                    </If> 
+                    <If isTrue={activePage === 'media'}>
+                        <Media />
+                    </If> 
+                    <If isTrue={activePage === 'xui'}>
+                        <Icons />
+                        <Loaders />    
+                        <Inputs />    
+                        <Media />    
                     </If>    
                 </div>
             </div>

@@ -4,7 +4,7 @@ import {Button, Icon, Loader, LoaderType} from 'bilo-ui';
 export default class Inputs extends Component {
     render() {
         return (
-            <div>
+            <div className='ws-card'>
                 <h2>Inputs</h2>
                 <div>
                     <label>text</label>
