@@ -27,6 +27,7 @@ export const searchGoogleSuccess = (searchTag, json) => {
 export const searchGoogle = (searchTag, query) => {
     return {type: SEARCH_GOOGLE, query}
 }
+
 export const searchPlaces = (searchTag, query) => {
     console.log({searchTag, query})
     return (dispatch) => {
@@ -40,10 +41,13 @@ export const searchPlaces = (searchTag, query) => {
         }
     }
 }
-export const fetchJourneys = (start, end) => {
-    console.log({start, end})
+
+export const fetchJourneys = (requestObj) => {
+    console.log({requestObj})
     return (dispatch) => {
-        dispatch({ type: FETCH_JOURNEYS })
+        dispatch({
+            type: FETCH_JOURNEYS
+        })
         
     }    
 }

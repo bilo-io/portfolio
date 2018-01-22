@@ -27,7 +27,9 @@ export class App extends React.Component {
                             <Link to="/">bilo.bio</Link>
                         </AppTopBar>
                         <AppBody>
-                            <AppSidenav isOpen={this.state.sidenav.isOpen}>
+                            <AppSidenav
+                                isOpen={this.state.sidenav.isOpen}
+                                style={{position: 'fixed', top: '3em'}}>
                                 {sidenav.items.map((page) => {
                                         return <Link
                                             key={page.link}

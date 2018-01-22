@@ -1,0 +1,44 @@
+@import '~bilo-ui/dist/bilo-ui.scss';
+
+$panel-width: 15em;
+$panel-height: calc(100% - 3em);
+$padding: 2em;
+.nav-menu {
+  position: fixed;
+  left: 0;
+  top: 4em;
+  height: $panel-height;
+  width: $panel-width;
+  background: white;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.nav-item {
+  height: 1em;
+  line-height: 1em;
+  padding: 0.8em;
+  color: rgba(black, 0.8);
+  background: white;
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background: rgba(black, 0.1);
+  }
+}
+
+.nav-item-active {
+  color: $col-active;
+  background-color: white;
+  border-right: 2px solid $col-active;
+}
+
+.nav-content {
+  position: fixed;
+  left: $panel-width;
+  width: calc(100% - #{$panel-width + $padding + $padding});
+  padding: $padding;
+  height: $panel-height;
+  overflow: hidden;
+  overflow-x: auto;
+}
