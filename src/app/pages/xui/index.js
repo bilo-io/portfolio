@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Icon, If, Loader, LoaderType } from 'bilo-ui';
-import CodeDemo from '../../components/code-demo';
 import Icons from './demos/icons'
 import Inputs from './demos/inputs'
 import Loaders from './demos/loaders'
