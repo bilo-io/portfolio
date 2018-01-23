@@ -1,11 +1,11 @@
 import React from 'react';
 import { Icon } from 'bilo-ui'
 import './style.scss'
-// import Highlight from 'react-hljs'
 import Highlight from 'react-highlight.js'
-import jsxToString from 'jsx-to-string'
+import jsxToString from 'jsx-to-string-2'
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import ReactElementToString from 'react-element-to-string'
+import ReactElementObjectToString from 'react-elements-to-string'
 
 class CodeDemo extends React.Component {
     constructor(props) {
@@ -23,17 +23,19 @@ class CodeDemo extends React.Component {
         }
         `
     }
-    
-    componentWillMount() {
-        this.setState({
-            isOpen: true
-        })
+    state = {
+        isOpen: true
     }
+
+    
 
     componentDidMount() {
         const { code } = this.props;
         console.log({code})
-        // console.log(ReactElementToString(code))
+        this.setState({
+            // codeString: ReactElementToString(code)
+            codeString: jsxToString(code)
+        })
     }
     
     toggle() {
@@ -45,7 +47,7 @@ class CodeDemo extends React.Component {
     }
     
     render() {
-        const { isOpen } = this.state;
+        const { isOpen, codeString } = this.state;
         const { code } = this.props;
         return this.state && code ? (
             <div className='ws-card'>
@@ -58,13 +60,14 @@ class CodeDemo extends React.Component {
                         {
                             code && isOpen
                             ? <Highlight language={'html'}>
-                                {ReactElementToString(code)}
+                                {codeString ? codeString : ''}
+                                {/* <ReactElementObjectToString reactElements={ code } /> */}
                             </Highlight> 
                             :null
                         }
                     </div>
                 </div>
-                { this.props.children }
+                { code }
             </div>
         ) : null
     }

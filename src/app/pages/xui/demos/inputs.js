@@ -41,13 +41,10 @@ export default class Inputs extends Component {
                 </div>
             </div>
         const otherInputs = <div>
-                    <If isTrue={ true }>
-                        <div>
-                            <label>color</label>
-                            <input type='color' />
-                        </div>
-                    </If>
-                    
+                    <div>
+                        <label>color</label>
+                        <input type='color' />
+                    </div>
                     <div>
                         <label>range</label>
                         <input type='range' />

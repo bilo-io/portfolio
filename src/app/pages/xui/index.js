@@ -30,7 +30,7 @@ class XUI extends React.Component {
         super(props)
     }
     state = {
-        activePage: 'inputs'
+        activePage: 'home'
     }
     selectSection = (page) => {
         this.setState({ ...this.state, activePage: page }, () => console.log(this.state))
@@ -38,11 +38,11 @@ class XUI extends React.Component {
 
     render() {
         const uiPages = [
+            'home',
             'icons',
             'inputs',
             'loaders',
             'media',
-            'xui'
         ]
         const { activePage } = this.state
         return (
@@ -60,11 +60,14 @@ class XUI extends React.Component {
                     }    
                 </div>
                 <div className={'nav-content'}>
+                    <If isTrue={activePage === 'home'}>
+                        <Icons />
+                        <Inputs />    
+                        <Media />    
+                        <Loaders />    
+                    </If>    
                     <If isTrue={activePage === 'icons'}>
                         <Icons />
-                    </If>
-                    <If isTrue={activePage === 'loaders'}>
-                        <Loaders />
                     </If>
                     <If isTrue={activePage === 'inputs'}>
                         <Inputs />
@@ -72,12 +75,9 @@ class XUI extends React.Component {
                     <If isTrue={activePage === 'media'}>
                         <Media />
                     </If> 
-                    <If isTrue={activePage === 'xui'}>
-                        <Icons />
-                        <Loaders />    
-                        <Inputs />    
-                        <Media />    
-                    </If>    
+                    <If isTrue={activePage === 'loaders'}>
+                        <Loaders />
+                    </If>
                 </div>
             </div>
         )
