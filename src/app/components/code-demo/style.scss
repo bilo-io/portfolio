@@ -2,6 +2,8 @@
 
 .code-block {
     .toggle {
+      position: relative;
+      float: right;
       &:hover {
         color: #00adee;
         cursor: pointer;

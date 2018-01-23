@@ -1,30 +1,37 @@
 import React, { Component } from 'react'
 import {Button, Icon, Loader, LoaderType} from 'bilo-ui';
+import CodeDemo from '../../../components/code-demo'
 
 export default class Inputs extends Component {
     render() {
         return (
             <div className='ws-card'>
                 <h2>Inputs</h2>
-                <div>
-                    <label>text</label>
-                    <input type='text' />
-                </div>
+                <CodeDemo>
+                    <div>
+                        <label>text</label>
+                        <input type='text' />
+                    </div>
+                    <div>
+                        <label>number</label>
+                        <input type='number' />
+                    </div>
+                </CodeDemo>
 
-                <div>
-                    <label>date</label>
-                    <input type='date' />
-                </div>
-
-                <div>
-                    <label>time</label>
-                    <input type='time' />
-                </div>
-
-                <div>
-                    <label>datetime</label>
-                    <input type='datetime-local' />
-                </div>
+                <CodeDemo>
+                    <div>
+                        <label>date</label>
+                        <input type='date' />
+                    </div> 
+                    <div>
+                        <label>time</label>
+                        <input type='time' />
+                    </div>
+                    <div>
+                        <label>datetime</label>
+                        <input type='datetime-local' />
+                    </div>
+                </CodeDemo>
 
                 <div>
                     <label>color</label>
