@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import CodeDemo from '../../components/code-demo';
 import { Button, Icon, If, Loader, LoaderType } from 'bilo-ui';
+import CodeDemo from '../../components/code-demo';
 import Icons from './demos/icons'
 import Inputs from './demos/inputs'
 import Loaders from './demos/loaders'
@@ -64,7 +64,7 @@ class XUI extends React.Component {
                         <Icons />
                         <Inputs />    
                         <Media />    
-                        <Loaders />    
+                        <Loaders />  
                     </If>    
                     <If isTrue={activePage === 'icons'}>
                         <Icons />

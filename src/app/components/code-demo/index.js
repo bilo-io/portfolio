@@ -3,38 +3,20 @@ import { Icon } from 'bilo-ui'
 import './style.scss'
 import Highlight from 'react-highlight.js'
 import jsxToString from 'jsx-to-string-2'
-import reactElementToJSXString from 'react-element-to-jsx-string';
-import ReactElementToString from 'react-element-to-string'
-import ReactElementObjectToString from 'react-elements-to-string'
 
 class CodeDemo extends React.Component {
-    constructor(props) {
-        super(props)
-        this.snippet = `
-        class CodeSnippet {
-            constructor(props) {
-                this.name = "CodeDemoComponent"
-            }
-            render() {
-                return (
-                    <div></div>
-                )
-            }
-        }
-        `
-    }
     state = {
         isOpen: true
     }
 
-    
-
     componentDidMount() {
-        const { code } = this.props;
-        console.log({code})
+        const { code, title, functionNameOnly, useFunctionCode } = this.props;
+        console.log(title, code)
         this.setState({
-            // codeString: ReactElementToString(code)
-            codeString: jsxToString(code)
+            codeString: jsxToString(code, {
+                // functionNameOnly: true,
+                useFunctionCode: true
+            })
         })
     }
     
@@ -48,20 +30,20 @@ class CodeDemo extends React.Component {
     
     render() {
         const { isOpen, codeString } = this.state;
-        const { code } = this.props;
+        const { code, title } = this.props;
         return this.state && code ? (
             <div className='ws-card'>
-                <div className='code-block'>
+                <div className='code-demo'>
+                    <span className='title'>{ title }</span>
                     <div className='toggle' onClick={() => this.toggle()}>
-                        <Icon name='code' /> {isOpen ? 'hide' : 'code'}
+                        <Icon name='code' /> 
                     </div>
                     <br />
-                    <div>
+                    <div className='code-block'>
                         {
                             code && isOpen
                             ? <Highlight language={'html'}>
                                 {codeString ? codeString : ''}
-                                {/* <ReactElementObjectToString reactElements={ code } /> */}
                             </Highlight> 
                             :null
                         }

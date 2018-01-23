@@ -1,9 +1,24 @@
 import React, { Component } from 'react'
 import {If, Button, Icon, Loader, LoaderType} from 'bilo-ui';
 import CodeDemo from '../../../components/code-demo'
+import { Slider } from '../components/Slider'
+import { MultiSlider } from '../components/MultiSlider'
 
 export default class Inputs extends Component {
     render() {
+        const rangeInputs = <div>
+            <Slider 
+                min={0}
+                max={100}
+                defaultValue={50}
+                onChange={ (e) => console.log(e.target.value)} />    
+
+            {/* <MultiSlider 
+                min={0}
+                max={100}
+                defaultRange={[40,60]}
+                onChange={ (e) => console.log(e.target.value)} />             */}
+        </div>
         const textInputs = <div>
                 <div>
                     <label>text</label>
@@ -67,17 +82,10 @@ export default class Inputs extends Component {
         return (
             <div className='ws-card'>
                 <h2>Inputs</h2>
-                <CodeDemo code={ textInputs }>
-                    {textInputs}
-                </CodeDemo>
-
-                <CodeDemo code={ dateTimeInputs }>
-                    {dateTimeInputs}
-                </CodeDemo>
-
-                <CodeDemo code={ otherInputs }>
-                    { otherInputs }
-                </CodeDemo>
+                <CodeDemo title={`Ranges`}code={ rangeInputs } />
+                <CodeDemo title={`Basic`}code={ textInputs } />
+                <CodeDemo title={`Dates`}code={ dateTimeInputs }/>
+                <CodeDemo title={`Other`}code={ otherInputs }/>
             </div>
         )
     }

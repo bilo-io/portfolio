@@ -11,8 +11,7 @@ export default class Icons extends Component {
         return (
             <div className='ws-card'>
                 <h2>Icons</h2>
-                <CodeDemo code={ icons }>
-                </CodeDemo>
+                <CodeDemo title='Plain Icons' code={ icons } />
             </div>
         )
     }

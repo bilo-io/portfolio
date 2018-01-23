@@ -1,14 +1,24 @@
 // @import '~highlight.js/styles/monokai.css';
-// @import '~highlight.js/styles/atom-one-dark.css';
-@import '~highlight.js/styles/vs2015.css';
+@import '~highlight.js/styles/atom-one-dark.css';
+// @import '~highlight.js/styles/vs2015.css';
 
-.code-block {
+.code-demo {
     .toggle {
       position: relative;
       float: right;
+      cursor: pointer;
+      
       &:hover {
         color: #00adee;
-        cursor: pointer;
       }
+    }
+
+    .title {
+      position: relative;
+      // float: left;
+    }
+
+    .code-block {
+      
     }
 }
