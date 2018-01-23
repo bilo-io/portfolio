@@ -11,7 +11,7 @@ export default class Playground extends React.Component {
     componentDidMount() {
     }
     render() {
-        return this.state ? (
+        return (
             <div className='page'>
             </div>
         )
