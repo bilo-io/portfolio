@@ -3,7 +3,8 @@ import { Icon } from 'bilo-ui'
 import firebase from 'firebase'
 import './style.scss';
 
-var provider = new firebase.auth.GithubAuthProvider()
+var providerGithub = new firebase.auth.GithubAuthProvider()
+var providerGoogle = new firebase.auth.GoogleAuthProvider()
 
 export default class Firebase extends Component {
     static propTypes = {
@@ -39,11 +40,19 @@ export default class Firebase extends Component {
     }
     signInWithGithub() {
         console.log('signing in with github')
-        firebase.auth().signInWithPopup(provider).then((result) => {
+        firebase.auth().signInWithPopup(providerGithub).then((result) => {
             // console.log('Signed in with github: ', JSON.stringify(result, true, 2), result)
             this.setUser(result.additionalUserInfo)
         }).catch((error) => {
             console.log('Error signing in: ', error)
+        })
+    }
+    signInWithGoogle() {
+        console.log('signing in with google')
+        firebase.auth().signInWithPopup(providerGoogle).then( (result) => {
+            this.setUser(result.additionalUserInfo)
+        }).catch( (error) => {
+            console.log('Error singing in: ', error)
         })
     }
 
@@ -64,6 +73,9 @@ export default class Firebase extends Component {
                 <h1>Firebase</h1>
                 <button onClick={() => { this.signInWithGithub() }}>
                     <Icon name='github' />
+                </button>
+                <button onClick={() => { this.signInWithGoogle() }}>
+                    <Icon name='google' />
                 </button>
                 <br />
                 <br />

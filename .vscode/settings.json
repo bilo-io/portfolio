@@ -1,10 +1,14 @@
 {
+  "eslint.enable": true,
+  "eslint.options": { "configFile": "C:/mydirectory/.eslintrc.json" },
   "files.autoSave": "afterDelay",
   "editor.tabSize": 2,
   "[javascript]" : {
-      "editor.tabSize": 4
+      "editor.tabSize": 4,
   },
-  "window.zoomLevel": -1,
+  "javascript.format.enable": false,
+  "prettier.eslin"
+  "window.zoomLevel": 0,
   "terminal.integrated.scrollback": 100000,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle":"line",

@@ -22,7 +22,6 @@ export default class Playground extends React.Component {
     render() {
         return (
             <div className='page'>
-                {/* <IssueEditor /> */}
                 <Search
                     tag='mySearch'    
                     onChange={this.onSearchChange} />
