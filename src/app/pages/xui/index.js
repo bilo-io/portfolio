@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button, Icon, If, Loader, LoaderType} from 'bilo-ui';
-import CodeDemo from '../../components/code-demo';
 import { connect } from 'react-redux';
+import CodeDemo from '../../components/code-demo';
+import { Button, Icon, If, Loader, LoaderType } from 'bilo-ui';
 import Icons from './demos/icons'
 import Inputs from './demos/inputs'
 import Loaders from './demos/loaders'
@@ -88,4 +88,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(XUI)
-
