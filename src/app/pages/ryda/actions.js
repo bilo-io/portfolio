@@ -1,3 +1,5 @@
+import { fromGoogle } from '../../util/place';
+
 export const SEARCH_GOOGLE = 'SEARCH_GOOGLE';
 export const SEARCH_GOOGLE_SUCCESS = 'SEARCH_GOOGLE_SUCCESS';
 export const SEARCH_GOOGLE_ERROR = 'SEARCH_GOOGLE_ERROR';
@@ -14,10 +16,10 @@ export const searchGoogleError = (error) => {
     return {type: REQUEST_POSTS, error}
 }
 export const searchGoogleSuccess = (searchTag, json) => {
-    console.log({json})
+    const searchResults = json.results.map(result => fromGoogle(result))
     return {
         type: SEARCH_GOOGLE_SUCCESS,
-        searchResults: json.results,
+        searchResults,
         searchTag,
         receivedAt: Date.now()
     }

@@ -9,22 +9,10 @@ export default class Playground extends React.Component {
         super(props)
     }
     componentDidMount() {
-        this.onSearchChange = this
-            .onSearchChange
-            .bind(this);
-        this.setState({
-            searchState: SearchState.createEmpty()
-        })
-    }
-    onSearchChange(searchState) {
-        this.setState({searchState})
     }
     render() {
-        return (
+        return this.state ? (
             <div className='page'>
-                <Search
-                    tag='mySearch'    
-                    onChange={this.onSearchChange} />
             </div>
         )
     }

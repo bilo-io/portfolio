@@ -18,14 +18,14 @@ class XUI extends React.Component {
                 <div></div>
                 
                 <h2>Icons</h2>
-                <CodeDemo>
                     <Icon name={'camera'} style={{padding: '1em'}}/>
                     <Icon name={'bars'} transform={'rotate-90'}/>
-                </CodeDemo>
+                {/* <CodeDemo>
+                </CodeDemo> */}
 
                 <h2>Loaders</h2>
-                {/* <Loader type={LoaderType.SPINNER}/>
-                <Loader type={LoaderType.RAINBOW}/> */}
+                <Loader type={LoaderType.SPINNER}/>
+                <Loader type={LoaderType.RAINBOW}/>
 
             </div>
         )

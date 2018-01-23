@@ -1,0 +1,33 @@
+.user {
+  display: flex;
+  flex-direction: row;
+  height: 4em;
+  background: rgba(#ddd, 0.2);
+  margin-bottom: 2px;
+  
+  img {
+    border-radius: 50%;
+    height: 3em;
+    width: auto;
+    margin: 0.5em;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+
+    .username {
+        height: 1em;
+        line-height: 1em;
+        font-weight: bold;
+        margin-top: 1em;
+    }
+
+    .fullname {
+      height: 1em;
+      line-height: 1em;
+      font-size: 0.7em;
+      font-weight: lighter;
+      margin-top: 0.75em;
+    }
+  }
+}

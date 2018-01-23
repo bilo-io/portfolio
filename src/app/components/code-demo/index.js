@@ -1,5 +1,5 @@
 import React from 'react';
-import Highlight from 'react-hljs'
+// import Highlight from 'react-hljs'
 import { Icon } from 'bilo-ui'
 import './style.scss'
 import jsxToString from 'jsx-to-string'
@@ -49,15 +49,16 @@ class CodeDemo extends React.Component {
                 <span className='toggle' onClick={() => this.toggle()}>
                     <Icon name='code' /> {isOpen ? 'hide code' : 'code'}
                 </span>
-                {isOpen
-                    ? <Highlight className='jsx'>
+                {/* {isOpen
+                    ?
+                    <Highlight className='jsx'>
                         {this.jsxCodeRef && this.jsxCodeRef.textContent}
                         {this.snippet}
                     </Highlight>
                     : null
-                }
+                } */}
                 <div ref={(jsxCode) => {this.jsxCodeRef = jsxCode}}>
-                    {this.props.children}
+                    {/* {this.props.children} */}
                 </div>
             </div>
         ) : null
