@@ -3,6 +3,7 @@ import {If, Button, Icon, Loader, LoaderType} from 'bilo-ui';
 import CodeDemo from '../../../components/code-demo'
 import { Slider } from '../components/Slider'
 import { MultiSlider } from '../components/MultiSlider'
+import { Input } from '../components/Input'
 
 export default class Inputs extends Component {
     render() {
@@ -20,26 +21,12 @@ export default class Inputs extends Component {
                 onChange={ (e) => console.log(e.target.value)} />             */}
         </div>
         const textInputs = <div>
-                <div>
-                    <label>text</label>
-                    <input type='text' />
-                </div>
-                <div>
-                    <label>number</label>
-                    <input type='number' />
-                </div>
-                <div>
-                    <label>email</label>
-                    <input type='email' />
-                </div>
-                <div>
-                    <label>password</label>
-                    <input type='password' />
-                </div>
-                <div>
-                    <label>tel</label>
-                    <input type='tel' />
-                </div>
+                <Input type='text' 
+                    label='text' />
+                <Input type='number' label='number' />
+                <Input type='email' label='email' />
+                <Input type='password' label='password' />
+                <Input type='tel' label='tel' />
             </div>
         const dateTimeInputs = <div>
                 <div>
