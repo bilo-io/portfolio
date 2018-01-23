@@ -10,7 +10,8 @@ import {
     searchPlaces,
     searchGoogle,
     selectPlace,
-    searchGoogleSuccess
+    searchGoogleSuccess,
+    fetchJourneys
 } from './actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -28,7 +29,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         searchPlaces: (searchTag, query) => dispatch(searchPlaces(searchTag, query)),
         searchGoogle: (query) => dispatch(searchGoogle(query)),
         selectPlace: (searchTag, place) => dispatch(selectPlace(searchTag, place)),
-        searchGoogleSucces: (results) => dispatch(searchGoogleSuccess(results))
+        searchGoogleSucces: (results) => dispatch(searchGoogleSuccess(results)),
+        fetchJourneys: (searchObj) => dispatch(fetchJourneys())
     }
 }
 
