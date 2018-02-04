@@ -1,0 +1,36 @@
+.project-card {
+  position: relative;
+  cursor: pointer;
+  width: 16em;
+  height: 9em;
+  margin: {
+    top: 1em;
+    right: 1em;
+ }
+ overflow: hidden;
+ 
+ img {
+   position: relative;
+   width: 100%;
+   height: auto;
+   z-index: 0;
+ }
+
+ .text {
+   padding: 1em;
+   width: calc(100% - 2em);
+   height: calc(100% - 2em);
+   z-index: 1;
+   position: absolute;
+   color: rgba(white, 0%);
+ }
+
+ &:hover {
+    .text {
+      color:white;
+    }
+    img {
+      filter: brightness(50%);
+    }
+  }
+}

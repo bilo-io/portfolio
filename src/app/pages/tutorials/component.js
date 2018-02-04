@@ -1,8 +1,9 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React,{ Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Input } from 'bilo-ui'
 import tutorials from './data';
 require('./style.scss');
-export class Tutorials extends React.Component {
+export class Tutorials extends Component {
     constructor(props) {
         super(props)
     }
@@ -10,7 +11,7 @@ export class Tutorials extends React.Component {
         return (
             <div className='page page-padded'>
                 <div className='tut-content'>
-                    <input type='text' placeholder={'search...'}
+                    <Input type='text' placeholder={'search...'}
                         value={this.props.query}    
                         onChange={(e) => {
                         this.props.updateQuery(e.target.value)

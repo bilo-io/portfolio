@@ -18,13 +18,13 @@ export class App extends React.Component {
         return this.state
             ? (
                 <Router>
-                    <div>
+                    <div className='fullscreen'>
                         <AppTopBar>
                             <img
                                 src='https://raw.githubusercontent.com/bilo-io/resources/master/logo/react.png'
                                 onClick={() => this.toggleSidenav()}
                                 width='48'/>
-                            <Link to="/">bilo.bio</Link>
+                            <Link to="/">bilo.io</Link>
                         </AppTopBar>
                         <AppBody>
                             <AppSidenav
@@ -38,31 +38,17 @@ export class App extends React.Component {
                                             onClick={() => {
                                             this.toggleSidenav()
                                         }}>
-                                            {page.name}
+                                            {page.name.toUpperCase()}
                                         </Link>
                                     })}
                             </AppSidenav>
                             <Switch>
                                 <Route exact path="/"
                                     component={() => <Async load={import(/* webpackChunkName: "Home"*/ './pages/home')} />} />
-                                <Route exact path="/browser"
-                                    component={() => <Async load={import(/* webpackChunkName: "Browser"*/ './pages/browser')} />} />
-                                <Route exact path="/contact" 
-                                    component={() => <Async load={import(/* webpackChunkName: "Contact"*/ './pages/contact')} />}/>
-                                <Route exact path="/firebase"
-                                    component={() => <Async load={import(/* webpackChunkName: "Firebase"*/ './pages/firebase')} />}/>
-                                <Route exact path="/places" 
-                                    component={() => <Async load={import(/* webpackChunkName: "Places"*/ './pages/places')} />}/>
-                                <Route exact path="/playground" 
-                                    component={() => <Async load={import(/* webpackChunkName: "Playground"*/ './pages/playground')} />}/>
-                                <Route exact path="/ryda" 
-                                    component={() => <Async load={import(/* webpackChunkName: "Ryda"*/ './pages/ryda')} />}/>
                                 <Route exact path="/tutorials" 
                                     component={() => <Async load={import(/* webpackChunkName: "Tutorials"*/ './pages/tutorials')} />}/>
                                 <Route exact path="/tutorials/:tutorialId"
                                     component={() => <Async load={import(/* webpackChunkName: "MarkdownReader"*/ './pages/markdown-reader')} />} />
-                                <Route exact path="/xui" 
-                                    component={() => <Async load={import(/* webpackChunkName: "XUI"*/ './pages/xui')} />}/>
                                 <Route path="*"
                                     component={() =>
                                         <Async load={import(/* webpackChunkName: "NotFound"*/ './pages/not-found')} />} />
@@ -79,46 +65,16 @@ export class App extends React.Component {
                 isOpen: false,
                 items: [
                     {
-                        link: '/autocomplete',
-                        name: 'autocomplete'
-                    },
-                    {
                         link: '/',
                         name: 'bilo'
-                    // }, {
-                    //     link: '/browser',
-                    //     name: 'browser'
+                    }
                     // }, {
                     //     link: '/contact',
                     //     name: 'contact'
-                    }, {
-                        link: '/browser',
-                        name: 'browser'
-                    }, {
-                        link: '/contact',
-                        name: 'contact'
                     // }, {
                     //     link: '/firebase',
                     //     name: 'firebase'
-                    // }, {
-                    //     link: '/places',
-                    //     name: 'places'
-                    // }, {
-                    //     link: '/playground',
-                    //     name: 'playground'
-                    }, {
-                        link: '/ryda',
-                        name: 'ryda'
-                    }, {
-                        link: '/tutorials',
-                        name: 'Tutorials'
-                    }, {
-                        link: '/wordcloud',
-                        name: 'Wordcloud'
-                    }, {
-                        link: '/xui',
-                        name: 'XUI'
-                    }
+                    // }
                 ]
             }
         })

@@ -1,8 +1,7 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import React from 'react';
 import Map from '../../containers/map';
-import { If, Search } from 'bilo-ui';
-import Button from 'bilo-ui/dist';
+import { Button, If, Search, Input } from 'bilo-ui';
 
 require('./style.scss');
 
@@ -34,7 +33,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-export class Ryda extends React.Component {
+export class Ryda extends Component {
     constructor(props) {
         super(props)
     }
@@ -79,12 +78,13 @@ export class Ryda extends React.Component {
                                     select={(selection) => this.selectPlace('end', selection)} />)}
                         </If>    
                         {/* <Button /> */}
-                        <button style={{ width: '100%', marginTop: '1em' }}
+                        <Button
+                            style='filled'
                             onClick={() => {
                                 this.props.fetchJourneys()
                             }}>
                             Find Trips
-                        </button>
+                        </Button>
                     </div>
                     <div className='main'>
                         {<Map/>}

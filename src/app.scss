@@ -20,6 +20,8 @@ $content-width: calc(100vw - #{$dim-sidebar});
 // Layout
 body {
     font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 $padding: 2em;
@@ -32,17 +34,11 @@ $padding: 2em;
 
 .page-padded {
     height: calc(100% - 2 * #{$padding});
+    width: calc(100vw - 2 * #{$padding});
     padding: $padding;
 }
 
  // Elements
-input,input:hover,input:focus,contenteditable,
-textarea, textarea:hover,textarea:focus {
-    @extend .input;
-    color: $col-active;
-    border-color: $col-active;
-    margin-bottom: 1em;
-}
 button {
     @extend .button;
     color: $col-active;

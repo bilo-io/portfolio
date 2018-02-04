@@ -1,0 +1,22 @@
+@import '../../../app.scss';
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  span {
+    position: absolute;
+    height: 0.5em;
+    border-radius: 4px;
+  }
+
+  .background {
+    color: black;
+    border: 1px solid $col-active;
+    width: 100%;
+  }
+
+  .progress {
+    background: $col-active;
+    top: 1px;
+  }
+}
