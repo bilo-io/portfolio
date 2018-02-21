@@ -134,8 +134,9 @@ export class Home extends Component {
                     {topPanel}
                     {projectPanel}
                     {skillsPanel}
-                    {/* {tkdPanel} */}
                     {resumePanel}
+                    {/* {tkdPanel} */}
+                    {/* {educationPanel} */}
                     {/* <Footer /> */}
                 </div>
             </div>

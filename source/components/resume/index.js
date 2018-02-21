@@ -2,18 +2,20 @@ import React from 'react'
 import { Card, Icon } from 'bilo-ui'
 
 export const Resume = (props) => {
+    const { style } = props
     const resumeStyle = {
         maxWidth: '45em',
         backgroundColor: 'white',
         margin: 'auto'
     }
     const heading = (
-        <Card className='padded'>
+        <Card className='padded' style={{...style}}>
             <div
                 style={{
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                
             }}>
                 <div>
                     <b>Kwegyir (Bilo) Lwabona</b>
@@ -145,7 +147,7 @@ export const Resume = (props) => {
     )
     return <div
     style={resumeStyle}>
-        <Card className='padded' >
+        <Card className='padded'>
             {heading}
             {experience}
             {education}
