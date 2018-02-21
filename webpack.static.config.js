@@ -3,8 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
 const path = require('path');
-const DIST = path.resolve(__dirname, 'demo/');
-const SRC = path.resolve(__dirname, 'src/');
+const DIST = path.resolve(__dirname, 'docs/');
+const SRC = path.resolve(__dirname, 'source/');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -33,7 +33,7 @@ var config = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: './src/index.html', filename: 'index.html', inject: 'body' }),
+        new HtmlWebpackPlugin({ template: './source/index.html', filename: 'index.html', inject: 'body' }),
         new CopyWebpackPlugin([{
             from: SRC + '/img/*',
             to: DIST + '/assets/*'

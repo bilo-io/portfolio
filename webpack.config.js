@@ -6,7 +6,7 @@ var Visualizer = require('webpack-visualizer-plugin');
 var marked = require('marked');
 var renderer = new marked.Renderer();
 var DIST = path.resolve(__dirname, 'dist/');
-var SRC = path.resolve(__dirname, 'src/');
+var SRC = path.resolve(__dirname, 'source/');
 
 var config = {
     devtool: 'source-maps',
@@ -19,7 +19,7 @@ var config = {
     // resolve: {
     //     modules: [
     //         path.resolve('./'),
-    //         path.resolve('./src/app'),
+    //         path.resolve('./source'),
     //         path.resolve('./node_modules')
     //     ]
     // },
@@ -53,7 +53,7 @@ var config = {
     },
     plugins: [
         new Visualizer({filename: './stats.html'}),
-        new HtmlWebpackPlugin({template: './src/index.html', filename: 'index.html', inject: 'body'}),
+        new HtmlWebpackPlugin({template: './source/index.html', filename: 'index.html', inject: 'body'}),
         new CopyWebpackPlugin([
             {
                 from: 'node_modules/highlight.js/styles/monokai.css',

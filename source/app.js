@@ -7,7 +7,6 @@ import Async from 'react-code-splitting'
 import { AppTopBar, AppSidenav, AppBody } from 'bilo-ui';
 import Home from './pages/home'
 // Containers
-
 require('./app.scss');
 
 export class App extends React.Component {

@@ -25,7 +25,7 @@ DEVELOPMENT
 |*yarn* command|*npm* command|what it does|
 |:-|:-|:-|
 |`npm install`|`yarn`| installs all dependencies for this project|
-|`yarn dev`|`npm run dev`|runs `webpack-dev-server` on `src/` ... served on [http://localhost:8080](http://localhost:8080)|
+|`yarn dev`|`npm run dev`|runs `webpack-dev-server` on `source/` ... served on [http://localhost:8080](http://localhost:8080)|
 
 PRODUCTION
 

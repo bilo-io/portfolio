@@ -1,4 +1,4 @@
-import { fromGoogle } from '../../util/place';
+import { fromGoogle } from '../../utils/place';
 
 export const SEARCH_GOOGLE = 'SEARCH_GOOGLE';
 export const SEARCH_GOOGLE_SUCCESS = 'SEARCH_GOOGLE_SUCCESS';

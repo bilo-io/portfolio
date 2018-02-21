@@ -3,16 +3,14 @@ import {connect} from 'react-redux'
 import Profile from '../../components/profile'
 import './style.scss'
 import {Card, Collapsible, Icon} from 'bilo-ui'
-import {Progress} from '../../components/progress'
-import {Resume} from '../../components'
-import Map from '../../components/map'
-import ProjectCard from '../../components/project-card'
+import { Footer, Map, Progress, Resume, ProjectCard} from '../../components'
+
 import imgBiloCli from '../../img/img-bilo-cli.png'
 import imgBiloUi from '../../img/img-bilo-ui.png'
 import imgBilo from '../../img/profile-pic.jpg'
 import imgBiloTKD from '../../img/bilo-tkd.jpg'
 import imgCtSunset from '../../img/ct-sunset.jpg'
-
+import imgHomeOffice from '../../img/bilo-home-office.jpg'
 import {myAction} from './actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -33,7 +31,7 @@ export class Home extends Component {
             <div
                 className='panel-dark'
                 style={{
-                backgroundImage: `url(${imgCtSunset})`,
+                backgroundImage: `url(${imgHomeOffice})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: '30% 35%'
@@ -138,6 +136,7 @@ export class Home extends Component {
                     {skillsPanel}
                     {/* {tkdPanel} */}
                     {resumePanel}
+                    {/* <Footer /> */}
                 </div>
             </div>
         )
