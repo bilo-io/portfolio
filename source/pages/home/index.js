@@ -5,6 +5,7 @@ import './style.scss'
 import {Card, Collapsible, Icon} from 'bilo-ui'
 import { Footer, Map, Progress, Resume, ProjectCard} from '../../components'
 
+import imgAgendapp from '../../img/img-agendapp.png'
 import imgBiloCli from '../../img/img-bilo-cli.png'
 import imgBiloUi from '../../img/img-bilo-ui.png'
 import imgBilo from '../../img/profile-pic.jpg'
@@ -78,7 +79,7 @@ export class Home extends Component {
             <div className='panel-light'>
                 <h2>projects</h2>
                 <ProjectCard
-                    url='https://bilo-io.github.io/bilo-ui/'
+                    url='ui.bilo.io'
                     name='bilo-ui'
                     image={imgBiloUi}
                     description='my own, customiseable React component library'/>
@@ -86,7 +87,12 @@ export class Home extends Component {
                     url='https://github.com/bilo-io/bilo-cli'
                     name='bilo-cli'
                     image={imgBiloCli}
-                    description='my own bash cli, to speed up repetitive dev tasks'/>
+                    description='my own bash cli, to speed up repetitive dev tasks' />
+                <ProjectCard
+                    url='https://bilo-io.github.io/bilo-ui/agendapp'
+                    name='agendapp'
+                    image={imgAgendapp}
+                    description='a configurable news reader'/>
             </div>
         )
         const skillsPanel = (
