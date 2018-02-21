@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {errMessage, errorDescription} from '../../../utils/error';
+import {errMessage, errorDescription} from '../../utils/error';
 import './style.scss';
 export default class Error extends React.Component {
     constructor(props) {

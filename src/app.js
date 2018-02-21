@@ -8,7 +8,7 @@ import { AppTopBar, AppSidenav, AppBody } from 'bilo-ui';
 import Home from './pages/home'
 // Containers
 
-require('../app.scss');
+require('./app.scss');
 
 export class App extends React.Component {
     constructor(props) {

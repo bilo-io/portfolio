@@ -1,5 +1,5 @@
 import {SEARCH_GOOGLE, SEARCH_GOOGLE_SUCCESS, SEARCH_GOOGLE_ERROR, SELECT_PLACE} from './actions';
-import geojson from '../../../utils/geojson';
+import geojson from '../../utils/geojson';
 const initialState = {
     query: 'Cape Town',
     searchResults: [],

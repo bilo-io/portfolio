@@ -7,11 +7,11 @@ import {Progress} from '../../components/progress'
 import {Resume} from '../../components'
 import Map from '../../components/map'
 import ProjectCard from '../../components/project-card'
-import imgBiloCli from '../../../img/img-bilo-cli.png'
-import imgBiloUi from '../../../img/img-bilo-ui.png'
-import imgBilo from '../../../img/profile-pic.jpg'
-import imgBiloTKD from '../../../img/bilo-tkd.jpg'
-import imgCtSunset from '../../../img/ct-sunset.jpg'
+import imgBiloCli from '../../img/img-bilo-cli.png'
+import imgBiloUi from '../../img/img-bilo-ui.png'
+import imgBilo from '../../img/profile-pic.jpg'
+import imgBiloTKD from '../../img/bilo-tkd.jpg'
+import imgCtSunset from '../../img/ct-sunset.jpg'
 
 import {myAction} from './actions';
 

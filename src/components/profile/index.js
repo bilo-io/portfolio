@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../../../img/profile-pic.jpg';
+import image from '../../img/profile-pic.jpg';
 require('./style.scss');
 
 export default class Profile extends React.Component {

@@ -1,4 +1,4 @@
-@import '../../../app.scss';
+@import '../../app.scss';
 @import '~highlight.js/styles/monokai.css';
 $markdown-nav-size: 20em;
 $markdown-height: calc(100% - #{$dim-navbar} - $dim-padding);
