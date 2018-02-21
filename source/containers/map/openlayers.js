@@ -45,7 +45,7 @@ export default class Map extends React.Component {
         return (
             <div className="map-container" >
                 <div id="ol-map" className="map-component" />
-            </Footer >
+            </div>
         )
     }
     updateScaleLine() {
