@@ -9,7 +9,7 @@ import imgBiloCli from '../../img/img-bilo-cli.png'
 import imgBiloUi from '../../img/img-bilo-ui.png'
 import imgBilo from '../../img/profile-pic.jpg'
 import imgBiloTKD from '../../img/bilo-tkd.jpg'
-import imgCtSunset from '../../img/ct-sunset.jpg'
+import imgCtSunset from '../../img/bilo-bokaap.jpg'
 import imgHomeOffice from '../../img/bilo-home-office.jpg'
 import {myAction} from './actions';
 
@@ -31,7 +31,7 @@ export class Home extends Component {
             <div
                 className='panel-dark'
                 style={{
-                backgroundImage: `url(${imgHomeOffice})`,
+                backgroundImage: `url(${imgCtSunset})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: '30% 35%'
