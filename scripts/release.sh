@@ -12,18 +12,38 @@ case "$ans" in
   *) echoColor 'yellow' " -> unknown command: $ans"; exit 0;;
 esac
 }
+
+function pkgDetails() {
+  PACKAGE_VERSION=$(cat package.json \
+  | grep version \
+  | head -1 \
+  | awk -F: '{ print $2 }' \
+  | sed 's/[",]//g')
+
+  PACKAGE_NAME=$(cat package.json \
+  | grep name \
+  | head -1 \
+  | awk -F: '{ print $2 }' \
+  | sed 's/[",]//g')
+  echoColor 'cyan-l' "
+  $PACKAGE_NAME v$PACKAGE_VERSION
+  "
+}
 timestamp=$(date +%Y-%m-%d)
+git diff-index --quiet HEAD -- || unsavedWarning
 echoColor 'red' "[-] docs"
 rm -rf "./docs"
 echoColor 'cyan-l' "[.] building ..."
 npm run build:demo
 echoColor 'green-l' "[+] ./docs"
 echoColor 'green-l' "[+] => git"
-git diff-index --quiet HEAD -- || unsavedWarning
 git add -A
 echo -n "release message: "
 read commitMsg
+pkgDetails
 msg="-> Release: ($timestamp) => '$commitMsg'"
-echo $msg
+echoColor 'cyan-l' "$msg
+"
 git commit -m "$msg"
-git push origin master
+git push origin master || echoColor 'yellow' "failed release" && exit;
+echoColor '[+]'
