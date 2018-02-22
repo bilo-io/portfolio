@@ -92,7 +92,7 @@ export class Home extends Component {
                     url='https://bilo-io.github.io/bilo-ui/agendapp'
                     name='agendapp'
                     image={imgAgendapp}
-                    description='a configurable news reader'/>
+                    description='a configurable news reader, with built-in text to speech'/>
             </div>
         )
         const skillsPanel = (
