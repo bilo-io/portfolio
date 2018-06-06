@@ -21,9 +21,6 @@ marked.setOptions({
 })
 
 export default class Tutorial extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     componentWillMount() {
         this.setState({docsRoot: 'https://raw.githubusercontent.com/bilo-io'});
         this.logUrlParams('componentWillMount');
@@ -37,7 +34,6 @@ export default class Tutorial extends React.Component {
                 this.convertMarkdown(response.data);
             })
     }
-
     logUrlParams(func) {
         this.state && console.log(func, `${this.state.docsRoot}/${this.getTutorialId()}`);
     }
